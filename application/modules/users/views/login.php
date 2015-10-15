@@ -87,7 +87,7 @@
 						<div class="forgot-password pull-left">
 							<a href="page-password.html">Forgot password?</a> <br>
 							<a target="_self" href="<?php echo base_url().'users/register' ?>"><b>Need to Register?</b></a>
-							<a href="<?php echo base_url().'sellers' ?>"><b>Need to Sellers Register?</b></a>
+							<a target="_self" href="<?php echo base_url().'sellers' ?>"><b>Need to Sellers Register?</b></a>
 						</div>
 					</footer>
 				</form>

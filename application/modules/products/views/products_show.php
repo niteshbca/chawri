@@ -161,16 +161,26 @@
 											<input type="checkbox" class="group-checkable" data-set="#datatable_sample .checkboxes">
 										</th>
 										<th>Product Name</th>
-										<th>Products Brand Name</th>
+										<th>Brand Name</th>
 										<th>Manufacturer</th>
+										<th>Substance</th>
 										<th>Products Size</th>
+										<th>Thickness</th>
+										<th>Grain</th>
+										<th> Sheets Per Packet</th>
+
+										<th>Packets Per Bundle</th>
+										<th>Qty. on Offer (in pkts)</th>
+										<th>Packing</th>
 										<th>Products Rate</th>
+										<th>Products CENVAT Amount</th>
+
 									</tr>
 								</thead>
 
 								<tbody>
 								   <?php
-
+                                    // print_r($data);
                                   foreach($data as $rows){
 								   ?>
 									<tr class="odd gradeX">
@@ -186,12 +196,43 @@
 										<td>
 											<?php echo $rows['chawri_products_manufacturer']; ?>
 										</td>
+										<td>
+											<?php echo $rows['chawri_products_substance']; ?>
+										</td>
 										<td class="center">
 											<?php echo $rows['chawri_products_size']; ?>
+										</td>
+
+										<td>
+											<?php echo $rows['chawri_products_thickness']; ?>
+										</td>
+
+										<td>
+											<?php echo $rows['chawri_products_grain']; ?>
+										</td>
+										<td>
+											<?php echo $rows['chawri_products_sheets_per_packet']; ?>
+										</td>
+
+
+
+										<td>
+											<?php echo $rows['chawri_products_packets_per_bundle']; ?>
+										</td>
+										<td>
+											<?php echo $rows['chawri_products_quantity_on_offer']; ?>
+										</td>
+										<td>
+											<?php echo $rows['chawri_products_packing']; ?>
 										</td>
 										<td>
 											<?php echo $rows['chawri_products_rate']; ?>
 										</td>
+										<td>
+											<?php echo $rows['chawri_products_cenvat_amount']; ?>
+										</td>
+
+
 									</tr>
                                    <?php }?>
 								</tbody>
