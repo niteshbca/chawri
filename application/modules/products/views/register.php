@@ -46,6 +46,12 @@
 
 
 
+
+
+
+
+
+
 				<!-- registration form -->
 				<form action="<?php echo 'products';?>" method="post" class="sky-form boxed" novalidate="novalidate">
 					 <header> <a href="<?php echo base_url().'products/showProducts' ?>">Show Products</a> </header>
@@ -61,36 +67,29 @@
 							<input type="text" placeholder="Products Brand Name" name="products_brand_name">
 							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
 						</label>
-					
-						<label class="input">
-
-							<input type="text" placeholder="Products CENVAT Amount" name="products_cenvat_amount">
-							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
-						</label>
 
 						<label class="input">
 
-							<input type="text" placeholder="Sheets per Packet" name="products_sheets_per_packet">
+							<input type="text" placeholder="Manufacturer" name="products_manufacturer">
 							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
 						</label>
-						<label class="input">
 
-							<input type="text" placeholder="Products Rate" name="products_rate">
-							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
-						</label>
-						<label class="input">
 
-							<input type="text" placeholder="Products Size" name="products_size">
-							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
-						</label>
 						<label class="input">
 
 							<input type="text" placeholder="Substance" name="products_substance">
 							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
 						</label>
+
 						<label class="input">
 
-							<input type="text" placeholder="Manufacturer" name="products_manufacturer">
+							<input type="text" placeholder="Products Size" name="products_size">
+							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
+						</label>
+
+						<label class="input">
+
+							<input type="text" placeholder="Thickness" name="products_thickness">
 							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
 						</label>
 
@@ -99,28 +98,51 @@
 							<input type="text" placeholder=" Grain" name="products_grain">
 							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
 						</label>
+
+
+
 						<label class="input">
 
-							<input type="text" placeholder="Products Packing" name="products_packing">
+							<input type="text" placeholder="Sheets per Packet" name="products_sheets_per_packet">
 							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
 						</label>
+
 						<label class="input">
 
 							<input type="text" placeholder="Products Per Bundle" name="packets_per_bundle">
 							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
 						</label>
 
+
 						<label class="input">
 
 							<input type="text" placeholder="Quantity on Offer (in pkts)" name="products_quantity_on_offer">
 							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
 						</label>
+
+
+
+
+
+
 						<label class="input">
 
-							<input type="text" placeholder="Thickness" name="products_thickness">
+							<input type="text" placeholder="Products Packing" name="products_packing">
 							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
 						</label>
 
+						<label class="input">
+
+							<input type="text" placeholder="Products Rate" name="products_rate">
+							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
+						</label>
+
+
+						<label class="input">
+
+							<input type="text" placeholder="Products CENVAT Amount" name="products_cenvat_amount">
+							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
+						</label>
 					</fieldset>
 						
 
