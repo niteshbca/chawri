@@ -31,7 +31,7 @@ class Sellers extends MX_Controller{
         }
         else{
 
-            $this->load->view('index.php');
+            $this->load->view('register.php');
         }
     }
 
@@ -48,7 +48,7 @@ class Sellers extends MX_Controller{
          if($this->Mdl_sellers->registration('registration')){
 
             if($this->sendMail()){
-                echo $this->Mdl_sellers->insertToken()?"your account successfully created":"some error in inserting token";
+                echo $this->Mdl_sellers->insertToken()?"your account successfully created and send activation link on Email":"some error in inserting token";
             }else{
                 echo 'Account registered but email not send.';
             }

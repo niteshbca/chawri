@@ -3,7 +3,7 @@
 <html >
   <head>
     <meta charset="UTF-8">
-    <title>Login Register - Home Like you</title>
+    <title>Login Register - Chawri</title>
     
     
     <link rel="stylesheet" href="<?php echo asset_url();?>css/reset.css">

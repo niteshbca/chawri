@@ -14,6 +14,7 @@ class Users extends MX_Controller{
         parent::__construct();
         require $_SERVER["DOCUMENT_ROOT"].'/chawri/vendor/autoload.php';
         $this->load->Model('Mdl_users');
+        $this->load->Model('sellers/Mdl_sellers');
     }
     /**
      * this is the index method the landing page for all operations
@@ -42,7 +43,7 @@ class Users extends MX_Controller{
             }
             $data['roles']=$roles;
            /* $data['facebook_login_url']=$this->_getFacebookLoginUrl();*/
-            $this->load->view('index.php',$data);
+            $this->load->view('login.php',$data);
         }
     }
 
@@ -75,23 +76,45 @@ class Users extends MX_Controller{
      */
     private function _login($data)
     {
+
         $this->Mdl_users->setData('checkUser',$data['user_name_email'],$data['password']);
         if(isAccountActive()){
-            if($this->Mdl_users->checkUser()){
-                $this->Mdl_users->setData('setSessionData',$data['user_name_email']);
-                $user_data=$this->Mdl_users->getUserData();
-                $this->_setSessionData('authorize',$user_data);
-                $this->load->view('header/header');
-                $this->load->view('dashboard');
-              //  redirect('testapp');
-            }else{
+
+
+          if($this->Mdl_users->checkUser()) {
+
+                         $user_data = $this->Mdl_users->getUserData();
+
+
+                          $this->_setSessionData('authorize', $user_data);
+
+
+                          setInformUser('success', 'Successful login ');
+                          redirect('users');
+
+
+          }
+              elseif($this->Mdl_sellers->setData('checkUser',$data['user_name_email'],$data['password'])AND $this->Mdl_sellers->checkSellers()) {
+
+                           $user_data = $this->Mdl_sellers->getUserData();
+
+                          echo "Seller Login";
+                          redirect('products');
+                          $this->_setSessionData('authorize', $user_data);
+              }
+
+
+            else{
                 //set flash message that his username and password do not match try again.
-                setInformUser('error','your Username and password do not match');
-                redirect('users');
+                        setInformUser('error', 'your Username and password do not match');
+                        redirect('users');
             }
-        }else{
+        }
+
+
+        else{
             setInformUser('error','Your Account in not activated. Kindly verify your email to logon.');
-            redirect('users');
+           redirect('users');
         }
 
     }
@@ -101,11 +124,12 @@ class Users extends MX_Controller{
      */
     private function _register($data)
     {
-        $this->Mdl_users->setData('register',$data['user_name_email'],$data['password']);
+
+        $this->Mdl_users->setData('register',$data['user_name_email'],$data['password'],$data['fname'],$data['lname']);
         if($this->Mdl_users->register('normal_registration')){
 
             if($this->sendMail()){
-                echo $this->Mdl_users->insertToken()?"your account successfully created":"some error in inserting token";
+                echo $this->Mdl_users->insertToken()?"your account successfully created and  Active link on your Email ":"some error in inserting token";
             }else{
                 echo 'Account registered but email not send.';
             }
@@ -141,7 +165,7 @@ class Users extends MX_Controller{
             $this->Mdl_users->setData('get_email', $email,$token);
             if ($this->Mdl_users->forgotPwd('get_email',$email)) {
 
-                $this->email->from('nkscoder@gmail.com', 'Homelikeyou');
+                $this->email->from('nkscoder@gmail.com', 'Chawri');
                 $this->email->to($email);
 
                 $this->email->subject('Forgot Password');
@@ -223,7 +247,7 @@ class Users extends MX_Controller{
     public  function sendMail()
     {
         $token = $this->createToken();
-        $this->email->from('singhniteshbca@gmail.com', 'Homelikeyou');
+        $this->email->from('nkscoder@gmail.com', 'Chawri');
         $this->email->to($this->Mdl_users->getUserName());
 
         $this->email->subject('Email Activation');
@@ -273,5 +297,10 @@ class Users extends MX_Controller{
         $this->load->view('admin/header/header');
         $this->load->view('users_views',$data);
 
+    }
+
+
+    public function register(){
+        $this->load->view('register');
     }
 }

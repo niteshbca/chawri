@@ -30,7 +30,7 @@ class Products extends  MX_Controller
         }
         else{
 
-            $this->load->view('index.php');
+            $this->load->view('register.php');
         }
     }
 
@@ -53,4 +53,48 @@ class Products extends  MX_Controller
             echo "your Products not Insert";
         }
     }
+
+
+
+    public  function showProducts(){
+
+        $data['data']=$this->Mdl_products->showProducts();
+
+        $this->load->view('products_show',$data);
+    }
+
+
+   // public function productsXml(){
+
+
+/*
+
+		$this->load->libraries('reader.php');
+		//include 'reader.php';
+    	$excel = new Spreadsheet_Excel_Reader();
+
+    $excel->read('upload/sample.xls');
+    $x=2;
+    while($x<=$excel->sheets[0]['numRows']) {
+        $name = isset($excel->sheets[0]['cells'][$x][1]) ? $excel->sheets[0]['cells'][$x][1] : '';
+        $job = isset($excel->sheets[0]['cells'][$x][2]) ? $excel->sheets[0]['cells'][$x][2] : '';
+        $email = isset($excel->sheets[0]['cells'][$x][3]) ? $excel->sheets[0]['cells'][$x][3] : '';
+
+        // Save details
+        $sql_insert="INSERT INTO users_details (id,name,job,email) VALUES ('','$name','$job','$email')";
+        $result_insert = mysql_query($sql_insert) or die(mysql_error());
+
+        $x++;
+    }
+
+        if($result_insert){
+
+            echo "Successful Insert";
+        }
+        else {
+            echo "Some error occur";
+        }
+    }
+*/
+
 }

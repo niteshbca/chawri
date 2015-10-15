@@ -78,6 +78,11 @@ if($logout){
     </form>
 </div>
 
+<?php echo form_open_multipart('products/productsXml'); ?>
+<input type="file" name="xml">
+<input type="submit" name="submit">
+<?php echo form_close(); ?>
+
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
 <script src="<?php echo asset_url();?>js/index.js"></script>

@@ -19,6 +19,40 @@ class Mdl_users extends CI_Model
     private $token;
     private $provider;
     private $status;
+    private $fname;
+    private $lname;
+
+    /**
+     * @return mixed
+     */
+    public function getFname()
+    {
+        return $this->fname;
+    }
+
+    /**
+     * @param mixed $fname
+     */
+    public function setFname($fname)
+    {
+        $this->fname = $fname;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLname()
+    {
+        return $this->lname;
+    }
+
+    /**
+     * @param mixed $lname
+     */
+    public function setLname($lname)
+    {
+        $this->lname = $lname;
+    }
 
     /**
      * @return mixed
@@ -76,32 +110,21 @@ class Mdl_users extends CI_Model
             case "register":
                 $this->setUserName(func_get_arg(1));
                 $this->setPassword(func_get_arg(2));
+                $this->setFname(func_get_arg(3));
+                $this->setLname(func_get_arg(4));
 
                 break;
-            case "checkUser":
+                case "checkUser":
                 $this->setUserName(func_get_arg(1));
                 $this->setPassword(func_get_arg(2));
                 break;
             case "setSessionData": {
-                if ($data = $this->db->where(array('chawri_users_permissions_username' => func_get_arg(1)))->get('chawri_users_permissions')->result_array()) {
-                    $this->setUserId($data[0]['chawri_users_permissions_user_id']);
-                    $this->setUserName($data[0]['chawri_users_permissions_username']);
-                    $this->setRoleId($data[0]['chawri_users_permissions_user_role_id']);
-                    $this->setRolesName($data[0]['chawri_users_permissions_user_role']);
-                    foreach ($data as $row) {
-                        array_push($this->permissions_name, $row['chawri_users_permissions_user_permission']);
-                    }
-                    $this->getUserData();
-                    break;
-                } else {
-                    $data = $this->db->where(array('chawri_users_username' => func_get_arg(1)))->select('chawri_users_username,chawri_users_id,chawri_users_roles_id')->get('chawri_users')->result_array();
-                    $this->setUserID($data[0]['chawri_users_id']);
-                    $this->setUserName($data[0]['chawri_users_username']);
-                    $this->setRoleId($data[0]['chawri_users_roles_id']);
-                    $role_name = $this->db->where(array('chawri_roles_id' => $this->role_id))->select('chawri_roles_name')->get('chawri_roles')->result_array();
-                    $this->setRolesName($role_name[0]['chawri_roles_name']);
-                    $this->permissions_name = array();
-                }
+
+                $this->setUserName(func_get_arg(1));
+                $this->setPassword(func_get_arg(2));
+                break;
+
+
             }
                 break;
             case "facebook_login": {
@@ -232,7 +255,9 @@ class Mdl_users extends CI_Model
                 $this->setPassword(password_hash($this->password, PASSWORD_DEFAULT));
                 $data = [
                     'chawri_users_username' => $this->user_name,
-                    'chawri_users_password' => $this->password
+                    'chawri_users_password' => $this->password,
+                    'chawri_users_fname' => $this->fname,
+                    'chawri_users_lname' => $this->lname
 
                 ];
                 if ($this->db->insert('chawri_users', $data)) {
@@ -268,14 +293,7 @@ class Mdl_users extends CI_Model
      * this checks user credentials on basis of user provided data
      * @return bool
      */
-    public function checkUser()
-    {
-        if ($data = $this->db->where(array('chawri_users_username' => $this->user_name))->select('chawri_users_password')->get('chawri_users')->result_array()) {
-            if ((password_verify($this->password, $data[0]['chawri_users_password']))) return true;
-            return false;
-        }
-        return false;
-    }
+
 
     /**
      * @param mixed $user_name
@@ -333,10 +351,19 @@ class Mdl_users extends CI_Model
      */
     public function getUserData()
     {
-        return ['user_id' => $this->getUserId(), 'user_name' => $this->getUserName(),
-            'user_role_id' => $this->getRoleId(), 'user_role_name' => $this->getRolesName(),
-            'user_permissions' => $this->getPermissionsName()
-        ];
+
+        $this->setPassword(password_hash($this->password, PASSWORD_DEFAULT));
+
+       $data= $this->db->where(array('chawri_users_username'=>$this->user_name, 'chawri_users_password'=>$this->password))->get('chawri_users')->result_array();
+
+
+           return $data;
+
+      //  return $this->db->where('hlu_profiles_id',$this->getProfilesId())->select('hlu_profiles_id')->get('hlu_profiles')->result_array()?true:false;
+   // }
+
+        //return false;
+
     }
 
     public function isSocialRegistered()
@@ -462,5 +489,14 @@ class Mdl_users extends CI_Model
        $data = $this->db->query("select * from chawri_users   join chawri_profiles on chawri_users.chawri_users_id=chawri_profiles.chawri_profiles_id")->result_array();
 
         return $data;
+    }
+
+
+    public function checkUser(){
+        $this->setPassword(password_hash($this->password, PASSWORD_DEFAULT));
+        return $this->db->where(array('chawri_users_username'=>$this->getUserName(),'chawri_users_password'=>$this->getPassword()))->select(array('chawri_users_id'))->get('chawri_users')->result_array()?true:false;
+
+
+
     }
 }

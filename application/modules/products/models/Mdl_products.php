@@ -359,5 +359,12 @@ class Mdl_products extends CI_Model
 
     }
 
+
+    public function showProducts(){
+
+        $data=$this->db->get('chawri_products')->result_array();
+        return $data;
+    }
+
 }
 

@@ -341,6 +341,10 @@ class Mdl_sellers extends CI_Model
                    $this->setToken(func_get_arg(1));
                 break;
 
+            case "checkUser":
+                $this->setSellersEmail(func_get_arg(1));
+                $this->setSellersPassword(func_get_arg(2));
+                break;
 
             default:
                 break;
@@ -349,8 +353,51 @@ class Mdl_sellers extends CI_Model
     }
     public function insertToken(){
         return $this->db->where('chawri_sellers_email',$this->getSellersEmail())->update('chawri_sellers',[
-            'chawri_seller_token'=>$this->getToken()
+            'chawri_sellers_token'=>$this->getToken()
         ])?true:false;
     }
 
+
+
+    public function verifyEmail(){
+
+        $this->db->where('chawri_sellers_token',$this->getToken())->update('chawri_sellers',['chawri_sellers_status'=>'1']);
+        if($this->db->affected_rows()){
+            $this->db->where('chawri_sellers_token',$this->getToken())->update('chawri_sellers',[
+                'chawri_sellers_token'=>NULL]);
+            return true;
+        }else{
+
+
+            return false;
+        }
+
+    }
+
+
+    public function removeToken(){
+        $token = $this->session->userdata('token');
+        return $this->db->where('chawri_sellers_token',$token)->delete('chawri_sellers')?true:false;
+    }
+
+
+    public function getUserData()
+    {
+
+        $this->setPassword(password_hash($this->password, PASSWORD_DEFAULT));
+
+        $data= $this->db->where('chawri_sellers_username',$this->user_name, 'chawri_sellers_password',$this->password)->get('chawri_sellers')->result_array();
+
+
+        return $data;
+
+    }
+
+    public function checkSellers(){
+        $this->setPassword(password_hash($this->password, PASSWORD_DEFAULT));
+        return $this->db->where('chawri_sellers_email',$this->getSellersEmail(),'chawri_sellers_password',$this->getSellersPassword())->select(array('chawri_sellers_id'))->get('chawri_sellers')->result_array()?true:false;
+
+
+
+    }
 }
