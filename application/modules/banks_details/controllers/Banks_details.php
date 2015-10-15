@@ -25,7 +25,7 @@ class Banks_details extends MX_Controller
 
         }
         else {
-
+            $this->load->view('users/header/header');
             $this->load->view('index.php');
         }
     }

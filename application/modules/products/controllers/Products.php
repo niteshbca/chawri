@@ -12,7 +12,7 @@ class Products extends  MX_Controller
     {
         date_default_timezone_set('Asia/Calcutta');
         parent::__construct();
-        require $_SERVER["DOCUMENT_ROOT"].'/chawri/vendor/autoload.php';
+       
         $this->load->Model('Mdl_products');
     }
 
@@ -59,7 +59,7 @@ class Products extends  MX_Controller
     public  function showProducts(){
 
         $data['data']=$this->Mdl_products->showProducts();
-
+        $this->load->view('users/header/header2');
         $this->load->view('products_show',$data);
     }
 

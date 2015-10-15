@@ -351,18 +351,10 @@ class Mdl_users extends CI_Model
      */
     public function getUserData()
     {
-
-        $this->setPassword(password_hash($this->password, PASSWORD_DEFAULT));
-
-       $data= $this->db->where(array('chawri_users_username'=>$this->user_name, 'chawri_users_password'=>$this->password))->get('chawri_users')->result_array();
-
+        $data= $this->db->where('chawri_users_username',$this->user_name, 'chawri_users_password',$this->password)->get('chawri_users')->result_array();
 
            return $data;
 
-      //  return $this->db->where('hlu_profiles_id',$this->getProfilesId())->select('hlu_profiles_id')->get('hlu_profiles')->result_array()?true:false;
-   // }
-
-        //return false;
 
     }
 
@@ -475,7 +467,17 @@ class Mdl_users extends CI_Model
 
     }
     public function isActive(){
-        return $this->db->where('chawri_users_username',$this->getUserName())->select(array('chawri_users_status'))->get('chawri_users')->result_array()[0]['chawri_users_status']?true:false;
+       if($this->db->where('chawri_users_username',$this->getUserName())->select(array('chawri_users_status'))->get('chawri_users')->result_array()[0]['chawri_users_status']){
+           return true;
+       }
+        elseif($this->db->where('chawri_sellers_email',$this->getUserName())->select(array('chawri_sellers_status'))->get('chawri_sellers')->result_array()[0]['chawri_sellers_status']){
+            return true;
+        }
+        else {
+            return false;
+        }
+
+
     }
 
    public function removeToken(){
@@ -493,10 +495,16 @@ class Mdl_users extends CI_Model
 
 
     public function checkUser(){
+        //echo $this->getUserName();
+       // echo $this->getPassword();
+
         $this->setPassword(password_hash($this->password, PASSWORD_DEFAULT));
-        return $this->db->where(array('chawri_users_username'=>$this->getUserName(),'chawri_users_password'=>$this->getPassword()))->select(array('chawri_users_id'))->get('chawri_users')->result_array()?true:false;
 
+         if($this->db->where(array('chawri_users_username'=>$this->getUserName(),'chawri_users_password'=>$this->getPassword()))->select(array('chawri_users_id'))->get('chawri_users')){
+             return true;
+         }
 
+        return false;
 
     }
 }

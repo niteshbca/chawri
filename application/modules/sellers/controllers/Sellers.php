@@ -13,7 +13,7 @@ class Sellers extends MX_Controller{
     {
         date_default_timezone_set('Asia/Calcutta');
         parent::__construct();
-        require $_SERVER["DOCUMENT_ROOT"].'/chawri/vendor/autoload.php';
+     
         $this->load->Model('Mdl_sellers');
     }
 

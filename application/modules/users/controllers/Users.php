@@ -12,7 +12,7 @@ class Users extends MX_Controller{
     {
         date_default_timezone_set('Asia/Calcutta');
         parent::__construct();
-        require $_SERVER["DOCUMENT_ROOT"].'/chawri/vendor/autoload.php';
+
         $this->load->Model('Mdl_users');
         $this->load->Model('sellers/Mdl_sellers');
     }
@@ -43,6 +43,7 @@ class Users extends MX_Controller{
             }
             $data['roles']=$roles;
            /* $data['facebook_login_url']=$this->_getFacebookLoginUrl();*/
+            $this->load->view('header/header');
             $this->load->view('login.php',$data);
         }
     }
@@ -83,15 +84,17 @@ class Users extends MX_Controller{
 
           if($this->Mdl_users->checkUser()) {
 
-                         $user_data = $this->Mdl_users->getUserData();
+                        $user_data['data'] = $this->Mdl_users->getUserData();
 
+                      if($user_data['data'][0]['chawri_users_username']=='admin@admin.com') {
 
+                           $this->load->view('admin/dashboard');
                           $this->_setSessionData('authorize', $user_data);
 
-
+                      }else {
                           setInformUser('success', 'Successful login ');
                           redirect('users');
-
+                      }
 
           }
               elseif($this->Mdl_sellers->setData('checkUser',$data['user_name_email'],$data['password'])AND $this->Mdl_sellers->checkSellers()) {
@@ -105,7 +108,7 @@ class Users extends MX_Controller{
 
 
             else{
-                //set flash message that his username and password do not match try again.
+                  //set flash message that his username and password do not match try again.
                         setInformUser('error', 'your Username and password do not match');
                         redirect('users');
             }
@@ -301,6 +304,7 @@ class Users extends MX_Controller{
 
 
     public function register(){
+        $this->load->view('header/header');
         $this->load->view('register');
     }
 }
