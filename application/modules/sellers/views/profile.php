@@ -16,87 +16,48 @@
 				-->
 
 				<!-- registration form -->
-				<form action="<?php echo 'sellers';?>" method="post" class="sky-form boxed" novalidate="novalidate">
-					<header><i class="fa fa-users"></i> Create Seller Account </header>
+				<form action="<?php echo base_url().'sellers/profile';?>" method="post" class="sky-form boxed" novalidate="novalidate">
+					<header><i class="fa fa-users"></i> Seller Profile </header>
 					
-					<fieldset>					
+					<fieldset>
 						<label class="input">
-							<i class="icon-append fa fa-envelope"></i>
-							<input type="text" placeholder="Email address" name="user_name_email">
+
+							<input type="text" placeholder=" Tin no" name="tin_no">
 							<b class="tooltip tooltip-bottom-right">Needed to verify your account</b>
 						</label>
 
 						<label class="input">
-							<i class="icon-append fa fa-lock"></i>
-							<input type="password" placeholder="Password" name="password">
+
+							<input type="text" placeholder="Pan Number" name="pan_no">
 							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
 						</label>
 					
+
 						<label class="input">
-							<i class="icon-append fa fa-lock"></i>
-							<input type="password" placeholder="Confirm password" name="confirm_password">
+
+							<input type="text" placeholder="Excise Registration Number" name="excise_no">
 							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
 						</label>
 
 						<label class="input">
-
-							<input type="text" placeholder="Company Name" name="company_name">
-							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
-						</label>
-						<label class="input">
-
-							<input type="text" placeholder="Address" name="address">
-							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
-						</label>
-						<label class="input" >
-
-						<?php // print_r($state) ;?>
-                          <select name="state" class="select">
-                            <option >Select</option>
-                            <?php foreach ($state as $row) {
-                            
-                            ?>
- 							  <option value="<?php echo $row['chawri_states_state'];?>"><?php echo $row['chawri_states_state'];?></option>
-							 
-                           <?php }?>
-						  </select>
-							<!--<input type="text" placeholder="State" name="state">
-							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>-->
-						</label>
-						<label class="input">
-
-							<input type="text" placeholder="Pin Code" name="pin">
-							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
-						</label>
-						<label class="input">
-
-							<input type="text" placeholder="phone" name="phone">
-							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
-						</label>
-
-						<label class="input">
-
-							<input type="text" placeholder=" Landline No." name="landline">
-							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
-						</label>
-						<!--<label class="input">
 
 							<input type="text" placeholder="Services Tax No" name="services_tax_no">
 							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
 						</label>
+
 						<label class="input">
 
-							<input type="text" placeholder="Tan No" name="tan_no">
+							<input type="text" placeholder=" Tan No" name="tan_no">
 							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
 						</label>
--->
+
 
 					</fieldset>
 						
 
-					<?php echo form_hidden('todo', 'register'); ?>
+
 					<footer>
-						<button type="submit" class="btn btn-primary pull-right"><i class="fa fa-check"></i> Create Account</button>
+						<button type="submit" class="btn btn-primary pull-right"><i class="fa fa-check"></i> Update</button>
 					</footer>
 
 				</form>

@@ -24,7 +24,57 @@ class Mdl_sellers extends CI_Model
     private $sellers_services_tax_no;
     private $sellers_tan_no;
     private $token;
+    private $sellers_pin_code;
+    private $sellers_state;
+    private $sellers_landline;
 
+    /**
+     * @return mixed
+     */
+    public function getSellersPinCode()
+    {
+        return $this->sellers_pin_code;
+    }
+
+    /**
+     * @param mixed $sellers_pin_code
+     */
+    public function setSellersPinCode($sellers_pin_code)
+    {
+        $this->sellers_pin_code = $sellers_pin_code;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSellersState()
+    {
+        return $this->sellers_state;
+    }
+
+    /**
+     * @param mixed $sellers_state
+     */
+    public function setSellersState($sellers_state)
+    {
+        $this->sellers_state = $sellers_state;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSellersLandline()
+    {
+        return $this->sellers_landline;
+    }
+
+    /**
+     * @param mixed $sellers_landline
+     */
+    public function setSellersLandline($sellers_landline)
+    {
+        $this->sellers_landline = $sellers_landline;
+    }
     /**
      * @return mixed
      */
@@ -275,15 +325,24 @@ class Mdl_sellers extends CI_Model
                 $this->setSellersPassword($this->security->xss_clean($this->sellers_password));
                 $this->setSellersCompanyName($this->security->xss_clean($this->sellers_company_name));
                 $this->setSellersAddress($this->security->xss_clean($this->sellers_address));
-                $this->setSellersPanNo($this->security->xss_clean($this->sellers_pan_no));
+                $this->setSellersLandline($this->security->xss_clean($this->sellers_landline));
                 $this->setSellersPhone($this->security->xss_clean($this->sellers_phone));
-                $this->setSellersExciseNo($this->security->xss_clean($this->sellers_excise_no));
+                $this->setSellersPinCode($this->security->xss_clean($this->sellers_pin_code));
+                $this->setSellersState($this->security->xss_clean($this->sellers_state));
+               /* $this->setSellersExciseNo($this->security->xss_clean($this->sellers_excise_no));
                 $this->setSellersTinNo($this->security->xss_clean($this->sellers_tin_no));
                 $this->setSellersServicesTaxNo($this->security->xss_clean($this->sellers_services_tax_no));
-                $this->setSellersTanNo($this->security->xss_clean($this->sellers_tan_no));
+                $this->setSellersTanNo($this->security->xss_clean($this->sellers_tan_no));*/
 
                 break;
+            case "profile":
+                   $this->setSellersPanNo($this->security->xss_clean($this->setSellersPanNo()));
+                   $this->setSellersTinNo($this->security->xss_clean($this->sellers_tin_no));
+                   $this->setSellersExciseNo($this->security->xss_clean($this->sellers_excise_no));
+                   $this->setSellersServicesTaxNo($this->security->xss_clean($this->sellers_services_tax_no));
+                   $this->setSellersTanNo($this->security->xss_clean($this->sellers_tan_no));
 
+                break;
             default:
                 break;
         }
@@ -293,7 +352,8 @@ class Mdl_sellers extends CI_Model
 
 
     public function registration(){
-
+       /* user_name_email password confirm_password company_name address state pin pin phone landline
+        chawri_sellers_landline chawri_sellers_state*/
         $this->_validate('registration');
         $this->setSellersPassword(password_hash($this->sellers_password, PASSWORD_DEFAULT));
         $data = [
@@ -302,12 +362,12 @@ class Mdl_sellers extends CI_Model
             'chawri_sellers_company_name' => $this->sellers_company_name,
             'chawri_sellers_address' => $this->sellers_address,
 
-            'chawri_sellers_pan_no' => $this->sellers_pan_no,
+            'chawri_sellers_landline' => $this->sellers_landline,
             'chawri_sellers_phone' => $this->sellers_phone,
-            'chawri_sellers_excise_no' => $this->sellers_excise_no,
-            'chawri_sellers_tin_no' => $this->sellers_tin_no,
-            'chawri_sellers_services_tax_no' => $this->sellers_services_tax_no,
-            'chawri_sellers_tan_no' => $this->sellers_tan_no
+            'chawri_sellers_state' => $this->sellers_state,
+            'chawri_sellers_pin_code' => $this->sellers_pin_code
+            /*'chawri_sellers_services_tax_no' => $this->sellers_services_tax_no,
+            'chawri_sellers_tan_no' => $this->sellers_tan_no*/
 
 
         ];
@@ -326,14 +386,14 @@ class Mdl_sellers extends CI_Model
                 $this->setSellersPassword(func_get_arg(2));
                 $this->setSellersCompanyName(func_get_arg(3));
                 $this->setSellersAddress(func_get_arg(4));
-                $this->setSellersPanNo(func_get_arg(5));
-                $this->setSellersPhone(func_get_arg(6));
-                $this->setSellersExciseNo(func_get_arg(7));
-                $this->setSellersTinNo(func_get_arg(8));
+                $this->setSellersState(func_get_arg(5));
+                $this->setSellersPinCode(func_get_arg(6));
+                $this->setSellersPhone(func_get_arg(7));
+                $this->setSellersLandline(func_get_arg(8));
 
-                $this->setSellersServicesTaxNo(func_get_arg(9));
+                /*$this->setSellersServicesTaxNo(func_get_arg(9));
                 $this->setSellersTanNo(func_get_arg(10));
-
+                $data['address'],$data['state'],$data['pin'],$data['phone'],$data['landline']*/
 
 
                 break;
@@ -341,7 +401,20 @@ class Mdl_sellers extends CI_Model
                    $this->setToken(func_get_arg(1));
                 break;
 
+            case "profile":
+
+                $this->setSellersId(func_get_arg(1));
+                $this->setSellersTinNo(func_get_arg(2));
+                $this->setSellersPanNo(func_get_arg(3));
+                $this->setSellersExciseNo(func_get_arg(4));
+                $this->setSellersServicesTaxNo(func_get_arg(5));
+                $this->setSellersTanNo(func_get_arg(6));
+                break;
             case "checkUser":
+                  /* echo "n";
+                   echo func_get_arg(2);
+                   echo "n";
+                   die();*/
                 $this->setSellersEmail(func_get_arg(1));
                 $this->setSellersPassword(func_get_arg(2));
                 break;
@@ -384,20 +457,56 @@ class Mdl_sellers extends CI_Model
     public function getUserData()
     {
 
-        $this->setPassword(password_hash($this->password, PASSWORD_DEFAULT));
+      
 
-        $data= $this->db->where('chawri_sellers_username',$this->user_name, 'chawri_sellers_password',$this->password)->get('chawri_sellers')->result_array();
-
-
+        $data= $this->db->where('chawri_sellers_email',$this->sellers_email)->get('chawri_sellers')->result_array();
+      
         return $data;
 
     }
 
     public function checkSellers(){
-        $this->setPassword(password_hash($this->password, PASSWORD_DEFAULT));
-        return $this->db->where('chawri_sellers_email',$this->getSellersEmail(),'chawri_sellers_password',$this->getSellersPassword())->select(array('chawri_sellers_id'))->get('chawri_sellers')->result_array()?true:false;
+
+
+          
+      $query=$this->db->where(array('chawri_sellers_email'=>$this->getSellersEmail()))->select(array('chawri_sellers_password'))->get('chawri_sellers');
+     
+      
+
+      if( password_verify($this->getSellersPassword(), $query->result()[0]->chawri_sellers_password)){
+       
+    
+            return true;
+        }
+
+        return false;
 
 
 
     }
+
+
+    public  function profile(){
+
+        $data = [
+            'chawri_sellers_excise_no' => $this->sellers_excise_no,
+            'chawri_sellers_pan_no' => $this->sellers_pan_no,
+
+            'chawri_sellers_tin_no' => $this->sellers_tin_no,
+            'chawri_sellers_services_tax_no' => $this->sellers_services_tax_no,
+            'chawri_sellers_tan_no' => $this->sellers_tan_no
+
+
+        ];
+        return $this->db->where('chawri_sellers_id',$this->getSellersId())->update('chawri_sellers',$data)?true:false;
+    }
+
+
+    public function getState(){
+
+        $data= $this->db->get('chawri_states')->result_array();
+        
+        return $data;
+    }
 }
+

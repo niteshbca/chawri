@@ -13,7 +13,7 @@ class Sellers extends MX_Controller{
     {
         date_default_timezone_set('Asia/Calcutta');
         parent::__construct();
-     
+
         $this->load->Model('Mdl_sellers');
     }
 
@@ -30,8 +30,9 @@ class Sellers extends MX_Controller{
 
         }
         else{
-
-            $this->load->view('register.php');
+            $data['state']=$this->showStates();
+            $this->load->view('users/header/header');
+            $this->load->view('register',$data);
         }
     }
 
@@ -41,8 +42,8 @@ class Sellers extends MX_Controller{
     private function _register($data)
     {
         $this->Mdl_sellers->setData('register',$data['user_name_email'],$data['password'],$data['company_name'],
-            $data['address'],$data['pan_no'],$data['phone'],$data['excise_no'],$data['tin_no'],
-           $data['services_tax_no'],$data['tan_no']);
+            $data['address'],$data['state'],$data['pin'],$data['phone'],$data['landline']
+           );
 
 
          if($this->Mdl_sellers->registration('registration')){
@@ -85,5 +86,36 @@ class Sellers extends MX_Controller{
         $active_token = "chawri".$a;
         $active_token = password_hash($active_token, PASSWORD_DEFAULT);
         return $active_token;
+    }
+
+    public function profile(){
+        $data = $this->input->post();
+        $this->Mdl_sellers->setData('profile',1,$data['tin_no'],$data['pan_no'],$data['excise_no'],
+            $data['services_tax_no'],$data['tan_no']
+        );
+
+
+        if($this->Mdl_sellers->profile($data)){
+
+
+                echo "your account successfully Update";
+
+        }
+        else{
+            echo "your account not successfully Update";
+        }
+
+    }
+    public function showProfile(){
+
+        $this->load->view('users/header/header');
+        $this->load->view('profile');
+    }
+
+     public function showStates(){
+
+       $data= $this->Mdl_sellers->getState();
+
+       return $data;
     }
 }

@@ -2,7 +2,7 @@
 
 /**
  * Created by PhpStorm.
- * User: NItesh
+ * User: Nitesh
  * Date: 10/13/2015
  * Time: 4:10 PM
  */
@@ -29,8 +29,8 @@ class Products extends  MX_Controller
 
         }
         else{
-
-            $this->load->view('register.php');
+            $this->load->view('users/header/header');
+            $this->load->view('products_form');
         }
     }
 
@@ -38,14 +38,41 @@ class Products extends  MX_Controller
 
     private function _insertProducts($data)
     {
-        $this->Mdl_products->setData('insert',1,$data['products_brand_name'],$data['products_name'],$data['products_cenvat_amount'],
+       /* echo "<pre/>";
+        print_r($this->input->post());*/
+        $post_data=$this->input->post();
+        $data=array();
+        for($i=0;$i<count($post_data['products_name']);$i++){
+            array_push($data,[
+                'chawri_products_name'=>$post_data['products_name'][$i],
+                'chawri_products_brand_name'=>$post_data['products_brand_name'][$i],
+                'chawri_products_cenvat_amount'=>$post_data['products_cenvat_amount'][$i],
+                'chawri_products_manufacturer'=>$post_data['products_manufacturer'][$i],
+                'chawri_products_grain'=>$post_data['products_grain'][$i],
+                'chawri_products_packets_per_bundle'=>$post_data['packets_per_bundle'][$i],
+                'chawri_products_packing'=>$post_data['products_packing'][$i],
+                'chawri_products_quantity_on_offer'=>$post_data['products_quantity_on_offer'][$i],
+                'chawri_products_rate'=>$post_data['products_rate'][$i],
+                'chawri_products_sheets_per_packet'=>$post_data['products_sheets_per_packet'][$i],
+                'chawri_products_size'=>$post_data['products_size'][$i],
+                'chawri_products_substance'=>$post_data['products_substance'][$i],
+                'chawri_products_thickness'=>$post_data['products_thickness'][$i],
+                'chawri_sellers_id' => 1
+            ]);
+        }
+       /* echo '<br/>';
+        print_r($data);
+        die;
+        $this->Mdl_products->setData('insert',1,$this->input->post());*/
+
+       /* $this->Mdl_products->setData('insert',1,$data['products_brand_name'],$data['products_name'],$data['products_cenvat_amount'],
             $data['products_manufacturer'],$data['products_grain'],$data['packets_per_bundle'],$data['products_packing'],
             $data['products_quantity_on_offer'],$data['products_rate'],
-            $data['products_sheets_per_packet'],$data['products_size'],$data['products_substance'],$data['products_thickness']);
+            $data['products_sheets_per_packet'],$data['products_size'],$data['products_substance'],$data['products_thickness']);*/
 
 
 
-        if($this->Mdl_products->insertProduct('insert')){
+        if($this->Mdl_products->insertProduct($data)){
 
             echo "your Products  Insert successful";
         }

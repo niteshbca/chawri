@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 /**
  * Created by PhpStorm.
- * User: tushar
+ * User: Nitesh
  * Date: 14/9/15
  * Time: 7:05 PM
  */
@@ -351,7 +351,7 @@ class Mdl_users extends CI_Model
      */
     public function getUserData()
     {
-        $data= $this->db->where('chawri_users_username',$this->user_name, 'chawri_users_password',$this->password)->get('chawri_users')->result_array();
+        $data= $this->db->where('chawri_users_username',$this->user_name)->get('chawri_users')->result_array();
 
            return $data;
 
@@ -467,10 +467,13 @@ class Mdl_users extends CI_Model
 
     }
     public function isActive(){
+       
        if($this->db->where('chawri_users_username',$this->getUserName())->select(array('chawri_users_status'))->get('chawri_users')->result_array()[0]['chawri_users_status']){
+        
            return true;
        }
         elseif($this->db->where('chawri_sellers_email',$this->getUserName())->select(array('chawri_sellers_status'))->get('chawri_sellers')->result_array()[0]['chawri_sellers_status']){
+       
             return true;
         }
         else {
@@ -495,16 +498,30 @@ class Mdl_users extends CI_Model
 
 
     public function checkUser(){
-        //echo $this->getUserName();
-       // echo $this->getPassword();
 
-        $this->setPassword(password_hash($this->password, PASSWORD_DEFAULT));
+       /* $this->setPassword(password_hash($this->password, PASSWORD_DEFAULT));
+       $q=$this->db->where(array('chawri_users_username'=>$this->getUserName(),'chawri_users_password'=>$this->getPassword()))->select(array('chawri_users_id'))->get('chawri_users');
 
-         if($this->db->where(array('chawri_users_username'=>$this->getUserName(),'chawri_users_password'=>$this->getPassword()))->select(array('chawri_users_id'))->get('chawri_users')){
+
+         if($q->num_rows()){
+
              return true;
          }
 
         return false;
+*/
 
+
+      $query=$this->db->where(array('chawri_users_username'=>$this->getUserName()))->select(array('chawri_users_password'))->get('chawri_users');
+     
+      
+
+      if( password_verify($this->getPassword(), $query->result()[0]->chawri_users_password)){
+       
+    
+            return true;
+        }
+
+        return false;
     }
 }

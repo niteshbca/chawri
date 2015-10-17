@@ -8,3 +8,7 @@
 ?>
 
 <h1>Admin Login</h1>
+<?php
+
+echo $this->session->userdata['user_data'][0]['users_name'];
+?>

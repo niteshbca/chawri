@@ -12,7 +12,22 @@
 				<!-- registration form -->
 				<form action="<?php echo 'users';?>" method="post" class="sky-form boxed" novalidate="novalidate">
 					<header><i class="fa fa-users"></i> Create Account <small class="note bold">IT'S FREE</small></header>
-					
+					<fieldset>
+						<div class="row">
+							<div class="col-md-6">
+								<label class="input">
+									<input type="text" placeholder="First name"name="fname" >
+								</label>
+							</div>
+							<div class="col col-md-6">
+								<label class="input">
+									<input type="text" placeholder="Last name" name="lname">
+								</label>
+							</div>
+						</div>
+
+
+					</fieldset>
 					<fieldset>					
 						<label class="input">
 							<i class="icon-append fa fa-envelope"></i>
@@ -33,54 +48,14 @@
 						</label>
 					</fieldset>
 						
-					<fieldset>
-						<div class="row">
-							<div class="col-md-6">
-								<label class="input">
-									<input type="text" placeholder="First name"name="fname" >
-								</label>
-							</div>
-							<div class="col col-md-6">
-								<label class="input">
-									<input type="text" placeholder="Last name" name="lname">
-								</label>
-							</div>
-						</div>
 
-						<!--<label class="select">
-							<select>
-								<option value="0" selected="" disabled="">Gender
-								<option value="1">Male
-								<option value="2">Female
-								<option value="3">Other
-							</select>
-							<i></i>
-						</label>-->
-						
-						<!--<div class="margin-top20">
-							<label class="checkbox nomargin"><input class="checked-agree" type="checkbox" name="checkbox"><i></i>I agree to the <a href="#" data-toggle="modal" data-target="#termsModal">Terms of Service</a></label>
-							<label class="checkbox nomargin"><input type="checkbox" name="checkbox"><i></i>I want to receive news and  special offers</label>
-						</div>-->
-					</fieldset>
 					<?php echo form_hidden('todo', 'register'); ?>
 					<footer>
 						<button type="submit" class="btn btn-primary pull-right"><i class="fa fa-check"></i> Create Account</button>
 					</footer>
 
 				</form>
-				<!-- /registration form -->
 
-				<!--<hr>
-
-				<div class="text-center">
-					Or sign up using:
-				</div>
-
-
-				<div class="socials margin-top-10 text-center"><!-- more buttons: ui-buttons.html --
-					<a href="#" class="btn btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>
-					<a href="#" class="btn btn-twitter"><i class="fa fa-twitter"></i> Twitter</a>
-				</div>-->
 
 			</div>
 

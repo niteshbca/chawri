@@ -11,26 +11,13 @@
 
 			<div class="login-box">
 
-				<!--
-				<div class="alert alert-danger">Complete all fields!</div>
-				-->
 
-
-
-
-
-
-
-
-
-
-				<!-- registration form -->
 				<form action="<?php echo 'products';?>" method="post" class="sky-form boxed" novalidate="novalidate">
 					 <header> <a href="<?php echo base_url().'products/showProducts' ?>">Show Products</a> </header>
 					<header>Seller Add Product </header>
 					<fieldset>					
-						<label class="input">
-							<input type="text" placeholder="Products Name" name="products_name">
+						<label class="input" >
+							<input type="text" placeholder="Products Name" name="products_name" >
 							<b class="tooltip tooltip-bottom-right">Needed to verify your account</b>
 						</label>
 
@@ -91,13 +78,7 @@
 							<input type="text" placeholder="Quantity on Offer (in pkts)" name="products_quantity_on_offer">
 							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
 						</label>
-
-
-
-
-
-
-						<label class="input">
+          				<label class="input">
 
 							<input type="text" placeholder="Products Packing" name="products_packing">
 							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
@@ -181,5 +162,30 @@
 			});
 		</script>
 
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+	<script type="text/javascript">
+
+		$( document ).ready(function() {
+
+			var rowNum = 0;
+
+			$(".addmore").click(function() {
+
+				rowNum++;
+				var row = $("<div id='address-" + rowNum + "' class='address' />");
+				var street = $("<div class='street'><input type='text' name='street[]'></div>");
+				var city = $("<div class='city'><input type='text' name='city[]'></div>");
+				var rm = $("<button type='button' class='addmore'>Add More Address</button>");
+				$("body").append(row);
+				street.appendTo(row);
+				city.appendTo(row);
+				rm.appendTo(row);
+
+
+			});
+
+		});
+	</script>
 	</body>
 </html>

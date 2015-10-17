@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 /**
  * Created by PhpStorm.
- * User: tushar
+ * User: Nitesh
  * Date: 14/9/15
  * Time: 4:38 PM
  */
@@ -78,32 +78,43 @@ class Users extends MX_Controller{
     private function _login($data)
     {
 
+        $this->Mdl_sellers->setData('checkUser',$data['user_name_email'],$data['password']);
         $this->Mdl_users->setData('checkUser',$data['user_name_email'],$data['password']);
+      // echo isAccountActive();
         if(isAccountActive()){
+           // echo $data['user_name_email'];
 
-
+            /* echo "login";
+                die();*/
           if($this->Mdl_users->checkUser()) {
 
                         $user_data['data'] = $this->Mdl_users->getUserData();
 
+                        $this->_setSessionData('authorize', $user_data);
+
                       if($user_data['data'][0]['chawri_users_username']=='admin@admin.com') {
-
+                          $this->load->view('header/header');
+                         // $this->load->view('admin/aside');
                            $this->load->view('admin/dashboard');
-                          $this->_setSessionData('authorize', $user_data);
 
-                      }else {
-                          setInformUser('success', 'Successful login ');
-                          redirect('users');
+
                       }
 
-          }
-              elseif($this->Mdl_sellers->setData('checkUser',$data['user_name_email'],$data['password'])AND $this->Mdl_sellers->checkSellers()) {
+                              else {
+                                  setInformUser('success', 'Successful login ');
+                                  redirect('users');
+                              }
+
+                       }
+              elseif($this->Mdl_sellers->checkSellers()) {
 
                            $user_data = $this->Mdl_sellers->getUserData();
 
-                          echo "Seller Login";
-                          redirect('products');
-                          $this->_setSessionData('authorize', $user_data);
+                          /*echo "Seller Login";
+                           print_r($user_data);
+                           die();*/
+                          $this->_setSessionData('sellers', $user_data);
+                            redirect('products');
               }
 
 
@@ -111,7 +122,7 @@ class Users extends MX_Controller{
                   //set flash message that his username and password do not match try again.
                         setInformUser('error', 'your Username and password do not match');
                         redirect('users');
-            }
+               }
         }
 
 
@@ -142,8 +153,43 @@ class Users extends MX_Controller{
     private function _setSessionData()
     {
         switch(func_get_arg(0)){
-            case 'authorize':   $this->session->set_userdata('authorize',true);
-                $this->session->set_userdata('user_data',func_get_arg(1));
+            case 'authorize':   //$this->session->set_userdata('authorize',true);
+               $data=array();
+
+                     $user_username=func_get_arg(1)['data'][0]['chawri_users_fname'].' '.func_get_arg(1)['data'][0]['chawri_users_lname'];
+
+                array_push($data, [
+                    'users_id' =>func_get_arg(1)['data'][0]['chawri_users_id'],
+                    'users_email' =>func_get_arg(1)['data'][0]['chawri_users_username'],
+                    'users_name' =>$user_username,
+                    'users_status' =>func_get_arg(1)['data'][0]['chawri_users_status'],
+
+                ]);
+
+
+
+
+                $this->session->set_userdata('user_data',$data);
+                break;
+
+
+            case "sellers": $data=array();
+
+                            
+                $user_username=func_get_arg(1)['data'][0]['chawri_sellers_company_name'];
+
+                array_push($data, [
+                    'users_id' =>func_get_arg(1)['data'][0]['chawri_sellers_id'],
+                    'users_email' =>func_get_arg(1)['data'][0]['chawri_sellers_email'],
+                    'users_name' =>$user_username
+                    
+
+                ]);
+
+
+
+
+                $this->session->set_userdata('user_data',$data);
                 break;
             default: break;
         }

@@ -272,6 +272,25 @@ class Mdl_products extends CI_Model
     {
         switch (func_get_arg(0)) {
             case "insert":
+                foreach(func_get_arg(2) as $products) {
+                    $this->setProductsBrandName($this->security->xss_clean($this->products_brand_name));
+                    $this->setProductsName($this->security->xss_clean($this->products_name));
+                    $this->setProductsCenvatAmount($this->security->xss_clean($this->products_cenvat_amount));
+                    $this->setProductsManufacturer($this->security->xss_clean($this->products_manufacturer));
+                    $this->setProductsGrain($this->security->xss_clean($this->products_grain));
+                    $this->setProductsPacketsPerBundle($this->security->xss_clean($this->products_packets_per_bundle));
+                    $this->setProductsPacking($this->security->xss_clean($this->products_packing));
+                    $this->setProductsQuantityOnOffer($this->security->xss_clean($this->products_quantity_on_offer));
+                    $this->setProductsRate($this->security->xss_clean($this->products_rate));
+                    $this->setProductsSheetsPerPacket($this->security->xss_clean($this->products_sheets_per_packet));
+                    $this->setProductsSize($this->security->xss_clean($this->products_size));
+                    $this->setProductsSubstance($this->security->xss_clean($this->products_substance));
+                    $this->setProductsThickness($this->security->xss_clean($this->products_thickness));
+                }
+                $this->setSellersId($this->security->xss_clean($this->sellers_id));
+
+                break;
+           /* case "insert":
                 $this->setProductsBrandName($this->security->xss_clean($this->products_brand_name));
                 $this->setProductsName($this->security->xss_clean($this->products_name));
                 $this->setProductsCenvatAmount($this->security->xss_clean($this->products_cenvat_amount));
@@ -288,8 +307,7 @@ class Mdl_products extends CI_Model
 
                 $this->setSellersId($this->security->xss_clean($this->sellers_id));
 
-                break;
-
+                break;*/
             default:
                 break;
         }
@@ -298,11 +316,20 @@ class Mdl_products extends CI_Model
     }
 
 
-    public function insertProduct(){
+    public function insertProduct($data){
 
-        $this->_validate('insert');
+        //$this->_validate('insert');
+       /* $dta1=array();
+        foreach($data as $row){
+            array_push($dta1,implode(',',$row));
+        }*/
 
-        $data = [
+
+        /*echo "<pre/>";
+        print_r($dta1);
+        die();*/
+
+       /* $data = [
             'chawri_products_name' => $this->products_name,
             'chawri_products_brand_name' => $this->products_brand_name,
             'chawri_products_manufacturer' => $this->products_manufacturer,
@@ -320,10 +347,16 @@ class Mdl_products extends CI_Model
             'chawri_sellers_id' => $this->sellers_id
 
 
-        ];
-        if ($this->db->insert('chawri_products', $data)) {
+        ];*/
+       /* foreach ($data as $row){*/
+      if($q=$this->db->insert_batch('chawri_products', $data)){
+          return true;
+      }
+
+       /* }
+        if($q){a
             return true;
-        }
+        }*/
         return false;
     }
 
@@ -332,6 +365,34 @@ class Mdl_products extends CI_Model
     {
         switch (func_get_arg(0)) {
             case "insert":
+
+                $this->setSellersId(func_get_arg(1));
+
+                //print_r(func_get_arg(2));
+                //  die();
+                foreach(func_get_arg(2) as $products ) {
+
+                    //echo $products[0]['products_name'];
+
+                   /*
+                    $this->setProductsBrandName(func_get_arg(2));
+                    $this->setProductsName(func_get_arg(3));
+                    $this->setProductsCenvatAmount(func_get_arg(4));
+                    $this->setProductsManufacturer(func_get_arg(5));
+                    $this->setProductsGrain(func_get_arg(6));
+                    $this->setProductsPacketsPerBundle(func_get_arg(7));
+                    $this->setProductsPacking(func_get_arg(8));
+                    $this->setProductsQuantityOnOffer(func_get_arg(9));
+                    $this->setProductsRate(func_get_arg(10));
+                    $this->setProductsSheetsPerPacket(func_get_arg(11));
+                    $this->setProductsSize(func_get_arg(12));
+                    $this->setProductsSubstance(func_get_arg(13));
+                    $this->setProductsThickness(func_get_arg(14));*/
+                }
+
+                  die();
+                break;
+           /* case "insert":
 
                 $this->setSellersId(func_get_arg(1));
                 $this->setProductsBrandName(func_get_arg(2));
@@ -350,7 +411,7 @@ class Mdl_products extends CI_Model
 
 
 
-                break;
+                break;*/
 
 
             default:
