@@ -10,109 +10,97 @@
 		<div class="padding-15">
 
 			<div class="login-box">
-
-
-				<form action="<?php echo base_url().'products/singleProducts';?>" method="post" class="sky-form boxed" novalidate="novalidate" name"formproducts">
+<?php print_r($data) ;?>
+             
+				<form action="<?php echo base_url().'products/update/'.$data[0]['chawri_products_id'] ?>" method="post" class="sky-form boxed" novalidate="novalidate">
 					 <header> <a href="<?php echo base_url().'products/showProducts' ?>">Show Products</a> </header>
 					<header>Seller Add Product </header>
 					<fieldset>					
-						<label class="input" >
-							<input type="text" placeholder="Products Name" name="products_name" required>
+						<label class="input" > Products Name
+							<input type="text"  name="products_name"  value="<?php echo $data[0]['chawri_products_name']; ?>">
 							<b class="tooltip tooltip-bottom-right">Needed to verify your account</b>
 						</label>
 
-						<label class="input">
+						<label class="input"> Products Brand Name
 
-							<input type="text" placeholder="Products Brand Name" required name="products_brand_name">
+							<input type="text"  name="products_brand_name" value="<?php echo $data[0]['chawri_products_brand_name']; ?>">
 							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
 						</label>
 
-						<label class="input">
+						<label class="input"> Manufactures 
 
-							<input type="text" placeholder="Manufacturer" required name="products_manufacturer">
-							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
-						</label>
-                              
-						<label class="input">
-
-							<input type="text" placeholder="Substance" required name="products_substance">
+							<input type="text"  name="products_manufacturer" value="<?php echo $data[0]['chawri_products_manufacturer']; ?>">
 							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
 						</label>
 
-						<label class="">
 
-							<input type="radio" name="sheet"  id="chkNo" checked   onclick="ShowHideDiv()" > Reel
-							<input type="radio" name="sheet" id="chkYes" onclick="ShowHideDiv()" > Sheet
-							
+						<label class="input"> Substance
+
+							<input type="text"  name="products_substance" value="<?php echo $data[0]['chawri_products_substance']; ?>">
+							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
 						</label>
                         
+                        <label class="input">Bulk
+
+							<input type="text" name="products_thickness" value="<?php echo $data[0]['chawri_products_thickness']; ?>">
+							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
+						</label>
+
+						<label class="input">  Products Size
+
+							<input type="text" name="products_size" value="<?php echo $data[0]['chawri_products_size']; ?>">
+							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
+						</label>
 
 						
+						<label class="input"> Grain
 
-						<label class="input">
-
-							<input type="text" placeholder="Bulk " required name="products_thickness">
-							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
-						</label>
-
-                       <label class="input">
-
-							<input type="text" placeholder="Products Size" required name="products_size">
-							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
-						</label>
-
-						<label class="input">
-
-							<input type="text" placeholder=" Grain" required name="products_grain">
+							<input type="text" name="products_grain" value="<?php echo $data[0]['chawri_products_grain']; ?>">
 							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
 						</label>
 
 
-                      <div id="dvPassport" style="display: none">
-						<label class="input">
 
-							<input type="text" placeholder="Sheets per Packet" name="products_sheets_per_packet">
-							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
-						</label>
-             
-						<label class="input">
+						<label class="input"> Sheets per Packet
 
-							<input type="text" placeholder="Products Per Bundle" name="packets_per_bundle">
+							<input type="text" name="products_sheets_per_packet" value="<?php echo $data[0]['chawri_products_sheets_per_packet']; ?>">
 							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
 						</label>
 
-						<label class="input">
+						<label class="input"> Products Per Bundle 
 
-							<input type="text" placeholder="Pkt. Weight " name="packets_weight">
+							<input type="text"  name="packets_per_bundle" value="<?php echo $data[0]['chawri_products_packets_per_bundle']; ?>">
 							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
 						</label>
 
-                         
-                       </div>
+                     <label class="input">  Pkt. Weight
 
-
-
-						<label class="input">
-
-							<input type="text" placeholder="Quantity on Offer (in pkts)" required name="products_quantity_on_offer">
-							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
-						</label>
-          				<label class="input">
-
-							<input type="text" placeholder="Products Packing" required name="products_packing">
-							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
-						</label>
-
-						<label class="input">
-
-							<input type="text" placeholder="Products Rate" required name="products_rate">
+							<input type="text"  name="products_weight" value="<?php echo $data[0]['chawri_products_weight']; ?>">
 							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
 						</label>
 
 
-						<label class="input">
+						<label class="input"> Quantity on Offer (in pkts)
 
-							<input type="text" placeholder="Products CENVAT Amount" required name="products_cenvat_amount">
+							<input type="text"  name="products_quantity_on_offer" value="<?php echo $data[0]['chawri_products_quantity_on_offer']; ?>">
+							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
+						</label>
+          				<label class="input"> Products Packing
+
+							<input type="text" name="products_packing" value="<?php echo $data[0]['chawri_products_packing']; ?>">
+							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
+						</label>
+
+						<label class="input"> Products Rate
+
+							<input type="text"  name="products_rate" value="<?php echo $data[0]['chawri_products_rate']; ?>">
+							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
+						</label>
+
+
+						<label class="input"> Products CENVAT Amount
+
+							<input type="text" name="products_cenvat_amount" value="<?php echo $data[0]['chawri_products_cenvat_amount']; ?>">
 							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
 						</label>
 					</fieldset>
@@ -182,16 +170,29 @@
 		</script>
 
 
-	
-	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+	<script type="text/javascript">
 
-<script type="text/javascript">
-    function ShowHideDiv(obj) {
-    	// alert(123);
-        var chkYes = document.getElementById("chkYes");
-        var dvPassport = document.getElementById("dvPassport");
-        dvPassport.style.display = chkYes.checked ? "block" : "none";
-    }
-</script>
+		$( document ).ready(function() {
+
+			var rowNum = 0;
+
+			$(".addmore").click(function() {
+
+				rowNum++;
+				var row = $("<div id='address-" + rowNum + "' class='address' />");
+				var street = $("<div class='street'><input type='text' name='street[]'></div>");
+				var city = $("<div class='city'><input type='text' name='city[]'></div>");
+				var rm = $("<button type='button' class='addmore'>Add More Address</button>");
+				$("body").append(row);
+				street.appendTo(row);
+				city.appendTo(row);
+				rm.appendTo(row);
+
+
+			});
+
+		});
+	</script>
 	</body>
 </html>

@@ -21,7 +21,7 @@ if($logout){
 
 
 
-        <form action="<?php echo 'products';?>" method="post" class="sky-form boxed" name"formproducts" novalidate="novalidate">
+        <form action="<?php echo 'products/productReel';?>" method="post" class="sky-form boxed" name"formproducts" novalidate="novalidate">
 
             <header>Seller Add Product </header>
                 <div class="products">
@@ -34,9 +34,7 @@ if($logout){
                     <div style="float: left"class="products_size"> <input type="text" placeholder="Products Size" name="products_size[]"></div>
                     <div style="float: left"class="products_thickness"> <input type="text" placeholder="Thickness" name="products_thickness[]"></div>
                     <div style="float: left"class="products_grain"> <input type="text" placeholder=" Grain" name="products_grain[]"></div>
-                    <div style="float: left"class="products_sheets_per_packet"> <input type="text" placeholder="Sheets per Packet" name="products_sheets_per_packet[]"></div>
-                     <div style="float: left"class="products_weight"> <input type="text" placeholder="Pkt. Weight " name="products_weight[]"></div>
-                    <div style="float: left"class="packets_per_bundle"><input type="text" placeholder="Products Per Bundle" name="packets_per_bundle[]"></div>
+                    
                     <div style="float: left"class="products_quantity_on_offer"> <input type="text" placeholder="Quantity on Offer (in pkts)" name="products_quantity_on_offer[]"></div>
                     <div style="float: left"class="products_packing"> <input type="text" placeholder="Products Packing" name="products_packing[]"></div>
                     <div style="float: left"class="products_rate"> <input type="text" placeholder="Products Rate" name="products_rate[]"></div>
@@ -66,9 +64,6 @@ if($logout){
                         var products_size = $("<div id='products_size_"+rowNum+"'style='float: left' class='products_size'><input type='text' placeholder=' Products Size' name='products_size[]'></div>");
                         var products_thickness = $("<div id='products_thickness_"+rowNum+"' style='float: left' class='products_thickness'><input type='text' placeholder='Thickness' name='products_thickness[]'></div>");
                         var products_grain = $("<div id='products_grain_"+rowNum+"'style='float: left' class='products_grain'><input type='text' placeholder='Grain' name='products_grain[]'></div>");
-                        var products_sheets_per_packet = $("<div id='products_sheets_per_packet_"+rowNum+"' style='float: left' class='products_sheets_per_packet'><input type='text' placeholder='Sheets per Packet'name='products_sheets_per_packet[]'></div>");
-                        var products_weight = $("<div id='products_weight_"+rowNum+"' style='float: left' class='products_weight'><input type='text'placeholder='Products Per Bundle' name='products_weight[]'></div>");
-                        var packets_per_bundle = $("<div id='packets_per_bundle_"+rowNum+"' style='float: left' class='packets_per_bundle'><input type='text'placeholder='Products Per Bundle' name='packets_per_bundle[]'></div>");
                         var products_quantity_on_offer = $("<div id='products_quantity_on_offer_"+rowNum+"'style='float: left'  class='products_quantity_on_offer'><input type='text'placeholder='Quantity on Offer (in pkts)' name='products_quantity_on_offer[]'></div>");
                         var products_packing = $("<div id='products_packing_"+rowNum+"' style='float: left' class='products_packing'><input type='text' placeholder=' Products Packing'name='products_packing[]'></div>");
                         var products_rate = $("<div id='products_rate_"+rowNum+"' style='float: left' class='products_rate'><input type='text' placeholder='Products Rate' name='products_rate[]'></div>");
@@ -81,12 +76,9 @@ if($logout){
                         products_substance.appendTo(row);
                         products_size.appendTo(row);
                         products_thickness.appendTo(row);
-                        products_grain.appendTo(row);
-                        products_sheets_per_packet.appendTo(row);
-                        products_weight.appendTo(row);
-                        packets_per_bundle.appendTo(row);
+                        products_grain.appendTo(row); 
                         products_quantity_on_offer.appendTo(row);
-                        products_packing.appendTo(row);
+                        products_packing.appendTo(row); 
                         products_rate.appendTo(row);
                         products_cenvat_amount.appendTo(row);
 

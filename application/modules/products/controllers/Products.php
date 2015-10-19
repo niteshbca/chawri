@@ -30,7 +30,7 @@ class Products extends  MX_Controller
         }
         else{
             $this->load->view('users/header/header');
-            $this->load->view('products_form');
+            $this->load->view('register');
         }
     }
 
@@ -57,6 +57,8 @@ class Products extends  MX_Controller
                 'chawri_products_size'=>$post_data['products_size'][$i],
                 'chawri_products_substance'=>$post_data['products_substance'][$i],
                 'chawri_products_thickness'=>$post_data['products_thickness'][$i],
+                'chawri_products_weight'=>$post_data['products_weight'][$i],
+                'chawri_products_reel_sheet'=>'s',
                 'chawri_sellers_id' => 1
             ]);
         }
@@ -90,6 +92,134 @@ class Products extends  MX_Controller
         $this->load->view('products_show',$data);
     }
 
+
+public function showUpdate($id){
+
+        $data['data']=$this->Mdl_products->showUpdate($id);
+        $this->load->view('users/header/header2');
+        $this->load->view('update',$data);
+}
+
+public function update($id){
+$data=$this->input->post();
+echo "<pre/>";
+print_r($data);
+   die();
+ $this->Mdl_products->setData('update',1,$data['products_brand_name'],$data['products_name'],$data['products_cenvat_amount'],
+            $data['products_manufacturer'],$data['products_grain'],$data['packets_per_bundle'],$data['products_packing'],
+            $data['products_quantity_on_offer'],$data['products_rate'],
+            $data['products_sheets_per_packet'],$data['products_size'],$data['products_substance'],$data['products_thickness']);
+
+
+        if($this->Mdl_products->update($data)){
+
+            echo "your Products  update successful";
+        }
+        else{
+            echo "your Products not update";
+        }
+
+
+}
+
+
+public function productsAdd(){
+
+     $this->load->view('users/header/header2');
+      $this->load->view('register');
+}
+
+
+
+public function productsReel(){
+
+     $this->load->view('users/header/header2');
+      $this->load->view('add_products');
+}
+
+public function showForm(){
+
+     $post_data=$this->input->post();
+    //echo $post_data['reel'];
+
+     if($post_data['reel']=='sheet'){
+
+         $this->load->view('users/header/header2');
+         $this->load->view('products_form');
+      
+     }
+     else{
+
+         $this->load->view('users/header/header2');
+         $this->load->view('reel_products_form');
+     }
+  
+}
+  
+  public function productReel(){
+
+
+
+      $post_data=$this->input->post();
+    /*  echo "<pre/>";
+      print_r($post_data);
+     die();*/
+                    $data_set=array();
+                    /*echo count($post_data['products_name']);
+                    die();*/
+                    for($i=0;$i<count($post_data['products_name']);$i++){
+                      //echo  $post_data['products_manufacturer'][$i];
+                        array_push($data_set,[
+                            'chawri_products_name'=>$post_data['products_name'][$i],
+                            'chawri_products_brand_name'=>$post_data['products_brand_name'][$i],
+                            'chawri_products_cenvat_amount'=>$post_data['products_cenvat_amount'][$i],
+                            'chawri_products_manufacturer'=>$post_data['products_manufacturer'][$i],
+                            'chawri_products_grain'=>$post_data['products_grain'][$i],
+                            
+                            'chawri_products_packing'=>$post_data['products_packing'][$i],
+                            'chawri_products_quantity_on_offer'=>$post_data['products_quantity_on_offer'][$i],
+                            'chawri_products_rate'=>$post_data['products_rate'][$i],
+                            
+                            'chawri_products_size'=>$post_data['products_size'][$i],
+                            'chawri_products_substance'=>$post_data['products_substance'][$i],
+                            'chawri_products_thickness'=>$post_data['products_thickness'][$i],
+                            'chawri_products_reel_sheet'=>'r',
+                            'chawri_sellers_id' => 1
+                        ]);
+                    }
+      
+
+
+        if($this->Mdl_products->insertProductReel($data_set)){
+
+            echo "your Products  Insert successful";
+        }
+        else{
+            echo "your Products not Insert";
+        }
+  }
+
+
+public function singleProducts(){
+
+ $data=$this->input->post();
+/* print_r($data);
+die();*/
+        $this->Mdl_products->setData('insert',1,$data['products_brand_name'],$data['products_name'],$data['products_cenvat_amount'],
+            $data['products_manufacturer'],$data['products_grain'],$data['packets_per_bundle'],$data['products_packing'],
+            $data['products_quantity_on_offer'],$data['products_rate'],
+            $data['products_sheets_per_packet'],$data['products_size'],$data['packets_weight'],$data['products_substance'],$data['products_thickness']);
+
+
+        if($this->Mdl_products->singleProducts($data)){
+
+            echo "your Products  Insert successful";
+        }
+        else{
+            echo "your Products not Insert";
+        }
+
+}
 
    // public function productsXml(){
 

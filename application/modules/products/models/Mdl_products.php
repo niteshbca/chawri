@@ -25,6 +25,27 @@ class Mdl_products extends CI_Model
     private $products_rate;
     private $products_cenvat_amount;
     private $sellers_id;
+    private $products_weight;
+
+
+
+
+
+ /**
+     * @return mixed
+     */
+    public function getProductsWeight()
+    {
+        return $this->products_weight;
+    }
+
+    /**
+     * @param mixed $products_id
+     */
+    public function setProductsWeight($products_weight)
+    {
+        $this->products_weight = $products_weight;
+    }
 
     /**
      * @return mixed
@@ -272,7 +293,8 @@ class Mdl_products extends CI_Model
     {
         switch (func_get_arg(0)) {
             case "insert":
-                foreach(func_get_arg(2) as $products) {
+
+                     $this->setSellersId($this->security->xss_clean($this->sellers_id));
                     $this->setProductsBrandName($this->security->xss_clean($this->products_brand_name));
                     $this->setProductsName($this->security->xss_clean($this->products_name));
                     $this->setProductsCenvatAmount($this->security->xss_clean($this->products_cenvat_amount));
@@ -286,11 +308,12 @@ class Mdl_products extends CI_Model
                     $this->setProductsSize($this->security->xss_clean($this->products_size));
                     $this->setProductsSubstance($this->security->xss_clean($this->products_substance));
                     $this->setProductsThickness($this->security->xss_clean($this->products_thickness));
-                }
-                $this->setSellersId($this->security->xss_clean($this->sellers_id));
+                    $this->setProductsWeight($this->security->xss_clean($this->products_weight));
+               
+                    
 
                 break;
-           /* case "insert":
+            case "update":
                 $this->setProductsBrandName($this->security->xss_clean($this->products_brand_name));
                 $this->setProductsName($this->security->xss_clean($this->products_name));
                 $this->setProductsCenvatAmount($this->security->xss_clean($this->products_cenvat_amount));
@@ -305,9 +328,9 @@ class Mdl_products extends CI_Model
                 $this->setProductsSubstance($this->security->xss_clean($this->products_substance));
                 $this->setProductsThickness($this->security->xss_clean($this->products_thickness));
 
-                $this->setSellersId($this->security->xss_clean($this->sellers_id));
+                $this->setProductsWeight($this->security->xss_clean($this->products_weight));
 
-                break;*/
+                break;
             default:
                 break;
         }
@@ -361,6 +384,30 @@ class Mdl_products extends CI_Model
     }
 
 
+
+public function insertProductReel($data){
+
+
+ 
+      if($q=$this->db->insert_batch('chawri_products', $data)){
+          return true;
+      }
+
+      
+        return false;
+
+
+}
+
+
+
+
+
+
+
+
+
+
     public function setData()
     {
         switch (func_get_arg(0)) {
@@ -370,11 +417,11 @@ class Mdl_products extends CI_Model
 
                 //print_r(func_get_arg(2));
                 //  die();
-                foreach(func_get_arg(2) as $products ) {
+                
 
                     //echo $products[0]['products_name'];
 
-                   /*
+                   
                     $this->setProductsBrandName(func_get_arg(2));
                     $this->setProductsName(func_get_arg(3));
                     $this->setProductsCenvatAmount(func_get_arg(4));
@@ -386,32 +433,34 @@ class Mdl_products extends CI_Model
                     $this->setProductsRate(func_get_arg(10));
                     $this->setProductsSheetsPerPacket(func_get_arg(11));
                     $this->setProductsSize(func_get_arg(12));
-                    $this->setProductsSubstance(func_get_arg(13));
-                    $this->setProductsThickness(func_get_arg(14));*/
-                }
-
-                  die();
+                    $this->setProductsWeight(func_get_arg(13));
+                    $this->setProductsSubstance(func_get_arg(14));
+                    $this->setProductsThickness(func_get_arg(15));
+                
+                  
                 break;
-           /* case "insert":
+            case "update":
 
                 $this->setSellersId(func_get_arg(1));
-                $this->setProductsBrandName(func_get_arg(2));
-                $this->setProductsName(func_get_arg(3));
-                $this->setProductsCenvatAmount(func_get_arg(4));
-                $this->setProductsManufacturer(func_get_arg(5));
-                $this->setProductsGrain(func_get_arg(6));
-                $this->setProductsPacketsPerBundle(func_get_arg(7));
-                $this->setProductsPacking(func_get_arg(8));
-                $this->setProductsQuantityOnOffer(func_get_arg(9));
-                $this->setProductsRate(func_get_arg(10));
-                $this->setProductsSheetsPerPacket(func_get_arg(11));
-                $this->setProductsSize(func_get_arg(12));
-                $this->setProductsSubstance(func_get_arg(13));
-                $this->setProductsThickness(func_get_arg(14));
+                $this->setProductsId(func_get_arg(2));
+                $this->setProductsBrandName(func_get_arg(3));
+                $this->setProductsName(func_get_arg(4));
+                $this->setProductsCenvatAmount(func_get_arg(5));
+                $this->setProductsManufacturer(func_get_arg(6));
+                $this->setProductsGrain(func_get_arg(7));
+                $this->setProductsPacketsPerBundle(func_get_arg(8));
+                $this->setProductsPacking(func_get_arg(9));
+                $this->setProductsQuantityOnOffer(func_get_arg(10));
+                $this->setProductsRate(func_get_arg(11));
+                $this->setProductsSheetsPerPacket(func_get_arg(12));
+                $this->setProductsSize(func_get_arg(13));
+                $this->setProductsSubstance(func_get_arg(14));
+                $this->setProductsThickness(func_get_arg(15));
+                $this->setProductsWeight(func_get_arg(15));
 
 
 
-                break;*/
+                break;
 
 
             default:
@@ -426,6 +475,82 @@ class Mdl_products extends CI_Model
         $data=$this->db->get('chawri_products')->result_array();
         return $data;
     }
+
+
+
+public function update (){
+       $this->_validate('update');
+   $data = [
+            'chawri_products_name' => $this->products_name,
+            'chawri_products_brand_name' => $this->products_brand_name,
+            'chawri_products_manufacturer' => $this->products_manufacturer,
+            'chawri_products_substance' => $this->products_substance,
+
+            'chawri_products_size' => $this->products_size,
+            'chawri_products_thickness' => $this->products_thickness,
+            'chawri_products_grain' => $this->products_grain,
+            'chawri_products_sheets_per_packet' => $this->products_sheets_per_packet,
+            'chawri_products_packets_per_bundle' => $this->products_packets_per_bundle,
+            'chawri_products_quantity_on_offer' => $this->products_quantity_on_offer,
+            'chawri_products_packing' => $this->products_packing,
+            'chawri_products_rate' => $this->products_rate,
+            'chawri_products_cenvat_amount' => $this->products_cenvat_amount,
+            'chawri_sellers_id' => $this->sellers_id
+
+
+        ];
+       
+      $this->db->where(array('chawri_sellers_id' =>$this->sellers_id ,'chawri_sellers_id'=>$this->products_id))->update('chawri_products',$data);
+     if(mssql_rows_affected('chawri_products')){
+        return true;
+     }
+     else{
+        return false;
+     }
+    }
+
+
+
+
+public function singleProducts(){
+
+ $this->_validate('insert');
+        $data = [
+            'chawri_products_name' => $this->products_name,
+            'chawri_products_brand_name' => $this->products_brand_name,
+            'chawri_products_manufacturer' => $this->products_manufacturer,
+            'chawri_products_substance' => $this->products_substance,
+
+            'chawri_products_size' => $this->products_size,
+            'chawri_products_thickness' => $this->products_thickness,
+            'chawri_products_grain' => $this->products_grain,
+            'chawri_products_sheets_per_packet' => $this->products_sheets_per_packet,
+            'chawri_products_packets_per_bundle' => $this->products_packets_per_bundle,
+            'chawri_products_quantity_on_offer' => $this->products_quantity_on_offer,
+            'chawri_products_packing' => $this->products_packing,
+            'chawri_products_rate' => $this->products_rate,
+            'chawri_products_cenvat_amount' => $this->products_cenvat_amount,
+            'chawri_products_weight' => $this->products_weight,
+            'chawri_sellers_id' => $this->sellers_id
+
+
+
+        ];
+
+        if($this->db->insert('chawri_products',$data)){
+          return true;
+        }
+        else{
+          return false;
+        }
+
+}
+
+
+public function showUpdate($id){
+
+  return $this->db->where('chawri_products_id',$id)->get('chawri_products')->result_array();
+}
 
 }
 
