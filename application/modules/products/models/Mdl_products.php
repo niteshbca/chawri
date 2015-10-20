@@ -323,12 +323,13 @@ class Mdl_products extends CI_Model
                 $this->setProductsPacking($this->security->xss_clean($this->products_packing));
                 $this->setProductsQuantityOnOffer($this->security->xss_clean($this->products_quantity_on_offer));
                 $this->setProductsRate($this->security->xss_clean($this->products_rate));
+                $this->setProductsWeight($this->security->xss_clean($this->products_weight));
                 $this->setProductsSheetsPerPacket($this->security->xss_clean($this->products_sheets_per_packet));
                 $this->setProductsSize($this->security->xss_clean($this->products_size));
                 $this->setProductsSubstance($this->security->xss_clean($this->products_substance));
                 $this->setProductsThickness($this->security->xss_clean($this->products_thickness));
 
-                $this->setProductsWeight($this->security->xss_clean($this->products_weight));
+                
 
                 break;
             default:
@@ -337,7 +338,6 @@ class Mdl_products extends CI_Model
 
 
     }
-
 
     public function insertProduct($data){
 
@@ -495,13 +495,14 @@ public function update (){
             'chawri_products_packing' => $this->products_packing,
             'chawri_products_rate' => $this->products_rate,
             'chawri_products_cenvat_amount' => $this->products_cenvat_amount,
-            'chawri_sellers_id' => $this->sellers_id
+            'chawri_products_weight' => $this->products_weight
 
 
         ];
-       
+       //echo $this->products_id;
+      // die();
       $this->db->where(array('chawri_sellers_id' =>$this->sellers_id ,'chawri_sellers_id'=>$this->products_id))->update('chawri_products',$data);
-     if(mssql_rows_affected('chawri_products')){
+     if($this->db->affected_rows()){
         return true;
      }
      else{

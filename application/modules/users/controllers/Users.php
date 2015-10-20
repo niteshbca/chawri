@@ -43,11 +43,24 @@ class Users extends MX_Controller{
             }
             $data['roles']=$roles;
            /* $data['facebook_login_url']=$this->_getFacebookLoginUrl();*/
-            $this->load->view('header/header');
+             $this->load->view('header/header3');
             $this->load->view('login.php',$data);
+            $this->load->view('header/footer');
         }
     }
 
+
+
+
+
+
+
+public function home(){
+
+            $this->load->view('header/header3');
+            $this->load->view('home');
+            $this->load->view('header/footer');
+}
     /**
      * check if user if someone is logged in or not
      * @return bool
@@ -93,16 +106,17 @@ class Users extends MX_Controller{
                         $this->_setSessionData('authorize', $user_data);
 
                       if($user_data['data'][0]['chawri_users_username']=='admin@admin.com') {
-                          $this->load->view('header/header');
+                          $this->load->view('users/header/header');
                          // $this->load->view('admin/aside');
                            $this->load->view('admin/dashboard');
-
+                           $this->load->view('users/header/footer');
 
                       }
 
                               else {
                                   setInformUser('success', 'Successful login ');
-                                  redirect('users');
+                                  redirect('users/home');
+                                  
                               }
 
                        }
@@ -278,7 +292,7 @@ class Users extends MX_Controller{
             else{
 
                 setInformUser('error','Your token has expired !  Try Again.');
-                redirect('users');
+                redirect('users/home');
             }
 
         }
@@ -343,14 +357,18 @@ class Users extends MX_Controller{
 
         $data['user']=$this->Mdl_users->usersViews();
 
-        $this->load->view('admin/header/header');
+        $this->load->view('header/header3');
         $this->load->view('users_views',$data);
+         $this->load->view('header/footer');
 
     }
 
 
     public function register(){
-        $this->load->view('header/header');
+        $this->load->view('header/header3');
+
         $this->load->view('register');
+        $this->load->view('header/footer');
+
     }
 }

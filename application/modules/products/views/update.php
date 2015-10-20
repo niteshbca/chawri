@@ -10,7 +10,7 @@
 		<div class="padding-15">
 
 			<div class="login-box">
-<?php print_r($data) ;?>
+<?php //print_r($data) ;?>
              
 				<form action="<?php echo base_url().'products/update/'.$data[0]['chawri_products_id'] ?>" method="post" class="sky-form boxed" novalidate="novalidate">
 					 <header> <a href="<?php echo base_url().'products/showProducts' ?>">Show Products</a> </header>
@@ -109,7 +109,7 @@
 					<?php echo form_hidden('todo', 'register'); ?>
 					<footer>
 
-						<button type="submit" class="btn btn-primary pull-right"><i class="fa fa-check"></i>Add Products</button>
+						<button type="submit" class="btn btn-primary pull-right"><i class="fa fa-check"></i>Update Products</button>
 
 					</footer>
 

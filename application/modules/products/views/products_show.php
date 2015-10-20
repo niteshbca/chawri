@@ -51,18 +51,19 @@
 							<table class="table table-striped table-bordered table-hover" id="datatable_sample">
 								<thead>
 									<tr>
-										<th class="table-checkbox">
+										<!-- <th class="table-checkbox">
 											<input type="checkbox" class="group-checkable" data-set="#datatable_sample .checkboxes">
-										</th>
+										</th> -->
 										<th>Product Name</th>
 										<th>Brand Name</th>
 										<th>Manufacturer</th>
 										<th>Substance</th>
-										<th>Products Size</th>
-										<th>Thickness</th>
+										<th> Bulk</th>
+										<th>Products Size(in s/m)</th>
+										
 										<th>Grain</th>
 										<th> Sheets Per Packet</th>
-
+										<th> Pkt. Weight</th>
 										<th>Packets Per Bundle</th>
 										<th>Qty. on Offer (in pkts)</th>
 										<th>Packing</th>
@@ -78,9 +79,9 @@
                                   foreach($data as $rows){
 								   ?>
 									<tr class="odd gradeX">
-										<td>
+										<!-- <td>
 											<input type="checkbox" class="checkboxes" value="1">
-										</td>
+										</td> -->
 										<td>
 											<?php echo $rows['chawri_products_name']; ?>
 										</td>
@@ -93,13 +94,14 @@
 										<td>
 											<?php echo $rows['chawri_products_substance']; ?>
 										</td>
-										<td class="center">
-											<?php echo $rows['chawri_products_size']; ?>
-										</td>
-
 										<td>
 											<?php echo $rows['chawri_products_thickness']; ?>
 										</td>
+										<td>
+											<?php echo $rows['chawri_products_size']; ?>
+										</td>
+
+										
 
 										<td>
 											<?php echo $rows['chawri_products_grain']; ?>
@@ -108,7 +110,10 @@
 											<?php echo $rows['chawri_products_sheets_per_packet']; ?>
 										</td>
 
-
+                                       
+										<td>
+											<?php echo $rows['chawri_products_weight']; ?>
+										</td>
 
 										<td>
 											<?php echo $rows['chawri_products_packets_per_bundle']; ?>

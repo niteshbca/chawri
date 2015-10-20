@@ -29,8 +29,9 @@ class Products extends  MX_Controller
 
         }
         else{
-            $this->load->view('users/header/header');
+            $this->load->view('users/header/header3');
             $this->load->view('register');
+            $this->load->view('users/header/footer');
         }
     }
 
@@ -102,12 +103,12 @@ public function showUpdate($id){
 
 public function update($id){
 $data=$this->input->post();
-echo "<pre/>";
+/*echo "<pre/>";
 print_r($data);
-   die();
- $this->Mdl_products->setData('update',1,$data['products_brand_name'],$data['products_name'],$data['products_cenvat_amount'],
+   die();*/
+ $this->Mdl_products->setData('update',1,$id,$data['products_brand_name'],$data['products_name'],$data['products_cenvat_amount'],
             $data['products_manufacturer'],$data['products_grain'],$data['packets_per_bundle'],$data['products_packing'],
-            $data['products_quantity_on_offer'],$data['products_rate'],
+            $data['products_quantity_on_offer'],$data['products_rate'],$data['products_weight'],
             $data['products_sheets_per_packet'],$data['products_size'],$data['products_substance'],$data['products_thickness']);
 
 
@@ -125,16 +126,18 @@ print_r($data);
 
 public function productsAdd(){
 
-     $this->load->view('users/header/header2');
+     $this->load->view('users/header/header3');
       $this->load->view('register');
+      $this->load->view('users/header/footer');
 }
 
 
 
 public function productsReel(){
 
-     $this->load->view('users/header/header2');
+     $this->load->view('users/header/header3');
       $this->load->view('add_products');
+      $this->load->view('users/header/footer');
 }
 
 public function showForm(){
@@ -144,14 +147,16 @@ public function showForm(){
 
      if($post_data['reel']=='sheet'){
 
-         $this->load->view('users/header/header2');
+         $this->load->view('users/header/header3');
          $this->load->view('products_form');
+         $this->load->view('users/header/footer');
       
      }
      else{
 
-         $this->load->view('users/header/header2');
+         $this->load->view('users/header/header3');
          $this->load->view('reel_products_form');
+         $this->load->view('users/header/footer');
      }
   
 }

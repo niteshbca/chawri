@@ -13,7 +13,7 @@
 
 				<!-- login form -->
 				<form action="<?php echo 'users';?>" method="post" class="sky-form boxed">
-					<header><i class="fa fa-users"></i> Sign In</header>
+					<!-- <header><i class="fa fa-users"></i> Sign In</header> -->
 
 					<!--
 					<div class="alert alert-danger noborder text-center weight-400 nomargin noradius">

@@ -31,8 +31,9 @@ class Sellers extends MX_Controller{
         }
         else{
             $data['state']=$this->showStates();
-            $this->load->view('users/header/header');
+            $this->load->view('users/header/header3');
             $this->load->view('register',$data);
+            $this->load->view('users/header/footer');
         }
     }
 
@@ -108,8 +109,9 @@ class Sellers extends MX_Controller{
     }
     public function showProfile(){
 
-        $this->load->view('users/header/header');
+        $this->load->view('users/header/header3');
         $this->load->view('profile');
+        $this->load->view('users/header/footer');
     }
 
      public function showStates(){

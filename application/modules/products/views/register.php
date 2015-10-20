@@ -120,7 +120,7 @@
 
 					<?php echo form_hidden('todo', 'register'); ?>
 					<footer>
-
+                          <button type="button" class="addmore"><a href="<?php echo base_url().'products/productsReel' ?>">Add More</a></button> 
 						<button type="submit" class="btn btn-primary pull-right"><i class="fa fa-check"></i>Add Products</button>
 
 					</footer>
