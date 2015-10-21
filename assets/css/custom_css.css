@@ -301,13 +301,17 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
 .sky-form .btn {
 		margin-top:0;
 }
+
+.sky-form.boxed fieldset { margin: 0px auto;	width: 600px;}
+
+.sky-form header { margin: 0px auto; text-align: center;}
 .sky-form .btn-social {
 	margin:0;
 }
 
 .sky-form.boxed {
 	background-color:#fff;
-}
+}	
 .sky-form fieldset {
 	padding: 0 0 30px 0;
 }

@@ -57,6 +57,14 @@ class Users extends MX_Controller{
 
 public function home(){
 
+            $this->load->view('header/header2');
+            $this->load->view('newIndex');
+            $this->load->view('header/footer');
+}
+
+
+public function buyerHome(){
+
             $this->load->view('header/header3');
             $this->load->view('home');
             $this->load->view('header/footer');
@@ -115,7 +123,7 @@ public function home(){
 
                               else {
                                   setInformUser('success', 'Successful login ');
-                                  redirect('users/home');
+                                  redirect('users/buyerHome');
                                   
                               }
 
@@ -124,11 +132,11 @@ public function home(){
 
                            $user_data = $this->Mdl_sellers->getUserData();
 
-                          /*echo "Seller Login";
+                         /* echo "Seller Login";
                            print_r($user_data);
                            die();*/
                           $this->_setSessionData('sellers', $user_data);
-                            redirect('products');
+                            redirect(base_url().'sellers/home');
               }
 
 
@@ -188,20 +196,22 @@ public function home(){
 
 
             case "sellers": $data=array();
-
+                      /* print_r(func_get_arg(1));
+                       die();*/
                             
-                $user_username=func_get_arg(1)['data'][0]['chawri_sellers_company_name'];
+                $user_username=func_get_arg(1)[0]['chawri_sellers_company_name'];
 
                 array_push($data, [
-                    'users_id' =>func_get_arg(1)['data'][0]['chawri_sellers_id'],
-                    'users_email' =>func_get_arg(1)['data'][0]['chawri_sellers_email'],
+                    'users_id' =>func_get_arg(1)[0]['chawri_sellers_id'],
+                    'users_email' =>func_get_arg(1)[0]['chawri_sellers_email'],
                     'users_name' =>$user_username
                     
 
                 ]);
 
-
-
+               /*echo $user_username ;
+                print_r($data);
+                die();*/
 
                 $this->session->set_userdata('user_data',$data);
                 break;

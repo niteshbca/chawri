@@ -13,7 +13,7 @@
 
 
 				<form action="<?php echo base_url().'products/singleProducts';?>" method="post" class="sky-form boxed" novalidate="novalidate" name"formproducts">
-					 <header> <a href="<?php echo base_url().'products/showProducts' ?>">Show Products</a> </header>
+					 <!-- <header> <a href="<?php echo base_url().'products/showProducts' ?>">Show Products</a> </header> -->
 					<header>Seller Add Product </header>
 					<fieldset>					
 						<label class="input" >

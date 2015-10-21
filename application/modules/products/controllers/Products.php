@@ -29,9 +29,9 @@ class Products extends  MX_Controller
 
         }
         else{
-            $this->load->view('users/header/header3');
+            $this->load->view('sellers/header3');
             $this->load->view('register');
-            $this->load->view('users/header/footer');
+            $this->load->view('sellers/footer');
         }
     }
 
@@ -60,7 +60,7 @@ class Products extends  MX_Controller
                 'chawri_products_thickness'=>$post_data['products_thickness'][$i],
                 'chawri_products_weight'=>$post_data['products_weight'][$i],
                 'chawri_products_reel_sheet'=>'s',
-                'chawri_sellers_id' => 1
+                'chawri_sellers_id' =>$this->session->userdata['user_data'][0]['users_id']
             ]);
         }
        /* echo '<br/>';
@@ -89,8 +89,9 @@ class Products extends  MX_Controller
     public  function showProducts(){
 
         $data['data']=$this->Mdl_products->showProducts();
-        $this->load->view('users/header/header2');
+        $this->load->view('users/header/header3');
         $this->load->view('products_show',$data);
+        $this->load->view('users/header/footer');
     }
 
 
@@ -106,8 +107,8 @@ $data=$this->input->post();
 /*echo "<pre/>";
 print_r($data);
    die();*/
- $this->Mdl_products->setData('update',1,$id,$data['products_brand_name'],$data['products_name'],$data['products_cenvat_amount'],
-            $data['products_manufacturer'],$data['products_grain'],$data['packets_per_bundle'],$data['products_packing'],
+ $this->Mdl_products->setData('update',$this->session->userdata['user_data'][0]['users_id'],$id,$data['products_brand_name'],$data['products_name'],$data['products_cenvat_amount'],
+            $data['products_manufacture'],$data['products_grain'],$data['packets_per_bundle'],$data['products_packing'],
             $data['products_quantity_on_offer'],$data['products_rate'],$data['products_weight'],
             $data['products_sheets_per_packet'],$data['products_size'],$data['products_substance'],$data['products_thickness']);
 
@@ -189,7 +190,7 @@ public function showForm(){
                             'chawri_products_substance'=>$post_data['products_substance'][$i],
                             'chawri_products_thickness'=>$post_data['products_thickness'][$i],
                             'chawri_products_reel_sheet'=>'r',
-                            'chawri_sellers_id' => 1
+                            'chawri_sellers_id' => $this->session->userdata['user_data'][0]['users_id']
                         ]);
                     }
       
@@ -210,7 +211,7 @@ public function singleProducts(){
  $data=$this->input->post();
 /* print_r($data);
 die();*/
-        $this->Mdl_products->setData('insert',1,$data['products_brand_name'],$data['products_name'],$data['products_cenvat_amount'],
+        $this->Mdl_products->setData('insert',$this->session->userdata['user_data'][0]['users_id'],$data['products_brand_name'],$data['products_name'],$data['products_cenvat_amount'],
             $data['products_manufacturer'],$data['products_grain'],$data['packets_per_bundle'],$data['products_packing'],
             $data['products_quantity_on_offer'],$data['products_rate'],
             $data['products_sheets_per_packet'],$data['products_size'],$data['packets_weight'],$data['products_substance'],$data['products_thickness']);

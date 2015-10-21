@@ -37,7 +37,12 @@ class Sellers extends MX_Controller{
         }
     }
 
+   public function home(){
 
+    $this->load->view('header3');
+     $this->load->view('dashboard');
+     $this->load->view('footer');
+   }
 
 
     private function _register($data)
@@ -76,7 +81,7 @@ class Sellers extends MX_Controller{
         $token=$this->input->post_get('tqwertyuiasdfghjzxcvbn');
         $this->Mdl_sellers->setData('token',$token);
         $this->Mdl_sellers->verifyEmail()?setInformUser('success',"email verified successfully"):setInformUser('error',"Your token has expired");
-        redirect('sellers');
+        redirect('sellers/home');
     }
 
 

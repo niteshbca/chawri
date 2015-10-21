@@ -255,7 +255,7 @@
                                                                         </ul>
                                                                     </li><!-- /.menu-item-link -->
                                                                     <li class="menu-item-link menu-item-depth-0 dd-menu-link fa fa-bars menu-item-parent">
-                                                                        <a class="em-menu-link" href="#"> <span> Category </span> </a>
+                                                                        <a class="em-menu-link" href=""> <span> Add Products</span> </a>
                                                                         <ul class="menu-container">
                                                                             <li class="menu-item-text menu-item-depth-1  ">
                                                                                 <ul class="em-catalog-navigation vertical">
@@ -488,7 +488,8 @@
                                                         </li>
                                                     </ul>
                                                 </div>
-                                                <ul class="list-inline f-right">
+                                                <ul class="list-inline f-right"> 
+
                                                     <li> <?php if($this->session->userdata('user_data')!=''){ echo $this->session->userdata['user_data'][0]['users_name'];?></li><li><a href="<?php echo base_url().'users/logout' ;?>">Logout</a></li><?php } else{ ?>
                                                     <li><a class="em-register-link" href="<?php echo base_url().'users' ;?>" title="Login/Register">Login/Register</a></li>
                                                   <?php } ?>
@@ -564,11 +565,11 @@
                                                             <div class="em_nav" id="toogle_menu_4_8356">
                                                                 <ul class="hnav em_hoz_menu effect-menu">
                                                                     <li class="menu-item-link menu-item-depth-0  menu-item-parent">
-                                                                        <a class="em-menu-link" href="<?php echo base_url().'users/buyerHome';?>"> <span> Home </span> </a>
+                                                                        <a class="em-menu-link" href=""> <span> Home </span> </a>
                                                                 
-                                                                    </li> 
+                                                                    </li>
                                                                     <li class="menu-item-link menu-item-depth-0  menu-item-parent">
-                                                                        <a class="em-menu-link" href="<?php echo base_url().'products/showProducts' ?>"> <span> Show Products  </span> </a>
+                                                                        <a class="em-menu-link" href="<?php echo base_url().'products';?>"> <span> Add Products  </span> </a>
                                                                 
                                                                     </li>
                                                                     

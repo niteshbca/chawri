@@ -147,7 +147,7 @@
 <!--<div class="text-left">
 	<a class="btn btn-xs btn-info" href="javascript:;" onclick="jQuery('#pre-0').slideToggle();">Show Code</a>
 </div>-->
-<pre id="pre-0" class="text-left noradius text-danger softhide margin-top-10">
+<!-- <pre id="pre-0" class="text-left noradius text-danger softhide margin-top-10">
 <span class="text-success">&lt;!-- HTML DATATABLE --&gt;</span>
 &lt;table class="table table-striped table-bordered table-hover" id="datatable_sample"&gt;
 	&lt;thead&gt;
@@ -295,7 +295,7 @@ loadScript(plugin_path + "datatables/js/jquery.dataTables.min.js", function(){
 	});
 });
 &lt;/script"&gt;
-</pre>
+</pre> -->
 <!-- /pre code -->
 
 						</div>
