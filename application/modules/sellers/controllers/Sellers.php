@@ -31,7 +31,7 @@ class Sellers extends MX_Controller{
         }
         else{
             $data['state']=$this->showStates();
-            $this->load->view('users/header/header3');
+            $this->load->view('users/header/header');
             $this->load->view('register',$data);
             $this->load->view('users/header/footer');
         }
@@ -39,11 +39,26 @@ class Sellers extends MX_Controller{
 
    public function home(){
 
-    $this->load->view('header3');
-     $this->load->view('dashboard');
-     $this->load->view('footer');
+    $this->load->view('users/header/header');
+     $this->load->view('users/body');
+     $this->load->view('users/header/footer');
    }
 
+ public function homeSeller(){
+
+    $this->load->view('users/header/header_seller');
+     $this->load->view('users/body');
+     $this->load->view('users/header/footer');
+   }
+
+
+public function showProducts(){
+    $this->load->view('users/header/header_seller');
+    $data['data']=$this->Mdl_sellers->showProducts();
+    $this->load->view('products/products_show',$data);
+     $this->load->view('users/header/footer');
+
+}
 
     private function _register($data)
     {
@@ -96,7 +111,7 @@ class Sellers extends MX_Controller{
 
     public function profile(){
         $data = $this->input->post();
-        $this->Mdl_sellers->setData('profile',1,$data['tin_no'],$data['pan_no'],$data['excise_no'],
+        $this->Mdl_sellers->setData('profile',$this->session->userdata['user_data'][0]['users_id'],$data['tin_no'],$data['pan_no'],$data['excise_no'],
             $data['services_tax_no'],$data['tan_no']
         );
 
@@ -114,7 +129,7 @@ class Sellers extends MX_Controller{
     }
     public function showProfile(){
 
-        $this->load->view('users/header/header3');
+        $this->load->view('users/header/header_seller');
         $this->load->view('profile');
         $this->load->view('users/header/footer');
     }

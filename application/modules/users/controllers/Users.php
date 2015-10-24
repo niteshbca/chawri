@@ -43,7 +43,7 @@ class Users extends MX_Controller{
             }
             $data['roles']=$roles;
            /* $data['facebook_login_url']=$this->_getFacebookLoginUrl();*/
-             $this->load->view('header/header3');
+             $this->load->view('header/header');
             $this->load->view('login.php',$data);
             $this->load->view('header/footer');
         }
@@ -57,16 +57,16 @@ class Users extends MX_Controller{
 
 public function home(){
 
-            $this->load->view('header/header2');
-            $this->load->view('newIndex');
+            $this->load->view('header/header');
+            $this->load->view('body');
             $this->load->view('header/footer');
 }
 
 
 public function buyerHome(){
 
-            $this->load->view('header/header3');
-            $this->load->view('home');
+            $this->load->view('header/header_buyer');
+            $this->load->view('body');
             $this->load->view('header/footer');
 }
     /**
@@ -136,7 +136,7 @@ public function buyerHome(){
                            print_r($user_data);
                            die();*/
                           $this->_setSessionData('sellers', $user_data);
-                            redirect(base_url().'sellers/home');
+                            redirect(base_url().'sellers/homeSeller');
               }
 
 
@@ -165,7 +165,10 @@ public function buyerHome(){
         if($this->Mdl_users->register('normal_registration')){
 
             if($this->sendMail()){
-                echo $this->Mdl_users->insertToken()?"your account successfully created and  Active link on your Email ":"some error in inserting token";
+                 $this->Mdl_users->insertToken();
+
+                echo "your account successfully created and  Active link on your Email ";
+                redirect('users');
             }else{
                 echo 'Account registered but email not send.';
             }
@@ -375,7 +378,7 @@ public function buyerHome(){
 
 
     public function register(){
-        $this->load->view('header/header3');
+        $this->load->view('header/header');
 
         $this->load->view('register');
         $this->load->view('header/footer');

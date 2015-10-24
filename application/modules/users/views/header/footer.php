@@ -1,5 +1,4 @@
-
-                <div class="em-wrapper-footer">
+<div class="em-wrapper-footer">
                     <div class="em-footer-style09">
                         <div class="em-footer-top">
                             <div class="container">
@@ -7,7 +6,7 @@
                                     <div class="col-sm-24">
                                         <div class="em-footer-info">
                                             <div class="row">
-                                                <div class="col-sm-4 first text-center">
+                                             <!--   <div class="col-sm-4 first text-center">
                                                     <div class="em-block-title" data-collapse-target="#collapse01">
                                                         <p class="h4 em-text-upercase"><span>What's hot</span>
                                                         </p>
@@ -29,48 +28,18 @@
                                                         </p>
                                                     </div>
                                                     <ul id="collapse02" class="em-links em-block-content block-info">
-                                                        <li class="em-links-item"><a title="em-sample-title" href="#"><span>Jack &amp; Jones</span></a>
+                                                        <li class="em-links-item"><a title="em-sample-title" href="#"><span>ITC &amp; Jones</span></a>
                                                         </li>
-                                                        <li class="em-links-item"><a title="em-sample-title" href="#"><span>Calvin Klein</span></a>
+                                                        <li class="em-links-item"><a title="em-sample-title" href="#"><span>BILT</span></a>
                                                         </li>
-                                                        <li class="em-links-item"><a title="em-sample-title" href="#"><span>Ray Ban</span></a>
+                                                        <li class="em-links-item"><a title="em-sample-title" href="#"><span> Trident</span></a>
                                                         </li>
-                                                        <li class="em-links-item"><a title="em-sample-title" href="#"><span>River Island</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </div><!-- /.col-sm-4 -->
-                                                <div class="col-sm-4 text-center">
-                                                    <div class="em-block-title" data-collapse-target="#collapse03">
-                                                        <p class="h4 em-text-upercase"><span>Men shop</span>
-                                                        </p>
-                                                    </div>
-                                                    <ul id="collapse03" class="em-links em-block-content block-info">
-                                                        <li class="em-links-item"><a title="em-sample-title" href="#"><span>Top</span></a>
-                                                        </li>
-                                                        <li class="em-links-item"><a title="em-sample-title" href="#"><span>Bottoms</span></a>
-                                                        </li>
-                                                        <li class="em-links-item"><a title="em-sample-title" href="#"><span>Accessories</span></a>
-                                                        </li>
-                                                        <li class="em-links-item"><a title="em-sample-title" href="#"><span>Shoes</span></a>
+                                                        <li class="em-links-item"><a title="em-sample-title" href="#"><span> Rainbow </span></a>
                                                         </li>
                                                     </ul>
                                                 </div><!-- /.col-sm-4 -->
-                                                <div class="col-sm-4 text-center">
-                                                    <div class="em-block-title" data-collapse-target="#collapse04">
-                                                        <p class="h4 em-text-upercase"><span>Women shop</span>
-                                                        </p>
-                                                    </div>
-                                                    <ul id="collapse04" class="em-links em-block-content block-info">
-                                                        <li class="em-links-item"><a title="em-sample-title" href="#"><span>Jeans</span></a>
-                                                        </li>
-                                                        <li class="em-links-item"><a title="em-sample-title" href="#"><span>Dresses</span></a>
-                                                        </li>
-                                                        <li class="em-links-item"><a title="em-sample-title" href="#"><span>Other</span></a>
-                                                        </li>
-                                                        <li class="em-links-item"><a title="em-sample-title" href="#"><span>Shoes</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </div><!-- /.col-sm-4 -->
+                                                <!-- /.col-sm-4 -->
+                                                
                                                 <div class="col-sm-4 text-center">
                                                     <div class="em-block-title" data-collapse-target="#collapse05">
                                                         <p class="h4 em-text-upercase"><span>Help</span>
@@ -89,7 +58,7 @@
                                                 </div><!-- /.col-sm-4 -->
                                                 <div class="col-sm-4 last text-center">
                                                     <div class="em-block-title" data-collapse-target="#collapse06">
-                                                        <p class="h4 em-text-upercase"><span>Nation Apps</span>
+                                                        <p class="h4 em-text-upercase"><span>Coming Soon on</span>
                                                         </p>
                                                     </div>
                                                     <ul id="collapse06" class="em-links em-block-content block-info">
@@ -155,10 +124,23 @@
                                 <div class="row">
                                     <div class="col-sm-24">
                                         <div class="em-area-footer02">
-                                            <div class="em-payment f-right"><a class="em-payment-icon em-visa" title="em-sample-title" href="#">visa</a> <a class="em-payment-icon em-master" title="em-sample-title" href="#">master</a> <a class="em-payment-icon em-express " title="em-sample-title" href="#">express</a><a class="em-payment-icon em-paypal" title="em-sample-title" href="#">paypal</a> <a class="em-payment-icon em-other " title="em-sample-title" href="#">other</a>
-                                            </div>
+                          <!--  <div class="em-payment f-right">
+                        
+
+        
+ <i class="fa fa-cc-mastercard"></i> visa</a> 
+                                
+                                
+<a class="em-payment-icon em-master" title="em-sample-title" href="#">master</a>
+                                
+<a class="em-payment-icon em-express " title="em-sample-title" href="#">expres</a>
+
+<a class="em-payment-icon em-paypal" title="em-sample-title" href="#">paypal</a>
+                
+<a class="em-payment-icon em-other " title="em-sample-title" href="#">other</a>
+                                            </div> -->
                                         </div>
-                                        <div class="em-footer-address"> <address class="f-left">&copy; 2015 EM0131 Everything Demo Store. All Rights Reserved.<span>HTML Templates by <a href="#" title="Responsive HTML Themes &amp; Responsive HTML Templates">htmlcooker.com</a></span></address>
+                                        <div class="em-footer-address"> <address class="f-left">&copy; 2015 All Rights Reserved.<span>HTML Templates by <a href="#" title="Responsive HTML Themes &amp; Responsive HTML Templates">htmlcooker.com</a></span></address>
                                         </div>
                                     </div>
                                 </div>
@@ -166,12 +148,48 @@
                         </div><!-- /.em-footer-bottom -->
                     </div><!-- /.em-footer-style09 -->
                 </div><!-- /.em-wrapper-footer -->
-                <p id="back-top" style="display: none;"><a title="Top" href="#top">Top</a></p>
+
+<p id="back-top" style="display: none;"><a title="Top" href="#top">Top</a></p>
 
                 
 
             </div><!-- /.page -->
         </div><!-- /.wrapper -->
 
+<!-- Jquery Js -->
+        <script type="text/javascript" src="<?php echo  asset_url();?>js\jquery-1.11.3.min.js"></script>
+        <!-- Bootstrap Js -->
+        <script type="text/javascript" src="<?php echo  asset_url();?>js\bootstrap.min.js"></script>
+        <!-- Lazy Load Js -->
+        <script type="text/javascript" src="<?php echo  asset_url();?>js\jquery.lazyload.min.js"></script>
+        <!-- Owl Carousel Js -->
+        <script type="text/javascript" src="<?php echo  asset_url();?>js\owl.carousel.js"></script>
+        <!-- Ios Orientation Change Js -->
+        <script type="text/javascript" src="<?php echo  asset_url();?>js\ios-orientationchange-fix.js"></script>
+        <!-- Hover Intent Js -->
+        <script type="text/javascript" src="<?php echo  asset_url();?>js\jquery.hoverIntent.js"></script>
+        <!-- Select UI Js -->
+        <script type="text/javascript" src="<?php echo  asset_url();?>j<?php echo  asset_url();?>s\selectUl.js"></script>
+        <!-- Throttle Js -->
+        <script type="text/javascript" src="<?php echo  asset_url();?>js\jquery.ba-throttle-debounce.js"></script>
+        <!-- EM Js -->
+        <script type="text/javascript" src="<?php echo  asset_url();?>js\em0131.js"></script>
+        <!-- MegaMenu Js -->
+        <script type="text/javascript" src="<?php echo  asset_url();?>js\megamenu.js"></script>
+        <!-- Responsive Tab Js -->
+        <script type="text/javascript" src="<?php echo  asset_url();?>js\jquery.custom.responsiveTabs.js"></script>
+        <!-- Fancybox Js -->
+        <script type="text/javascript" src="<?php echo  asset_url();?>js\jquery.fancybox.js"></script>
+        <!-- Countdown Js -->
+        <script type="text/javascript" src="<?php echo  asset_url();?>js\countdown.js"></script>
+        <!-- Multideal Js -->
+        <script type="text/javascript" src="<?php echo  asset_url();?>js\em_multidealpro.js"></script>
+        <!-- Custom Js -->
+        <script type="text/javascript" src="<?php echo  asset_url();?>js\custom.js"></script>
+
+    	<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
     </body>
 </html>

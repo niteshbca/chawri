@@ -1,43 +1,43 @@
 ﻿
 
 
-		<div class="padding-15">
+		<!-- <div class="padding-15">
 
 			<div class="login-box">
-
+ -->
 				<!--
 				<div class="alert alert-danger">Complete all fields!</div>
 				-->
 
-				<!-- registration form -->
+				<!-- registration form --
 				<form action="<?php echo 'users';?>" method="post" class="sky-form boxed" novalidate="novalidate">
 					<header><i class="fa fa-users"></i> Create Account <small class="note bold">IT'S FREE</small></header>
 					<fieldset>
-						<div class="row">
-							<div class="col-md-6">
+						<!-- <div class="row">
+							<div class="col-md-6"> --
 								<label class="input">
-									<input type="text" placeholder="First name"name="fname" >
+									<input type="text" REQUIRED="" placeholder="First name"name="fname" >
 								</label>
-							</div>
-							<div class="col col-md-6">
+							<!-- </div>
+							<div class="col col-md-6"> --
 								<label class="input">
-									<input type="text" placeholder="Last name" name="lname">
+									<input type="text" REQUIRED placeholder="Last name" name="lname">
 								</label>
-							</div>
+						<!-- 	</div>
 						</div>
-
-
+ -->
+<!-- 
 					</fieldset>
-					<fieldset>					
+					<fieldset>	 --			
 						<label class="input">
 							<i class="icon-append fa fa-envelope"></i>
-							<input type="text" placeholder="Email address" name="user_name_email">
+							<input type="text" REQUIRED placeholder="Email address" name="user_name_email">
 							<b class="tooltip tooltip-bottom-right">Needed to verify your account</b>
 						</label>
 
 						<label class="input">
 							<i class="icon-append fa fa-lock"></i>
-							<input type="password" placeholder="Password" name="password">
+							<input type="password"  REQUIRED placeholder="Password" name="password">
 							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
 						</label>
 					
@@ -49,7 +49,7 @@
 					</fieldset>
 						
 
-					<?php echo form_hidden('todo', 'register'); ?>
+					
 					<footer>
 						<button type="submit" class="btn btn-primary pull-right"><i class="fa fa-check"></i> Create Account</button>
 					</footer>
@@ -62,7 +62,7 @@
 		</div>
 
 
-		<!-- MODAL -->
+		<!-- MODAL --
 		<div class="modal fade" id="termsModal" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -212,18 +212,18 @@
 						<button type="button" class="btn btn-danger pull-left"><i class="fa fa-print"></i> Print</button>
 					</div>
 
-				</div><!-- /.modal-content -->
-			</div><!-- /.modal-dialog -->
+				</div><!-- /.modal-content --
+			</div><!-- /.modal-dialog --
 		</div>
-		<!-- /MODAL -->
+		<!-- /MODAL --
 
 	
-		<!-- JAVASCRIPT FILES -->
+		<!-- JAVASCRIPT FILES --
 		<script type="text/javascript">var plugin_path = 'assets/plugins/';</script>
 		<script type="text/javascript" src="assets\plugins\jquery\jquery-2.1.4.min.js"></script>
 		<script type="text/javascript" src="assets\js\app.js"></script>
 
-		<!-- PAGE LEVEL SCRIPTS -->
+		<!-- PAGE LEVEL SCRIPTS --
 		<script type="text/javascript">
 
 			/**
@@ -241,4 +241,112 @@
 		</script>
 
 	</body>
-</html>
+</html> -->
+
+
+
+
+
+                <div class="em-wrapper-main">
+                    <div class="container container-main">
+                        <div class="em-inner-main">
+                            <div class="em-wrapper-area02"></div>
+                            <div class="em-main-container em-col1-layout">
+                                <div class="row">
+                                    <div class="em-col-main col-sm-24">
+                                        <div class="account-create">
+                                            <div class="page-title">
+                                                <h1>Create an Account</h1>
+                                            </div>
+                                            <form action="<?php echo 'users';?>" method="post" id="form-validate">
+                                                <div class="fieldset">
+                                                    <input type="hidden" name="success_url" value="">
+                                                    <input type="hidden" name="error_url" value="">
+                                                    <h2 class="legend">Personal Information</h2>
+                                                    <ul class="form-list">
+                                                        <li class="fields">
+                                                            <div class="customer-name-middlename">
+                                                                <div class="field name-firstname">
+                                                                    <label for="firstname" class="required"><em>*</em>First Name</label>
+                                                                    <div class="input-box">
+                                                                        <input type="text" id="firstname"  required  name="fname" title="First Name" maxlength="255" class="input-text required-entry">
+                                                                    </div>
+                                                                </div>
+                                                                <!-- <div class="field name-middlename">
+                                                                    <label for="middlename">Middle Name/Initial</label>
+                                                                    <div class="input-box">
+                                                                        <input type="text" id="middlename" name="middlename" value="" title="Middle Name/Initial" class="input-text ">
+                                                                    </div>
+                                                                </div> -->
+                                                                <div class="field name-lastname">
+                                                                    <label for="lastname" class="required"><em>*</em>Last Name</label>
+                                                                    <div class="input-box">
+                                                                        <input type="text" id="lastname" required name="lname" title="Last Name" maxlength="255" class="input-text required-entry">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <label for="email_address" class="required"><em>*</em>Email Address</label>
+                                                            <div class="input-box">
+                                                                <input type="email"  name="user_name_email" required id="email_address" value="" title="Email Address" class="input-text validate-email required-entry">
+                                                            </div>
+                                                        </li>
+                                                       
+                                                        <li class="fields">
+                                                            <div class="field">
+                                                                <label for="password" class="required"><em>*</em>Password</label>
+                                                                <div class="input-box">
+                                                                    <input type="password" name="password" required id="password" title="Password" class="input-text required-entry validate-password">
+                                                                </div>
+                                                            </div>   
+                                                            <div class="field">
+                                                                <label for="confirmation" class="required"><em>*</em>Confirm Password</label>
+                                                                <div class="input-box">
+                                                                    <input type="password" name="confirm_password" onchange="myFunction()" required title="Confirm Password" id="confirmation" class="input-text required-entry validate-cpassword">
+                                                                    <?php echo form_hidden('todo', 'register'); ?>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                    
+                                                   
+                                                    <div class="buttons-set">
+                                                        
+                                                        
+                                                        <button type="submit" title="Submit" class="button"><span><span>Submit</span></span>
+                                                        </button>
+                                                        <p class="required">* Required Fields</p>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- /.em-wrapper-main-->
+
+
+<script>
+function myFunction() {
+    var x = document.getElementByName("confirm_password");
+  alert(x);
+   // x.value = x.value.toUpperCase();
+}
+</script>
+
+
+<script type="text/javascript">
+    
+
+    function pass(){
+         var x = document.getElementById("confirm_password");
+        var pass=getElementByName('password').value();
+        var cpass=getElementByName('confirm_password').value();
+        alert(pass);
+        alert(cpass);
+
+    }
+</script>

@@ -508,5 +508,16 @@ class Mdl_sellers extends CI_Model
         
         return $data;
     }
+
+
+
+    public function showProducts(){
+ 
+ /*echo $this->session->userdata['user_data'][0]['users_id'];
+ die();*/
+         $data=$this->db->where('chawri_sellers_id',$this->session->userdata['user_data'][0]['users_id'])->get('chawri_products')->result_array();
+
+          return $data;
+    }
 }
 

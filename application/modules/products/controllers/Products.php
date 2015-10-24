@@ -29,7 +29,7 @@ class Products extends  MX_Controller
 
         }
         else{
-            $this->load->view('sellers/header3');
+            $this->load->view('users/header/header_seller');
             $this->load->view('register');
             $this->load->view('sellers/footer');
         }
@@ -89,7 +89,7 @@ class Products extends  MX_Controller
     public  function showProducts(){
 
         $data['data']=$this->Mdl_products->showProducts();
-        $this->load->view('users/header/header3');
+        $this->load->view('users/header/header_buyer');
         $this->load->view('products_show',$data);
         $this->load->view('users/header/footer');
     }
@@ -127,7 +127,7 @@ print_r($data);
 
 public function productsAdd(){
 
-     $this->load->view('users/header/header3');
+     $this->load->view('users/header/header_seller');
       $this->load->view('register');
       $this->load->view('users/header/footer');
 }
@@ -136,7 +136,7 @@ public function productsAdd(){
 
 public function productsReel(){
 
-     $this->load->view('users/header/header3');
+     $this->load->view('users/header/header_seller');
       $this->load->view('add_products');
       $this->load->view('users/header/footer');
 }
@@ -148,14 +148,14 @@ public function showForm(){
 
      if($post_data['reel']=='sheet'){
 
-         $this->load->view('users/header/header3');
+         $this->load->view('users/header/header_seller');
          $this->load->view('products_form');
          $this->load->view('users/header/footer');
       
      }
      else{
 
-         $this->load->view('users/header/header3');
+         $this->load->view('users/header/header_seller');
          $this->load->view('reel_products_form');
          $this->load->view('users/header/footer');
      }

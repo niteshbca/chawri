@@ -2779,7 +2779,7 @@ border-top-color: transparent;*/ -moz-transition: all 500ms ease; -webkit-transi
 .em-header-style31 .toolbar-switch:before { bottom: auto; top: 0; }
 .em-header-style31 .toolbar-switch span.current { padding: 14px 0 15px; min-height: 49px; }
 .em-header-style31 .em-language-currency .form-language.toolbar-switch span.current { padding-left: 25px; background-position: 0px center; }
-.em-header-style31 .em-logo .logo { margin: 30px 0; }
+.em-header-style31 .em-logo .logo { margin: 10px 0; }
 .em-header-style31 .em-line { float: left; width: 100%; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; padding: 0 5px; }
 .em-header-style31 .em-line .em-menu-hoz { padding-left: 0; }
 .em-header-style31 .em-search { width: 60%; margin-top: 32px; }
