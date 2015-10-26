@@ -72,6 +72,13 @@
         <!-- Market and Deal CSS -->
         <link rel='stylesheet' type='text/css' media='all' href='<?php echo  asset_url();?>css\marketdeal-style.css'>
 
+        <!-- for data table -->
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css"></link>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<!-- <script src="//code.jquery.com/jquery-1.11.3.min.js"></script> -->
+<script src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+
         
     </head>
 
@@ -170,7 +177,7 @@
                                                             <div class="em_nav" id="toogle_menu_7_8258">
                                                                 <ul class="hnav em_menu_mobile">
                                                                     <li class="menu-item-link menu-item-depth-0 fa fa-home menu-item-parent">
-                                                                        <a class="em-menu-link" href=""> <span> Home </span> </a>
+                                                                        <a class="em-menu-link" href="<?php echo base_url(); ?>"> <span> Home </span> </a>
                                                                         
                                                                     </li><!-- /.menu-item-link -->
                                                                     
@@ -304,7 +311,7 @@
                                                 <div class="f-right">
                                                     <ul class="em-links-wishlist">
                                                         <li class="first last">
-        <a href="wishlist.html" title="Become A Seller">Become A Seller</a>
+        <a href="<?php echo base_url().'sellers';?>" title="Become A Seller">Become A Seller</a>
                                                         </li>
                                                     </ul>
                                                 </div>

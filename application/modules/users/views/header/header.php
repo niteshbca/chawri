@@ -304,7 +304,7 @@
                                                 <div class="f-right">
                                                     <ul class="em-links-wishlist">
                                                         <li class="first last">
-        <a href="wishlist.html" title="Become A Seller">Become A Seller</a>
+        <a href="<?php echo base_url().'sellers';?>" title="Become A Seller">Become A Seller</a>
                                                         </li>
                                                     </ul>
                                                 </div>

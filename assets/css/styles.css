@@ -3516,3 +3516,8 @@ align-content: flex-start;	*/ border-bottom-style: solid; border-bottom-width: 1
 
 /*# sourceMappingURL=styles.css.map */
 
+/* Custom Code */
+
+.message_success{ border-radius: 3px; font-size: 15px; margin: 10px; margin-left: 5%; }
+
+.message_error{  border-radius: 3px; font-size: 15px; margin: 10px;  }

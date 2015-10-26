@@ -349,6 +349,11 @@ class Mdl_sellers extends CI_Model
 
 
     }
+public function chechSellers(){
+    $cont= $this->db->where('chawri_sellers_email',$this->sellers_email)->select('chawri_sellers_id')->get('chawri_sellers');
+ return $cont->num_rows();
+
+}
 
 
     public function registration(){
@@ -519,5 +524,12 @@ class Mdl_sellers extends CI_Model
 
           return $data;
     }
+
+     public function getProfile(){
+
+          $data=$this->db->where('chawri_sellers_id',$this->session->userdata['user_data'][0]['users_id'])->get('chawri_sellers')->result_array();
+
+          return $data;
+     }
 }
 

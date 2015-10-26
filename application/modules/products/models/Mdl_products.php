@@ -440,24 +440,23 @@ public function insertProductReel($data){
                   
                 break;
             case "update":
-
+                               
                 $this->setSellersId(func_get_arg(1));
                 $this->setProductsId(func_get_arg(2));
                 $this->setProductsBrandName(func_get_arg(3));
                 $this->setProductsName(func_get_arg(4));
-                $this->setProductsCenvatAmount(func_get_arg(5));
-                $this->setProductsManufacturer(func_get_arg(6));
-                $this->setProductsGrain(func_get_arg(7));
-                $this->setProductsPacketsPerBundle(func_get_arg(8));
-                $this->setProductsPacking(func_get_arg(9));
-                $this->setProductsQuantityOnOffer(func_get_arg(10));
-                $this->setProductsRate(func_get_arg(11));
-                $this->setProductsSheetsPerPacket(func_get_arg(12));
-                $this->setProductsSize(func_get_arg(13));
-                $this->setProductsSubstance(func_get_arg(14));
-                $this->setProductsThickness(func_get_arg(15));
-                $this->setProductsWeight(func_get_arg(15));
-
+                $this->setProductsManufacturer(func_get_arg(5));
+                $this->setProductsSubstance(func_get_arg(6));
+                $this->setProductsThickness(func_get_arg(7));
+                $this->setProductsSize(func_get_arg(8));
+                $this->setProductsGrain(func_get_arg(9));
+                $this->setProductsSheetsPerPacket(func_get_arg(10));
+                $this->setProductsPacketsPerBundle(func_get_arg(11));
+                $this->setProductsWeight(func_get_arg(12));
+                $this->setProductsQuantityOnOffer(func_get_arg(13));
+                $this->setProductsPacking(func_get_arg(14));
+                $this->setProductsRate(func_get_arg(15));
+                $this->setProductsCenvatAmount(func_get_arg(16));
 
 
                 break;
@@ -499,9 +498,12 @@ public function update (){
 
 
         ];
-       //echo $this->products_id;
-      // die();
-      $this->db->where(array('chawri_sellers_id' =>$this->sellers_id ,'chawri_sellers_id'=>$this->products_id))->update('chawri_products',$data);
+      /*  echo "<pre/>";
+        print_r($data);
+      echo $this->products_id;
+         echo $this->sellers_id;
+      die();*/
+      $this->db->where(array('chawri_sellers_id' =>$this->sellers_id ,'chawri_products_id'=>$this->products_id))->update('chawri_products',$data);
      if($this->db->affected_rows()){
         return true;
      }
@@ -553,5 +555,11 @@ public function showUpdate($id){
   return $this->db->where('chawri_products_id',$id)->get('chawri_products')->result_array();
 }
 
+
+public function delete($id){
+
+return $this->db->where('chawri_products_id',$id)->delete('chawri_products')?true:false;
+
+}
 }
 

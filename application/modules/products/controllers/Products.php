@@ -77,10 +77,14 @@ class Products extends  MX_Controller
 
         if($this->Mdl_products->insertProduct($data)){
 
-            echo "your Products  Insert successful";
+          
+            setInformUser('success',"Product's Information Was Added Successfully .");
+           redirect('sellers/showProducts');
         }
         else{
-            echo "your Products not Insert";
+           
+            setInformUser('error',"Product's Information Not Added. Please Try Again. ");
+           redirect('sellers/showProducts');
         }
     }
 
@@ -90,35 +94,55 @@ class Products extends  MX_Controller
 
         $data['data']=$this->Mdl_products->showProducts();
         $this->load->view('users/header/header_buyer');
-        $this->load->view('products_show',$data);
-        $this->load->view('users/header/footer');
+        //$this->load->view('products_show',$data);
+        $this->load->view('table',$data);
+       $this->load->view('users/header/footer');
     }
 
 
 public function showUpdate($id){
 
         $data['data']=$this->Mdl_products->showUpdate($id);
-        $this->load->view('users/header/header2');
+        $this->load->view('users/header/header_seller');
         $this->load->view('update',$data);
+        $this->load->view('users/header/footer');
 }
 
 public function update($id){
 $data=$this->input->post();
 /*echo "<pre/>";
 print_r($data);
-   die();*/
- $this->Mdl_products->setData('update',$this->session->userdata['user_data'][0]['users_id'],$id,$data['products_brand_name'],$data['products_name'],$data['products_cenvat_amount'],
-            $data['products_manufacture'],$data['products_grain'],$data['packets_per_bundle'],$data['products_packing'],
-            $data['products_quantity_on_offer'],$data['products_rate'],$data['products_weight'],
-            $data['products_sheets_per_packet'],$data['products_size'],$data['products_substance'],$data['products_thickness']);
+*/
+  // die();
+ $this->Mdl_products->setData('update',$this->session->userdata['user_data'][0]['users_id'],$id,
+            $data['products_brand_name'],
+            $data['products_name'],
+            $data['products_manufacturer'],
+            $data['products_substance'],
+            $data['products_thickness'],
+            $data['products_size'],
+            $data['products_grain'],
+            $data['products_sheets_per_packet'],
+            $data['packets_per_bundle'],
+            $data['products_weight'],
+            $data['products_quantity_on_offer'],
+            $data['products_packing'],
+            $data['products_rate'],
+            $data['products_cenvat_amount']
+            ); 
 
 
         if($this->Mdl_products->update($data)){
 
-            echo "your Products  update successful";
+           
+            setInformUser('success',"Product's Information Was updated Successfully .");
+          
+                  redirect('sellers/showProducts');
         }
         else{
-            echo "your Products not update";
+           
+           setInformUser('error',"Product's Information Not update. Please Try Again. ");
+           redirect('sellers/showProducts');
         }
 
 
@@ -198,10 +222,14 @@ public function showForm(){
 
         if($this->Mdl_products->insertProductReel($data_set)){
 
-            echo "your Products  Insert successful";
+           
+              setInformUser('success',"Product's Information Was Added Successfully .");
+           redirect('sellers/showProducts');
         }
         else{
-            echo "your Products not Insert";
+            
+             setInformUser('error',"Product's Information Not Added. Please Try Again. ");
+           redirect('sellers/showProducts');
         }
   }
 
@@ -219,12 +247,30 @@ die();*/
 
         if($this->Mdl_products->singleProducts($data)){
 
-            echo "your Products  Insert successful";
+            
+             setInformUser('success',"Product's Information Was Added Successfully .");
+           redirect('sellers/showProducts');
         }
         else{
-            echo "your Products not Insert";
+            
+            setInformUser('error',"Product's Information Not Added. Please Try Again. ");
+              redirect('sellers/showProducts');
         }
 
+}
+
+
+public function delete($id){
+
+   if($this->Mdl_products->delete($id)){
+
+       setInformUser('success',' Products Delete successful');
+        redirect('sellers/showProducts');
+   }
+   else{
+     setInformUser('error','Products Delete not successful');
+      redirect('sellers/showProducts');
+   }
 }
 
    // public function productsXml(){

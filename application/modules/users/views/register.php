@@ -1,4 +1,11 @@
-﻿
+﻿<?php
+	$logout=$this->input->get('logout');
+	if($logout){
+		echo "<div style='color:green;border:1px solid;border-color: #009900;'>".'you are successfully logged out'."</div>";
+	}else{
+		getInformUser();
+	}
+	?>
 
 
 		<!-- <div class="padding-15">
@@ -331,22 +338,21 @@
 
 <script>
 function myFunction() {
-    var x = document.getElementByName("confirm_password");
-  alert(x);
-   // x.value = x.value.toUpperCase();
+
+    var pass = document.getElementById('password').value;
+     var cpass = document.getElementById('confirmation').value;
+/*     alert(cpass);
+     alert(pass);*/
+     if(pass==cpass){
+
+return true;
+       
+     }
+     else{
+       alert('password not match ');
+     }
+  
+   // x.value = xx.value.toUpperCase();
 }
 </script>
 
-
-<script type="text/javascript">
-    
-
-    function pass(){
-         var x = document.getElementById("confirm_password");
-        var pass=getElementByName('password').value();
-        var cpass=getElementByName('confirm_password').value();
-        alert(pass);
-        alert(cpass);
-
-    }
-</script>

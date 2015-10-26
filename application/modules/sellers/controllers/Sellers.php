@@ -55,7 +55,7 @@ class Sellers extends MX_Controller{
 public function showProducts(){
     $this->load->view('users/header/header_seller');
     $data['data']=$this->Mdl_sellers->showProducts();
-    $this->load->view('products/products_show',$data);
+    $this->load->view('products/table_sellers',$data);
      $this->load->view('users/header/footer');
 
 }
@@ -66,15 +66,31 @@ public function showProducts(){
             $data['address'],$data['state'],$data['pin'],$data['phone'],$data['landline']
            );
 
+         if($data['password']==$data['confirm_password']){
 
+     if ($this->Mdl_sellers->chechSellers()) {
+          setInformUser('error','Email already exists. Kindly try another Email');
+          redirect('sellers');
+     }
+     else{
          if($this->Mdl_sellers->registration('registration')){
 
             if($this->sendMail()){
-                echo $this->Mdl_sellers->insertToken()?"your account successfully created and send activation link on Email":"some error in inserting token";
+                echo $this->Mdl_sellers->insertToken();
+                 setInformUser('error','your account successfully created and send activation link on Email');
+                  redirect('sellers');
+                
             }else{
                 echo 'Account registered but email not send.';
             }
         };
+    }
+}
+    else{
+
+          setInformUser('error','Password not match. Kindly try same password');
+         redirect('sellers');
+    }
     }
 
     public  function sendMail()
@@ -139,5 +155,15 @@ public function showProducts(){
        $data= $this->Mdl_sellers->getState();
 
        return $data;
+    }
+
+
+    public function getProfile(){
+         $data['state']=$this->showStates();
+        $data['profile_data']=$this->Mdl_sellers->getProfile();
+        $this->load->view('users/header/header_seller'); 
+        $this->load->view('register_update',$data);
+        $this->load->view('users/header/footer');
+
     }
 }

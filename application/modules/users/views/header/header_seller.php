@@ -72,6 +72,14 @@
         <!-- Market and Deal CSS -->
         <link rel='stylesheet' type='text/css' media='all' href='<?php echo  asset_url();?>css\marketdeal-style.css'>
 
+
+  <!-- for data table -->
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css"></link>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<!-- <script src="//code.jquery.com/jquery-1.11.3.min.js"></script> -->
+<script src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+
         
     </head>
 
@@ -395,17 +403,17 @@
                                                                         
                                                                     </li><!-- /.menu-item-link -->
                                                                     <li class="menu-item-link menu-item-depth-0  menu-item-parent">
-                                                                        <a class="em-menu-link" href="<?php echo base_url().'Sellers/showProducts' ?>"> <span> My Products </span> </a>
+                                                                        <a class="em-menu-link" href="<?php echo base_url().'sellers/showProducts' ?>"> <span> My Products </span> </a>
                                                                         
                                                                     </li><!-- /.menu-item-link -->                
                                                                 
                                                                    <li class="menu-item-link menu-item-depth-0  menu-item-parent">
-                                                                        <a class="em-menu-link" href="<?php echo base_url().'Sellers/showProfile' ?>"> <span> My Profile </span> </a>
+                                                                        <a class="em-menu-link" href="<?php echo base_url().'sellers/showProfile' ?>"> <span> My Profile </span> </a>
                                                                         
                                                                     </li>
                                                                     
                                                                    <li class="menu-item-link menu-item-depth-0  menu-item-parent">
-                                                                        <a class="em-menu-link" href="<?php echo base_url().'Products' ?>"> <span> Add Products </span> </a>
+                                                                        <a class="em-menu-link" href="<?php echo base_url().'products' ?>"> <span> Add Products </span> </a>
                                                                         
                                                                     </li>
                                                

@@ -160,21 +160,39 @@ public function buyerHome(){
      */
     private function _register($data)
     {
+     
+
+     if($data['password']==$data['confirm_password']){
 
         $this->Mdl_users->setData('register',$data['user_name_email'],$data['password'],$data['fname'],$data['lname']);
-        if($this->Mdl_users->register('normal_registration')){
+        if($this->Mdl_users->chechUsers()){
+     
+          setInformUser('error','Email already exists. Kindly try another Email');
+          redirect('users/register');
+    }
+    else{
+
+         if($this->Mdl_users->register('normal_registration')){
 
             if($this->sendMail()){
                  $this->Mdl_users->insertToken();
-
-                echo "your account successfully created and  Active link on your Email ";
+                   setInformUser('success','your account successfully created and  Active link on your Email');
+                
                 redirect('users');
             }else{
                 echo 'Account registered but email not send.';
             }
         };
+       
+    
     }
+}
+    else{
 
+          setInformUser('error','Password not match. Kindly try same password');
+         redirect('users/register');
+    }
+}
     private function _setSessionData()
     {
         switch(func_get_arg(0)){

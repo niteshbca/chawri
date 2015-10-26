@@ -277,7 +277,7 @@
                                                             <div class="field">
                                                                 <label for="confirmation" class="required"><em>*</em>Confirm Password</label>
                                                                 <div class="input-box">
-                                                                    <input type="password" name="confirm_password" onkeyup="myFunction()" required title="Confirm Password" id="confirmation" class="input-text required-entry validate-cpassword">
+                                                                    <input type="password" onchange="myFunction()" name="confirm_password"  required title="Confirm Password" id="confirmation" class="input-text required-entry validate-cpassword">
                                                                     <?php echo form_hidden('todo', 'register'); ?>
                                                                 </div>
                                                             </div>
@@ -302,3 +302,24 @@
                     </div>
                 </div><!-- /.em-wrapper-main-->
 
+
+
+<script>
+function myFunction() {
+
+    var pass = document.getElementById('password').value;
+     var cpass = document.getElementById('confirmation').value;
+/*     alert(cpass);
+     alert(pass);*/
+     if(pass==cpass){
+
+return true;
+       
+     }
+     else{
+       alert('password not match ');
+     }
+  
+   // x.value = xx.value.toUpperCase();
+}
+</script>

@@ -247,10 +247,17 @@ class Mdl_users extends CI_Model
         return $this->permissions_name;
     }
 
+public function chechUsers(){
+     $cont=$this->db->where('chawri_users_username',$this->user_name)->select('chawri_users_id')->get('chawri_users');
+    return $cont->num_rows();
+
+}
+
     public function register()
     {
         switch (func_get_arg(0)) {
             case 'normal_registration':
+                   
                 $this->_validate('normal_registration');
                 $this->setPassword(password_hash($this->password, PASSWORD_DEFAULT));
                 $data = [

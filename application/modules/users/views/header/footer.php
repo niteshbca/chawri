@@ -157,7 +157,7 @@
         </div><!-- /.wrapper -->
 
 <!-- Jquery Js -->
-        <script type="text/javascript" src="<?php echo  asset_url();?>js\jquery-1.11.3.min.js"></script>
+        <!--<script type="text/javascript" src="<?php   asset_url();?>js\jquery-1.11.3.min.js"></script>-->
         <!-- Bootstrap Js -->
         <script type="text/javascript" src="<?php echo  asset_url();?>js\bootstrap.min.js"></script>
         <!-- Lazy Load Js -->
