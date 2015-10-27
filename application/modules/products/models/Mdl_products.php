@@ -561,5 +561,12 @@ public function delete($id){
 return $this->db->where('chawri_products_id',$id)->delete('chawri_products')?true:false;
 
 }
+
+public function getProducts($id){
+
+  return $this->db->where('chawri_products_id',$id)->get('chawri_products')->result_array();
+
+}
+
 }
 

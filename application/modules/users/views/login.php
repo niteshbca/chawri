@@ -162,7 +162,7 @@
                                                         </div>
                                                         <div class="buttons-set">
                                                             <button type="submit" class="button" title="Login" name="send" id="send2"><span><span>Login</span></span>
-                                                            </button> <a href="#" class="f-left">Forgot Your Password?</a>
+                                                            </button> <a href="<?php echo base_url().'users/showForgetPwd';?>" class="f-left">Forgot Your Password?</a>
                                                             <p class="required">* Required Fields</p>
                                                         </div>
                                                     </div>

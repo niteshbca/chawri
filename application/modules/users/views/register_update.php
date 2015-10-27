@@ -1,14 +1,16 @@
 ﻿<?php
-    $logout=$this->input->get('logout');
-    if($logout){
-        echo "<div style='color:green;border:1px solid;border-color: #009900;'>".'you are successfully logged out'."</div>";
-    }else{
-        getInformUser();
-    }
-    ?>
+	$logout=$this->input->get('logout');
+	if($logout){
+		echo "<div style='color:green;border:1px solid;border-color: #009900;'>".'you are successfully logged out'."</div>";
+	}else{
+		getInformUser();
+	}
+	?>
 
 
-
+  <?php  
+  /*echo "<pre/>";
+  print_r($users_data);*/ ?>
 
 
 
@@ -21,9 +23,9 @@
                                     <div class="em-col-main col-sm-24">
                                         <div class="account-create">
                                             <div class="page-title">
-                                                <h1>Create an Account</h1>
+                                                <h1>Update an Account</h1>
                                             </div>
-                                            <form action="<?php echo 'users';?>" method="post" id="form-validate">
+                                            <form action="<?php echo base_url().'users/update';?>" method="post" id="form-validate">
                                                 <div class="fieldset">
                                                     <input type="hidden" name="success_url" value="">
                                                     <input type="hidden" name="error_url" value="">
@@ -31,18 +33,17 @@
                                                     <ul class="form-list">
                                                         <li class="fields">
                                                             <div class="customer-name-middlename">
-
-                                                            <div class="field name-lastname">
+                                                                <div class="field name-lastname">
                                                                     <label for="lastname" class="required"><em>*</em>Last Name</label>
                                                                     <div class="input-box">
-                                                                        <input type="text" id="lastname" required name="lname" title="Last Name" maxlength="255" class="input-text required-entry">
+                                                                        <input type="text" id="lastname" value="<?php echo $users_data[0]['chawri_users_lname']; ?>" required name="lname" title="Last Name" maxlength="255" class="input-text required-entry">
                                                                     </div>
                                                                 </div>
-                                                                
+
                                                                 <div class="field name-firstname">
                                                                     <label for="firstname" class="required"><em>*</em>First Name</label>
                                                                     <div class="input-box">
-                                                                        <input type="text" id="firstname"  required  name="fname" title="First Name" maxlength="255" class="input-text required-entry">
+                                                                        <input type="text" id="firstname"  value="<?php echo $users_data[0]['chawri_users_fname']; ?>"required  name="fname" title="First Name" maxlength="255" class="input-text required-entry">
                                                                     </div>
                                                                 </div>
                                                                 
@@ -52,25 +53,11 @@
                                                         <li>
                                                             <label for="email_address" class="required"><em>*</em>Email Address</label>
                                                             <div class="input-box">
-                                                                <input type="email"  name="user_name_email" required id="email_address" value="" title="Email Address" class="input-text validate-email required-entry">
+                                                                <input type="email" readonly value="<?php echo $users_data[0]['chawri_users_username']; ?>" name="user_name_email" required id="email_address" value="" title="Email Address" class="input-text validate-email required-entry">
                                                             </div>
                                                         </li>
                                                        
-                                                        <li class="fields">
-                                                            <div class="field">
-                                                                <label for="password" class="required"><em>*</em>Password</label>
-                                                                <div class="input-box">
-                                                                    <input type="password" name="password" required id="password" title="Password" class="input-text required-entry validate-password">
-                                                                </div>
-                                                            </div>   
-                                                            <div class="field">
-                                                                <label for="confirmation" class="required"><em>*</em>Confirm Password</label>
-                                                                <div class="input-box">
-                                                                    <input type="password" name="confirm_password" onchange="myFunction()" required title="Confirm Password" id="confirmation" class="input-text required-entry validate-cpassword">
-                                                                    <?php echo form_hidden('todo', 'register'); ?>
-                                                                </div>
-                                                            </div>
-                                                        </li>
+                                                        
                                                     </ul>
                                                     
                                                    
@@ -91,24 +78,4 @@
                     </div>
                 </div><!-- /.em-wrapper-main-->
 
-
-<script>
-function myFunction() {
-
-    var pass = document.getElementById('password').value;
-     var cpass = document.getElementById('confirmation').value;
-/*     alert(cpass);
-     alert(pass);*/
-     if(pass==cpass){
-
-return true;
-       
-     }
-     else{
-       alert('password not match ');
-     }
-  
-   // x.value = xx.value.toUpperCase();
-}
-</script>
 

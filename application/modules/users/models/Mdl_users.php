@@ -167,6 +167,11 @@ class Mdl_users extends CI_Model
                 break;
 
             }
+            case 'update':
+                 
+                $this->setFname(func_get_arg(1));
+                $this->setLname(func_get_arg(2));
+                break;
             default:
                 break;
         }
@@ -248,10 +253,22 @@ class Mdl_users extends CI_Model
     }
 
 public function chechUsers(){
+
      $cont=$this->db->where('chawri_users_username',$this->user_name)->select('chawri_users_id')->get('chawri_users');
-    return $cont->num_rows();
+      $cont1=$this->db->where('chawri_sellers_email',$this->user_name)->select('chawri_sellers_id')->get('chawri_sellers');
+     if($cont->num_rows()){
+        return true;
+     }
+     elseif ($cont1->num_rows()) {
+         return true;
+     }
+     return false;
 
 }
+
+
+
+
 
     public function register()
     {
@@ -398,13 +415,24 @@ public function chechUsers(){
     {
         switch (func_get_arg(0)) {
             case'get_email': {
-                return $this->db->where('chawri_users_username',$this->getUserName())->select(array('chawri_users_id'))->get('chawri_users')->result_array() ? true : false;
+
+                  $cont=$this->db->where('chawri_users_username',$this->user_name)->select('chawri_users_id')->get('chawri_users');
+                  $cont1=$this->db->where('chawri_sellers_email',$this->user_name)->select('chawri_sellers_id')->get('chawri_sellers');
+                if($cont->num_rows()){
+                   return true;
+                  }
+                 elseif ($cont1->num_rows()) {
+                   return true;
+                  }
+                  return false;
+               
+               /* $this->db->where('chawri_users_username',$this->getUserName())->select(array('chawri_users_id'))->get('chawri_users')->result_array() ? true : false;*/
                 break;
             }
             case'forgot': {
                 $data = [
                     'chawri_forgot_pwd_email' => $this->getUserName(),
-                    'chawri_forgot_pwd_password' => $this->getToken()
+                    'chawri_forgot_pwd_token' => $this->getToken()
                 ];
                 return $this->db->insert('chawri_forgot_pwd', $data) ? true : false;
             }
@@ -412,7 +440,20 @@ public function chechUsers(){
                 $this->getPassword();
                 $username = $this->session->userdata('username');
                 $this->session->unset_userdata('username');
-                return $this->db->where('chawri_users_username',$username)->update('chawri_users',['chawri_users_password'=>$this->getPassword()])?true:false;
+                 $this->db->where('chawri_users_username',$username)->update('chawri_users',['chawri_users_password'=>$this->getPassword()]);
+               if($this->db->affected_rows()==0){
+                         $this->db->where('chawri_sellers_email',$username)->update('chawri_sellers',['chawri_sellers_password'=>$this->getPassword()]);
+                         if($this->db->affected_rows()==0){
+                            return false;
+                         }else{
+                     return true;
+                       }
+                    }
+                    else{
+                    return true;
+                }
+               
+               
             }
         }
 
@@ -424,7 +465,7 @@ public function chechUsers(){
 
             $token = $this->session->userdata('token');
 
-            $email = $this->db->where('chawri_forgot_pwd_password', $token)->select('chawri_forgot_pwd_email')->get('chawri_forgot_pwd')->result_array();
+            $email = $this->db->where('chawri_forgot_pwd_token', $token)->select('chawri_forgot_pwd_email')->get('chawri_forgot_pwd')->result_array();
             return $email;
         }
     /**
@@ -492,7 +533,7 @@ public function chechUsers(){
 
    public function removeToken(){
        $token = $this->session->userdata('token');
-       return $this->db->where('chawri_forgot_pwd_password',$token)->delete('chawri_forgot_pwd')?true:false;
+       return $this->db->where('chawri_forgot_pwd_token',$token)->delete('chawri_forgot_pwd')?true:false;
    }
 
 
@@ -530,5 +571,20 @@ public function chechUsers(){
         }
 
         return false;
+    }
+
+    public function getUpdateUsers(){
+      return $data=$this->db->where('chawri_users_id',$this->session->userdata['user_data'][0]['users_id'])->get('chawri_users')->result_array();
+    }
+
+
+    public function update(){
+
+        $data = [
+                    'chawri_users_fname' => $this->fname,
+                    'chawri_users_lname' => $this->lname
+
+                ];
+                return $this->db->where('chawri_users_id',$this->session->userdata['user_data'][0]['users_id'])->update('chawri_users',$data)?true:false;
     }
 }

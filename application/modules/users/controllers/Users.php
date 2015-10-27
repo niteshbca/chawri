@@ -245,6 +245,11 @@ public function buyerHome(){
         redirect('users?logout=1');
     }
 
+public function showForgetPwd(){
+    $this->load->view('header/header');
+    $this->load->view('password');
+    $this->load->view('header/footer');
+}
 
 
     Public function forgetPwd()
@@ -253,7 +258,7 @@ public function buyerHome(){
         if (strtolower($_SERVER['REQUEST_METHOD']) == 'post') {
 
             $a=rand(999999999999,9999999999999999);
-            $token = "hlu".$a;
+            $token = "ch".$a;
             $token = password_hash($token, PASSWORD_DEFAULT);
             $email = $_POST['email'];
             $this->Mdl_users->setData('get_email', $email,$token);
@@ -296,8 +301,8 @@ public function buyerHome(){
     {
 
         if (strtolower($_SERVER['REQUEST_METHOD']) == 'post') {
-            $pass = $this->input->post('pasword');
-            $pass_c = $this->input->post('c_pasword');
+            $pass = $this->input->post('password');
+            $pass_c = $this->input->post('confirm_password');
             if ($pass == $pass_c) {
                 $pass = password_hash($pass, PASSWORD_DEFAULT);
                 $this->Mdl_users->setData('pass', $pass);
@@ -313,12 +318,18 @@ public function buyerHome(){
         if (isset($_REQUEST['tqwertyuiasdfghjzxcvbn'])) {
             $token = $this->input->post_get('tqwertyuiasdfghjzxcvbn');
             $this->session->set_userdata('token', $token);
+
+            
             if($data['email']=$this->getEmail()){
-                $email=$data['email'][0]['hlu_forgot_pwd_email'];
+               
+                
+                $email=$data['email'][0]['chawri_forgot_pwd_email'];
 
                 $this->session->set_userdata('username',$email);
                 $this->removeToken();
+                $this->load->view('header/header');
                 $this->load->view('update_password');
+                $this->load->view('header/footer');
             }
             else{
 
@@ -400,6 +411,30 @@ public function buyerHome(){
 
         $this->load->view('register');
         $this->load->view('header/footer');
+
+    }
+    public function getUpdateUsers(){
+        $data['users_data']=$this->Mdl_users->getUpdateUsers();
+        $this->load->view('header/header_buyer');
+
+        $this->load->view('register_update',$data);
+        $this->load->view('header/footer');
+    }
+    public function update(){
+     $data=$this->input->post();
+        $this->Mdl_users->setData('update',$data['fname'],$data['lname']);
+    
+    if($this->Mdl_users->update()){
+
+
+                setInformUser('success','Your Account successfully Update');
+                redirect(base_url().'users/getUpdateUsers');
+    }
+        else{
+
+                setInformUser('error','Your Account not Successfully  Update . Kindly try Again' );
+                redirect(base_url().'users/getUpdateUsers');
+        }
 
     }
 }

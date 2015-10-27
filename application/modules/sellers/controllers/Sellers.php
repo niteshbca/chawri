@@ -135,11 +135,16 @@ public function showProducts(){
         if($this->Mdl_sellers->profile($data)){
 
 
-                echo "your account successfully Update";
+               // echo "your account successfully Update";
+
+                  setInformUser('success','Your Account successfully Update');
+                redirect(base_url().'sellers/showProfile');
 
         }
         else{
-            echo "your account not successfully Update";
+           // echo "your account not successfully Update";
+               setInformUser('error','Your Account not Successfully  Update . Kindly try Again' );
+                redirect(base_url().'sellers/showProfile');
         }
 
     }
@@ -159,11 +164,28 @@ public function showProducts(){
 
 
     public function getProfile(){
-         $data['state']=$this->showStates();
+         
         $data['profile_data']=$this->Mdl_sellers->getProfile();
         $this->load->view('users/header/header_seller'); 
         $this->load->view('register_update',$data);
         $this->load->view('users/header/footer');
 
+    }
+    public function updateGetProfile(){
+        $data=$this->input->post();
+
+         $this->Mdl_sellers->setData('register_update',$data['company_name'],
+            $data['address'],$data['state'],$data['pin'],$data['phone'],$data['landline']
+           );
+
+         if($this->Mdl_sellers->updateGetProfile()){
+
+                setInformUser('success','Your Account successfully Update');
+                redirect(base_url().'sellers/getProfile');
+         }
+         else{
+         setInformUser('error','Your Account not successfully Update. Kindly try Again');
+                redirect(base_url().'sellers/getProfile');
+         }
     }
 }

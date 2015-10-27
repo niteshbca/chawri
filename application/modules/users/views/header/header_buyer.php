@@ -407,7 +407,7 @@
                                                                     </li><!-- /.menu-item-link -->                
                                                                 
 <li class="menu-item-link menu-item-depth-0  menu-item-parent">
-                                                                        <a class="em-menu-link" href="#"> <span> My Profile </span> </a>
+                                                                        <a class="em-menu-link" href="<?php echo base_url().'users/getUpdateUsers' ?>"> <span> My Profile </span> </a>
                                                                         
                                                                     </li>
                                                                     

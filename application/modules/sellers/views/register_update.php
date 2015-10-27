@@ -21,9 +21,9 @@
                                     <div class="em-col-main col-sm-24">
                                         <div class="account-create">
                                             <div class="page-title">
-                                                <h1>Create an Account</h1>
+                                                <h1>update an Account</h1>
                                             </div>
-                                            <form action="<?php echo 'sellers';?>" method="post" id="form-validate">
+                                            <form action="<?php echo base_url().'sellers/updateGetProfile';?>" method="post" id="form-validate">
                                                 <div class="fieldset">
                                                     <input type="hidden" name="success_url" value="">
                                                     <input type="hidden" name="error_url" value="">
@@ -62,7 +62,7 @@
                                                                 </div> -->
                                                                 <div class="field name-lastname">
                                                                     <label for="state" class="required"><em>*</em>State</label>
-                                                                    <input type="text" id="firstname"  required value="<?php echo $profile_data[0]['chawri_sellers_state']; ?>" name="pin" title="Pin Code" maxlength="255" class="input-text required-entry">
+                                                                    <input type="text" id="firstname"  required value="<?php echo $profile_data[0]['chawri_sellers_state']; ?>" name="state" title="State" maxlength="255" class="input-text required-entry">
 
                                                                     <div class="input-box">
                        													
@@ -77,7 +77,7 @@
                                                                 <div class="field name-firstname">
                                                                     <label for="pin" class="required"><em>*</em>Pin Code</label>
                                                                     <div class="input-box">
-                                                                        <input type="text" id="firstname"  required value="<?php echo $profile_data[0]['chawri_sellers_email']; ?>" name="pin" title="Pin Code" maxlength="255" class="input-text required-entry">
+                                                                        <input type="text" id="firstname"  required value="<?php echo $profile_data[0]['chawri_sellers_pin_code']; ?>" name="pin" title="Pin Code" maxlength="255" class="input-text required-entry">
                                                                     </div>
                                                                 </div>
                                                                 
@@ -109,7 +109,7 @@
                                                     <div class="buttons-set">
                                                         
                                                         
-                                                        <button type="submit" title="Submit" class="button"><span><span>Submit</span></span>
+                                                        <button type="submit" title="Submit" class="button"><span><span>Update</span></span>
                                                         </button>
                                                         <p class="required">* Required Fields</p>
                                                     </div>

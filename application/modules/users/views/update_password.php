@@ -21,40 +21,16 @@
                                     <div class="em-col-main col-sm-24">
                                         <div class="account-create">
                                             <div class="page-title">
-                                                <h1>Create an Account</h1>
+                                                <h1>Update Password</h1>
                                             </div>
-                                            <form action="<?php echo 'users';?>" method="post" id="form-validate">
+                                            <form action="<?php echo 'users/recallMail';?>" method="post" id="form-validate">
                                                 <div class="fieldset">
                                                     <input type="hidden" name="success_url" value="">
                                                     <input type="hidden" name="error_url" value="">
-                                                    <h2 class="legend">Personal Information</h2>
+                                                    
                                                     <ul class="form-list">
-                                                        <li class="fields">
-                                                            <div class="customer-name-middlename">
-
-                                                            <div class="field name-lastname">
-                                                                    <label for="lastname" class="required"><em>*</em>Last Name</label>
-                                                                    <div class="input-box">
-                                                                        <input type="text" id="lastname" required name="lname" title="Last Name" maxlength="255" class="input-text required-entry">
-                                                                    </div>
-                                                                </div>
-                                                                
-                                                                <div class="field name-firstname">
-                                                                    <label for="firstname" class="required"><em>*</em>First Name</label>
-                                                                    <div class="input-box">
-                                                                        <input type="text" id="firstname"  required  name="fname" title="First Name" maxlength="255" class="input-text required-entry">
-                                                                    </div>
-                                                                </div>
-                                                                
-                                                                
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <label for="email_address" class="required"><em>*</em>Email Address</label>
-                                                            <div class="input-box">
-                                                                <input type="email"  name="user_name_email" required id="email_address" value="" title="Email Address" class="input-text validate-email required-entry">
-                                                            </div>
-                                                        </li>
+                                                        
+                                                        
                                                        
                                                         <li class="fields">
                                                             <div class="field">
@@ -67,8 +43,8 @@
                                                                 <label for="confirmation" class="required"><em>*</em>Confirm Password</label>
                                                                 <div class="input-box">
                                                                     <input type="password" name="confirm_password" onchange="myFunction()" required title="Confirm Password" id="confirmation" class="input-text required-entry validate-cpassword">
-                                                                    <?php echo form_hidden('todo', 'register'); ?>
-                                                                </div>
+                                                                   
+                                                                </div> 
                                                             </div>
                                                         </li>
                                                     </ul>

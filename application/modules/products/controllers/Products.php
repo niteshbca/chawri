@@ -88,7 +88,13 @@ class Products extends  MX_Controller
         }
     }
 
+public function getProducts($id){
+  $data['data']=$this->Mdl_products->getProducts($id);
+  $this->load->view('users/header/header_buyer');
+  $this->load->view('single_products',$data);
+  $this->load->view('users/header/footer');
 
+}
 
     public  function showProducts(){
 

@@ -350,8 +350,19 @@ class Mdl_sellers extends CI_Model
 
     }
 public function chechSellers(){
-    $cont= $this->db->where('chawri_sellers_email',$this->sellers_email)->select('chawri_sellers_id')->get('chawri_sellers');
- return $cont->num_rows();
+    /*$cont= $this->db->where('chawri_sellers_email',$this->sellers_email)->select('chawri_sellers_id')->get('chawri_sellers');
+ return $cont->num_rows();*/
+
+    $cont=$this->db->where('chawri_sellers_email',$this->sellers_email)->select('chawri_sellers_id')->get('chawri_sellers');
+    $cont1=$this->db->where('chawri_users_username',$this->sellers_email)->select('chawri_users_id')->get('chawri_users');
+     
+     if($cont->num_rows()){
+        return true;
+     }
+     elseif ($cont1->num_rows()) {
+         return true;
+     }
+     return false;
 
 }
 
@@ -423,7 +434,14 @@ public function chechSellers(){
                 $this->setSellersEmail(func_get_arg(1));
                 $this->setSellersPassword(func_get_arg(2));
                 break;
-
+            case 'register_update':
+                $this->setSellersCompanyName(func_get_arg(1));
+                $this->setSellersAddress(func_get_arg(2));
+                $this->setSellersState(func_get_arg(3));
+                $this->setSellersPinCode(func_get_arg(4));
+                $this->setSellersPhone(func_get_arg(5));
+                $this->setSellersLandline(func_get_arg(6));
+                break;
             default:
                 break;
         }
@@ -530,6 +548,22 @@ public function chechSellers(){
           $data=$this->db->where('chawri_sellers_id',$this->session->userdata['user_data'][0]['users_id'])->get('chawri_sellers')->result_array();
 
           return $data;
+     }
+
+     public function updateGetProfile(){
+         $data = [
+            'chawri_sellers_company_name' => $this->sellers_company_name,
+            'chawri_sellers_address' => $this->sellers_address,
+
+            'chawri_sellers_landline' => $this->sellers_landline,
+            'chawri_sellers_phone' => $this->sellers_phone,
+            'chawri_sellers_state' => $this->sellers_state,
+            'chawri_sellers_pin_code' => $this->sellers_pin_code
+        ];
+       /*print_r($data);
+       die();*/
+
+        return $this->db->where('chawri_sellers_id',$this->session->userdata['user_data'][0]['users_id'])->update('chawri_sellers',$data)?true:false;
      }
 }
 

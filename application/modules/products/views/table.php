@@ -13,12 +13,13 @@
     $('#example').DataTable();
 } );
   </script>
-<div style="overflow: auto">
+<div style="overflow: auto; padding: 10px 15px 10px 15px; border:2px solid #bbbbbb; border-radius: 5px; margin: 20px;">>
 
   <table id="example" class="display " cellspacing="0" width="100%">
           <thead>
               <tr>
                  <th> Name</th>
+                 <th>Buy Now</th>
                     <th>Brand Name</th>
                     <th>Manufacturer</th>
                     <th>Substance</th>
@@ -36,25 +37,6 @@
               </tr>
           </thead>
 
-         <!--  <tfoot>
-               <tr>
-                 <th>Product Name</th>
-                    <th>Brand Name</th>
-                    <th>Manufacturer</th>
-                    <th>Substance</th>
-                    <th> Bulk</th>
-                    <th>Products Size(in s/m)</th>
-                    
-                    <th>Grain</th>
-                    <th> Sheets Per Packet</th>
-                    <th> Pkt. Weight</th>
-                    <th>Packets Per Bundle</th>
-                    <th>Qty. on Offer (in pkts)</th>
-                    <th>Packing</th>
-                    <th>Products Rate</th>
-                    <th>Products CENVAT Amount</th>
-              </tr>
-          </tfoot> -->
 
           <tbody>
               <?php
@@ -68,6 +50,9 @@
                     <td>
                       <?php echo $rows['chawri_products_name']; ?>
                     </td>
+
+                   <td><a href="<?php echo base_url().'products/getProducts/'.$rows['chawri_products_id'];?>">Buy Now</a></td> 
+                   <!--  <td><a href="#">Buy Now</a></td> -->
                     <td>
                       <?php echo $rows['chawri_products_brand_name']; ?>
                     </td>
