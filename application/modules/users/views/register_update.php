@@ -50,12 +50,42 @@
                                                                 
                                                             </div>
                                                         </li>
-                                                        <li>
-                                                            <label for="email_address" class="required"><em>*</em>Email Address</label>
-                                                            <div class="input-box">
-                                                                <input type="email" readonly value="<?php echo $users_data[0]['chawri_users_username']; ?>" name="user_name_email" required id="email_address" value="" title="Email Address" class="input-text validate-email required-entry">
+                                                        <li class="fields">
+                                                            <div class="customer-name-middlename">
+                                                                <div class="field name-lastname">
+                                                                    <label for="phone" class="required"><em>*</em>Phone Number</label>
+                                                                    <div class="input-box">
+                                                                        <input type="text" id="phone" value="<?php echo $users_data[0]['chawri_users_phone']; ?>" required name="phone" title="Email" maxlength="255" class="input-text required-entry">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="field name-firstname">
+                                                                    <label for="user_name_email" class="required"><em>*</em>Email Id</label>
+                                                                    <div class="input-box">
+                                                                        <input type="text" id="user_name_email"  value="<?php echo $users_data[0]['chawri_users_username']; ?>"required  name="user_name_email" title="Email" maxlength="255" class="input-text required-entry">
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                
                                                             </div>
                                                         </li>
+
+                                                        <!-- <li>
+                                                        <div class="customer-name-middlename">
+                                                        <div class="field name-firstname">
+                                                                    <label for="firstname" class="required"><em>*</em>Phone Number</label>
+                                                                    <div class="input-box">
+                                                                        <input type="text" id="firstname"  required  name="" title="Phone Number" maxlength="255" class="input-text required-entry">
+                                                                    </div>
+                                                                </div>
+                                                        <div class="field name-firstname">
+                                                            <label for="email_address" class="required"><em>*</em>Email Address</label>
+                                                            <div class="input-box">
+                                                                <input type="email" readonly value="<?php echo $users_data[0]['']; ?>" name="" required id="email_address" value="" title="Email Address" class="input-text validate-email required-entry">
+                                                            </div>
+                                                            </div>
+                                                            </div>
+                                                        </li> -->
                                                        
                                                         
                                                     </ul>

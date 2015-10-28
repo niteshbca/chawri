@@ -178,7 +178,7 @@
                                                             <div class="em_nav" id="toogle_menu_7_8258">
                                                                 <ul class="hnav em_menu_mobile">
                                                                     <li class="menu-item-link menu-item-depth-0 fa fa-home menu-item-parent">
-                                                                        <a class="em-menu-link" href=""> <span> Home </span> </a>
+                                                                       <!--  <a class="em-menu-link" href=""> <span> Home </span> </a> -->
                                                                         
                                                                     </li><!-- /.menu-item-link -->
                                                                     
@@ -304,7 +304,7 @@
                                             <div class="em-top-links">
                                                  <div class="f-left">
                                                     <ul class="links">
-                                                        <li class="first last"><a href="multidealpro.html" title="Home" class="top-link-deal">Home</a>
+                                                        <li class="first last"><a href="<?php echo base_url().'sellers/homeSeller';?>" title="Home" class="top-link-deal">Home</a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -425,6 +425,10 @@
                                                                         
                                                                     </li>
                                                                     <!-- /.menu-item-link -->
+                                                                    <li class="menu-item-link menu-item-depth-0  menu-item-parent">
+                                                                        <a class="em-menu-link" href="<?php echo  base_url().'users/contacts';?>"> <span> Contacts Us </span> </a>
+                                                                        
+                                                                    </li>
                                                                     
                                                                 </ul>
                                                             </div>

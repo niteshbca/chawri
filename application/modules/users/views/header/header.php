@@ -71,7 +71,7 @@
         <link rel='stylesheet' type='text/css' media='all' href='<?php echo  asset_url();?>css\style_marketdeal.css'>
         <!-- Market and Deal CSS -->
         <link rel='stylesheet' type='text/css' media='all' href='<?php echo  asset_url();?>css\marketdeal-style.css'>
-
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         
     </head>
 
@@ -398,9 +398,13 @@
                                                                         <a class="em-menu-link" href="#"> <span> Products </span> </a>
                                                                         
                                                                     </li><!-- /.menu-item-link -->                
-                                               
+                                                                 
                                                                     
                                                                     <!-- /.menu-item-link -->
+                                                                    <li class="menu-item-link menu-item-depth-0  menu-item-parent">
+                                                                        <a class="em-menu-link" href="<?php echo  base_url().'users/contacts';?>"> <span> Contacts Us </span> </a>
+                                                                        
+                                                                    </li>
                                                                     <!-- /.menu-item-link -->
                                                                     
                                                                 </ul>

@@ -21,6 +21,40 @@ class Mdl_users extends CI_Model
     private $status;
     private $fname;
     private $lname;
+    private $phone;
+    private $contact_query;
+
+     /**
+     * @return mixed
+     */
+    public function getContactQuery()
+    {
+        return $this->contact_query;
+    }
+
+    /**
+     * @param mixed $fname
+     */
+    public function setContactQuery($contact_query)
+    {
+        $this->contact_query = $contact_query;
+    }
+
+     /**
+     * @return mixed
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
+     * @param mixed $fname
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+    }
 
     /**
      * @return mixed
@@ -112,6 +146,7 @@ class Mdl_users extends CI_Model
                 $this->setPassword(func_get_arg(2));
                 $this->setFname(func_get_arg(3));
                 $this->setLname(func_get_arg(4));
+                $this->setPhone(func_get_arg(5));
 
                 break;
                 case "checkUser":
@@ -171,7 +206,15 @@ class Mdl_users extends CI_Model
                  
                 $this->setFname(func_get_arg(1));
                 $this->setLname(func_get_arg(2));
+                $this->setPhone(func_get_arg(3));
                 break;
+         case 'contact':
+                $this->setFname(func_get_arg(1));
+                $this->setUserName(func_get_arg(2));
+                $this->setContactQuery(func_get_arg(3));
+             
+             break;
+
             default:
                 break;
         }
@@ -252,6 +295,8 @@ class Mdl_users extends CI_Model
         return $this->permissions_name;
     }
 
+
+
 public function chechUsers(){
 
      $cont=$this->db->where('chawri_users_username',$this->user_name)->select('chawri_users_id')->get('chawri_users');
@@ -275,13 +320,15 @@ public function chechUsers(){
         switch (func_get_arg(0)) {
             case 'normal_registration':
                    
+                   
                 $this->_validate('normal_registration');
                 $this->setPassword(password_hash($this->password, PASSWORD_DEFAULT));
                 $data = [
                     'chawri_users_username' => $this->user_name,
                     'chawri_users_password' => $this->password,
                     'chawri_users_fname' => $this->fname,
-                    'chawri_users_lname' => $this->lname
+                    'chawri_users_lname' => $this->lname,
+                    'chawri_users_phone' =>  $this->phone
 
                 ];
                 if ($this->db->insert('chawri_users', $data)) {
@@ -579,10 +626,12 @@ public function chechUsers(){
 
 
     public function update(){
-
+              
+              
         $data = [
                     'chawri_users_fname' => $this->fname,
-                    'chawri_users_lname' => $this->lname
+                    'chawri_users_lname' => $this->lname,
+                    'chawri_users_phone' => $this->phone
 
                 ];
                 return $this->db->where('chawri_users_id',$this->session->userdata['user_data'][0]['users_id'])->update('chawri_users',$data)?true:false;

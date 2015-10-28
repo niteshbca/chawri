@@ -279,22 +279,33 @@ public function delete($id){
    }
 }
 
-   // public function productsXml(){
+  /*public function productsXml(){
 
-
-/*
+    $excelfile=$this->input->post();
 
 		$this->load->libraries('reader.php');
 		//include 'reader.php';
     	$excel = new Spreadsheet_Excel_Reader();
-
+   die();
     $excel->read('upload/sample.xls');
     $x=2;
     while($x<=$excel->sheets[0]['numRows']) {
-        $name = isset($excel->sheets[0]['cells'][$x][1]) ? $excel->sheets[0]['cells'][$x][1] : '';
-        $job = isset($excel->sheets[0]['cells'][$x][2]) ? $excel->sheets[0]['cells'][$x][2] : '';
-        $email = isset($excel->sheets[0]['cells'][$x][3]) ? $excel->sheets[0]['cells'][$x][3] : '';
 
+        $products_name = isset($excel->sheets[0]['cells'][$x][1]) ? $excel->sheets[0]['cells'][$x][1] : '';
+        $products_brand_name = isset($excel->sheets[0]['cells'][$x][2]) ? $excel->sheets[0]['cells'][$x][2] : '';
+        $products_manufacturer = isset($excel->sheets[0]['cells'][$x][3]) ? $excel->sheets[0]['cells'][$x][3] : '';
+        $products_substance = isset($excel->sheets[0]['cells'][$x][3]) ? $excel->sheets[0]['cells'][$x][3] : '';
+        $products_thickness = isset($excel->sheets[0]['cells'][$x][3]) ? $excel->sheets[0]['cells'][$x][3] : '';
+        $products_size = isset($excel->sheets[0]['cells'][$x][3]) ? $excel->sheets[0]['cells'][$x][3] : '';
+        $products_grain = isset($excel->sheets[0]['cells'][$x][3]) ? $excel->sheets[0]['cells'][$x][3] : '';
+        $products_sheets_per_packet = isset($excel->sheets[0]['cells'][$x][3]) ? $excel->sheets[0]['cells'][$x][3] : '';
+        $packets_per_bundle = isset($excel->sheets[0]['cells'][$x][3]) ? $excel->sheets[0]['cells'][$x][3] : '';
+        $products_weight = isset($excel->sheets[0]['cells'][$x][3]) ? $excel->sheets[0]['cells'][$x][3] : '';
+        $products_quantity_on_offer = isset($excel->sheets[0]['cells'][$x][3]) ? $excel->sheets[0]['cells'][$x][3] : '';
+        $products_packing = isset($excel->sheets[0]['cells'][$x][3]) ? $excel->sheets[0]['cells'][$x][3] : '';
+        $products_rate = isset($excel->sheets[0]['cells'][$x][3]) ? $excel->sheets[0]['cells'][$x][3] : '';
+        $products_cenvat_amount = isset($excel->sheets[0]['cells'][$x][3]) ? $excel->sheets[0]['cells'][$x][3] : '';
+      
         // Save details
         $sql_insert="INSERT INTO users_details (id,name,job,email) VALUES ('','$name','$job','$email')";
         $result_insert = mysql_query($sql_insert) or die(mysql_error());
@@ -310,6 +321,6 @@ public function delete($id){
             echo "Some error occur";
         }
     }
-*/
 
+*/
 }

@@ -15,8 +15,7 @@
                                                     <div class="em_nav" id="toogle_menu_13_2552">
                                                         <ul class="vnav em-menu-icon effect-menu em-menu-long">
                                                             <li class="menu-item-link menu-item-depth-0 fa fa-th-large">
-                                                                <a class="em-menu-link" href="#"> <span> Packaging Boards Recycled Grades
- </span> </a>
+                                                     <a class="em-menu-link" href="#"> <span> Speciality Grades</span> </a>
                                                                 
                                                             </li>
                                                             <li class="menu-item-link menu-item-depth-0 fa fa-list-alt">
@@ -31,7 +30,7 @@
                                                                 <a class="em-menu-link" href="#"> <span> Graphical paper & board </span> </a>
                                                                
                                                             </li>
-                                                            <li class="menu-item-link menu-item-depth-0 fa fa-newspaper-o">
+                                                            <li class="menu-item-link menu-item-depth-0 fa fa-paper-plane">
                                                                 <a class="em-menu-link" href="#"> <span> Cup Stock Board </span> </a>
                                                               
                                                             </li>
@@ -45,7 +44,7 @@
                                                                 <a class="em-menu-link" href="#home-"> <span> Copier </span> </a>
                                                             </li>
                                                             <li class="menu-item-link menu-item-depth-0 fa fa-university ">
-                                                                <a class="em-menu-link" href="#"> <span> Speciality Grades</span> </a>
+                                                                <a class="em-menu-link" href="#"> <span> Packaging Boards Recycled Grades</span> </a>
                                                             </li>
                                                             <li class="menu-item-link menu-item-depth-0 fa fa-tree ">
                                                                 <a class="em-menu-link" href="#"> <span> Poster </span> </a>
@@ -153,17 +152,16 @@
                         
                         <div class="col-md-3" style="width:24%">
                                 
-                        <div class="list-group">
+                      
+<div class="list-group">
   <li  class="list-group-item ">
-    GSM
+    Packing
   </li>
   <a href="#" class="list-group-item">Less than 30</a>
   <a href="#" class="list-group-item">31 to 50</a>
   <a href="#" class="list-group-item">51-100</a>
-  <a href="#" class="list-group-item">101-200</a>
-  <a href="#" class="list-group-item">201-300</a>
-  <a href="#" class="list-group-item">301-400</a>
-  <a href="#" class="list-group-item">Above 400</a>
+  <a href="#" class="list-group-item">More...</a>
+
 </div>
                     </div>
                         
@@ -213,16 +211,21 @@
                 <div class="row">
                         
                         <div class="col-md-3" style="width:24%">
-                                
-                        <div class="list-group">
+                          
+
+                           <div class="list-group">
   <li  class="list-group-item ">
-    Packing
+    GSM
   </li>
   <a href="#" class="list-group-item">Less than 30</a>
   <a href="#" class="list-group-item">31 to 50</a>
   <a href="#" class="list-group-item">51-100</a>
-  
-</div>
+  <a href="#" class="list-group-item">101-200</a>
+  <a href="#" class="list-group-item">201-300</a>
+  <a href="#" class="list-group-item">301-400</a>
+  <a href="#" class="list-group-item">Above 400</a>
+</div>      
+                        
                     </div>
                         
             <div class="col-md-3" style="width:24%">

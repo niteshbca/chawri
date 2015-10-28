@@ -5,7 +5,7 @@
                                 <div class="row">
                                     <div class="col-sm-24">
                                         <div class="em-footer-info">
-                                            <div class="row">
+                                           <!--  <div class="row">
                                              <!--   <div class="col-sm-4 first text-center">
                                                     <div class="em-block-title" data-collapse-target="#collapse01">
                                                         <p class="h4 em-text-upercase"><span>What's hot</span>
@@ -21,7 +21,7 @@
                                                         <li class="em-links-item"><a title="em-sample-title" href="#"><span>Best Sellers</span></a>
                                                         </li>
                                                     </ul>
-                                                </div><!-- /.col-sm-4 -->
+                                                </div><! /.col-sm-4 --
                                                 <div class="col-sm-4 text-center">
                                                     <div class="em-block-title" data-collapse-target="#collapse02">
                                                         <p class="h4 em-text-upercase"><span>Brands</span>
@@ -37,8 +37,8 @@
                                                         <li class="em-links-item"><a title="em-sample-title" href="#"><span> Rainbow </span></a>
                                                         </li>
                                                     </ul>
-                                                </div><!-- /.col-sm-4 -->
-                                                <!-- /.col-sm-4 -->
+                                                </div><!- /.col-sm-4 -
+                                                <!-- /.col-sm-4 -
                                                 
                                                 <div class="col-sm-4 text-center">
                                                     <div class="em-block-title" data-collapse-target="#collapse05">
@@ -55,7 +55,7 @@
                                                         <li class="em-links-item"><a title="em-sample-title" href="#"><span>Privacy Policy</span></a>
                                                         </li>
                                                     </ul>
-                                                </div><!-- /.col-sm-4 -->
+                                                </div><!-- /.col-sm-4 -
                                                 <div class="col-sm-4 last text-center">
                                                     <div class="em-block-title" data-collapse-target="#collapse06">
                                                         <p class="h4 em-text-upercase"><span>Coming Soon on</span>
@@ -69,8 +69,8 @@
                                                         <li class="em-links-item"><a title="em-sample-title" href="#"><span>Android</span></a>
                                                         </li>
                                                     </ul>
-                                                </div><!-- /.col-sm-4 -->
-                                            </div><!-- /.row -->
+                                                </div><!-- /.col-sm-4 -
+                                            </div><!-- /.row  -->
                                             <div class="em-footer-info-bottom">
                                                 <div class="row">
                                                     <div class="col-sm-15 first">
@@ -140,7 +140,7 @@
 <a class="em-payment-icon em-other " title="em-sample-title" href="#">other</a>
                                             </div> -->
                                         </div>
-                                        <div class="em-footer-address"> <address class="f-left">&copy; 2015 All Rights Reserved.<span>HTML Templates by <a href="#" title="Responsive HTML Themes &amp; Responsive HTML Templates">htmlcooker.com</a></span></address>
+                                        <div class="em-footer-address"> <address class="f-left">&copy; 2015 All Rights Reserved.<span>HTML Templates by <a href="#" title="Responsive HTML Themes &amp; Responsive HTML Templates">ChawriOnline.com</a></span></address>
                                         </div>
                                     </div>
                                 </div>
@@ -157,7 +157,7 @@
         </div><!-- /.wrapper -->
 
 <!-- Jquery Js -->
-        <!--<script type="text/javascript" src="<?php   asset_url();?>js\jquery-1.11.3.min.js"></script>-->
+       <!-- <script type="text/javascript" src="<?php echo asset_url();?>js\jquery-1.11.3.min.js"></script> -->
         <!-- Bootstrap Js -->
         <script type="text/javascript" src="<?php echo  asset_url();?>js\bootstrap.min.js"></script>
         <!-- Lazy Load Js -->
@@ -169,7 +169,7 @@
         <!-- Hover Intent Js -->
         <script type="text/javascript" src="<?php echo  asset_url();?>js\jquery.hoverIntent.js"></script>
         <!-- Select UI Js -->
-        <script type="text/javascript" src="<?php echo  asset_url();?>j<?php echo  asset_url();?>s\selectUl.js"></script>
+        <script type="text/javascript" src="<?php echo  asset_url();?>js\selectUl.js"></script>
         <!-- Throttle Js -->
         <script type="text/javascript" src="<?php echo  asset_url();?>js\jquery.ba-throttle-debounce.js"></script>
         <!-- EM Js -->

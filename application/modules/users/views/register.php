@@ -49,12 +49,42 @@
                                                                 
                                                             </div>
                                                         </li>
-                                                        <li>
-                                                            <label for="email_address" class="required"><em>*</em>Email Address</label>
-                                                            <div class="input-box">
-                                                                <input type="email"  name="user_name_email" required id="email_address" value="" title="Email Address" class="input-text validate-email required-entry">
+                                                         <li class="fields">
+                                                            <div class="customer-name-middlename">
+
+                                                            <div class="field name-lastname">
+                                                                     <label for="email_address" class="required"><em>*</em>Email Address</label>
+                                                                    <div class="input-box">
+                                                                         <input type="email"  name="user_name_email" required id="email_address" value="" title="Email Address" class="input-text validate-email required-entry">
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                <div class="field name-firstname">
+                                                                    <label for="email_address" class="required"><em>*</em>Phone Number</label>
+                                                                    <div class="input-box">
+                                                                         <input type="text"  name="phone" required id="phone" value="" title="Phone Number" class="input-text validate-email required-entry">
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                
                                                             </div>
                                                         </li>
+                                                        <!-- <li>
+                                                        <div class="customer-name-middlename">
+                                                           <div class="field name-lastname">
+                                                           
+                                                            <div class="input-box">
+                                                               
+                                                            </div>
+                                                            </div>
+                                                             <div class="field name-lastname">
+                                                            <label for="email_address" class="required"><em>*</em>Phone Number</label>
+                                                            <div class="input-box">
+                                                               
+                                                            </div>
+                                                            </div>
+                                                            </div>
+                                                        </li> -->
                                                        
                                                         <li class="fields">
                                                             <div class="field">

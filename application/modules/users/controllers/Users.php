@@ -53,8 +53,6 @@ class Users extends MX_Controller{
 
 
 
-
-
 public function home(){
 
             $this->load->view('header/header');
@@ -163,8 +161,9 @@ public function buyerHome(){
      
 
      if($data['password']==$data['confirm_password']){
+     
 
-        $this->Mdl_users->setData('register',$data['user_name_email'],$data['password'],$data['fname'],$data['lname']);
+        $this->Mdl_users->setData('register',$data['user_name_email'],$data['password'],$data['fname'],$data['lname'],$data['phone']);
         if($this->Mdl_users->chechUsers()){
      
           setInformUser('error','Email already exists. Kindly try another Email');
@@ -422,7 +421,7 @@ public function showForgetPwd(){
     }
     public function update(){
      $data=$this->input->post();
-        $this->Mdl_users->setData('update',$data['fname'],$data['lname']);
+        $this->Mdl_users->setData('update',$data['fname'],$data['lname'],$data['phone']);
     
     if($this->Mdl_users->update()){
 
@@ -437,4 +436,24 @@ public function showForgetPwd(){
         }
 
     }
+
+
+    public function contactInsert(){
+        $data=$this->input->post();
+         $this->Mdl_users->setData('contact',$data['name'],$data['email'],$data['query']);
+        if($this->Mdl_users->contact()){
+       
+       echo "Successfully Submit";
+        }
+        else{
+         echo "Successfully not Submit";
+        }
+      }
+  
+  public function contact(){
+
+    $this->load->view('header/header');
+    $this->load->view('contact');
+    $this->load->view('header/footer');
+  }
 }
