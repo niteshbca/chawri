@@ -1,3 +1,12 @@
+<?php
+  $logout=$this->input->get('logout');
+  if($logout){
+    echo "<div style='color:green;border:1px solid;border-color: #009900;'>".'you are successfully logged out'."</div>";
+  }else{
+    getInformUser();
+  }
+  ?>
+
 <div class="em-wrapper-area01-02-03">
                     <div class="container">
                         <div class="row">
@@ -246,7 +255,7 @@
                                 
                         <div class="list-group">
   <li  class="list-group-item ">
-    PRice
+    Price
   </li>
   <a href="#" class="list-group-item">Bulk 1</a>
   <a href="#" class="list-group-item">Bulk 2</a>

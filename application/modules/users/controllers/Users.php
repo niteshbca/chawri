@@ -440,20 +440,49 @@ public function showForgetPwd(){
 
     public function contactInsert(){
         $data=$this->input->post();
+
+        $todo=$data['todo'];
          $this->Mdl_users->setData('contact',$data['name'],$data['email'],$data['query']);
         if($this->Mdl_users->contact()){
+            if($todo=='buyer'){
+               
+                setInformUser('success','Your message has been sent to us');
+                 redirect(base_url().'users/buyerHome');
+            }
+
+                elseif ($todo=='sellers') {
+                    setInformUser('success','Your message has been sent to us');
+                    redirect(base_url().'sellers/homeSeller');
+                }
+                else{
+
+                setInformUser('success','Your message has been sent to us');
+                redirect(base_url());
+                }
        
-       echo "Successfully Submit";
+      
+
+        }
+        elseif ($todo=='sellers') {
+             setInformUser('error','There was an error sending your message');
+              redirect(base_url().'sellers/homeSeller');
+        
+        }
+        elseif ($todo=='buyer') {
+            setInformUser('error','There was an error sending your message');
+            redirect(base_url().'users/buyerHome');
         }
         else{
-         echo "Successfully not Submit";
+            setInformUser('error','There was an error sending your message');
+            redirect(base_url());
         }
       }
   
-  public function contact(){
+  public function contacts(){
 
     $this->load->view('header/header');
     $this->load->view('contact');
     $this->load->view('header/footer');
   }
+  
 }

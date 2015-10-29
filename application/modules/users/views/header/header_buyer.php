@@ -419,7 +419,7 @@
                                                                     
                                                                     <!-- /.menu-item-link -->
                                                                     <li class="menu-item-link menu-item-depth-0  menu-item-parent">
-                                                                        <a class="em-menu-link" href="<?php echo  base_url().'users/contacts';?>"> <span> Contacts Us </span> </a>
+                                                                        <a class="em-menu-link" href="<?php echo  base_url().'users/contacts';?>"> <span> Contact Us </span> </a>
                                                                         
                                                                     </li>
                                                                     <!-- /.menu-item-link -->

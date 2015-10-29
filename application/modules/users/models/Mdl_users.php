@@ -209,9 +209,11 @@ class Mdl_users extends CI_Model
                 $this->setPhone(func_get_arg(3));
                 break;
          case 'contact':
+
+
                 $this->setFname(func_get_arg(1));
                 $this->setUserName(func_get_arg(2));
-                $this->setContactQuery(func_get_arg(3));
+                $this->setContactQuery(func_get_arg(3));  
              
              break;
 
@@ -354,6 +356,7 @@ public function chechUsers(){
                 $this->_validate(func_get_arg(0));
                 return true;
                 break;
+         
             default:
                 break;
         }
@@ -636,4 +639,22 @@ public function chechUsers(){
                 ];
                 return $this->db->where('chawri_users_id',$this->session->userdata['user_data'][0]['users_id'])->update('chawri_users',$data)?true:false;
     }
+
+    public function contact (){
+
+
+               
+        $data = [
+                    'chawri_contacts_name' => $this->fname,
+                    'chawri_contacts_email' => $this->user_name,
+                    'chawri_contacts_query' => $this->contact_query
+
+                ];
+
+               return $this->db->insert('chawri_contacts',$data)?true:false;
+    
+
+    }
+                    
+                  
 }
