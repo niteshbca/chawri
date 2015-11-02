@@ -1,6 +1,8 @@
 ﻿
 	<?php
 	$logout=$this->input->get('logout');
+
+    
 	if($logout){
 		echo "<div style='color:green;border:1px solid;border-color: #009900;'>".'you are successfully logged out'."</div>";
 	}else{
@@ -24,7 +26,7 @@
                                                     <h1></h1>
                                                 </div>
                                             </div>
-                                            <form action="<?php /*echo 'users/contacts';*/?>" method="post" id="login-form">
+                                            <form action="<?php echo 'users/contactInsert';?>" method="post" id="login-form">
                                                 <input name="form_key" type="hidden" value="W2ZAZqxDCT2TpZYs">
                                                 <div class="col2-set">
                                                     <div class="col-1 new-users">
@@ -62,7 +64,7 @@
                                                                     <label for="query" class="required"><em>*</em>Query</label>
                                                                     <div class="input-box">
                                                                     <textarea  type="text" name="query" required  class="textarea-text required-entry"></textarea>
-                                                                       <input name="todo" type="hidden" value="Home">
+                                                                       <input name="todo" type="hidden" value="sellers">
                                                                     </div>
                                                                 </li> 
                                                             </ul>

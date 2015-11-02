@@ -95,7 +95,10 @@
                                 <div class="em-logo"><a href="#" title="Market and Deal Commerce" class="logo"><strong>Chawri Oline </strong><img src="<?php echo  asset_url();?>images/chawrionline_logo_small.jpg" alt="Market and Deal Commerce"></a>
                                 </div>
                             </div>
+
+
                             <div class="col-xs-20">
+
                                 <div class="em-top-search">
                                     <div class="em-header-search-mobile">
                                         <form id="search_mini_form_mobile" method="get">
@@ -109,6 +112,7 @@
                                             </div>
                                         </form>
                                     </div>
+
                                 </div><!-- /.em-top-search -->
                                 <div class="em-top-cart">
                                     <div class="em-wrapper-topcart-mobile em-no-quickshop">
@@ -326,6 +330,7 @@
                                     <div class="em-logo col-sm-6"><a href="#" title="Chawri Oline" class="logo"><strong> ChawriOnline</strong><img class="retina-img" src="<?php echo  asset_url();?>images/chawrionline%20logo1.jpg" alt="Chawri Oline"></a>
                                     </div>
                                     <div class="col-sm-18">
+
                                         <div class="em-top-cart f-right">
                                             <div class="em-wrapper-js-topcart em-wrapper-topcart em-no-quickshop">
                                                 <div class="em-container-topcart">
@@ -343,6 +348,7 @@
                                                 </div>
                                             </div>
                                         </div><!-- /.em-top-cart -->
+
                                         <div class="em-search f-right">
                                             <div class="em-top-search">
                                                 <div class="em-search-style02">
@@ -391,7 +397,7 @@
                                                                         
                                                                     </li><!-- /.menu-item-link -->
                                                                     <li class="menu-item-link menu-item-depth-0  menu-item-parent">
-                                                                        <a class="em-menu-link" href="#"> <span> How it Works </span> </a>
+                                                                        <a class="em-menu-link" href="<?php echo  base_url().'users/howItWork';?>"> <span> How it Works </span> </a>
                                                                         
                                                                     </li><!-- /.menu-item-link -->
                                                                     <li class="menu-item-link menu-item-depth-0  menu-item-parent">
@@ -456,3 +462,4 @@
                         </div><!-- /.em-header-bottom -->
                     </div>
                 </div><!-- /.em-wrapper-header -->
+

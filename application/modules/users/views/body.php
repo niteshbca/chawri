@@ -9,7 +9,16 @@
 
 <div class="em-wrapper-area01-02-03">
                     <div class="container">
+                     <div class="row">
+                      <div class="col-xs-12 col-sm-6 col-md-8" style="border:1px solid red">1</div>
+                      <div class="col-xs-12 col-sm-6 col-md-8" style="border:1px solid red">2</div>
+                      <div class="col-md-4" style="border:1px solid red">3</div>
+                      <div class="col-md-4" style="border:1px solid red">4</div>
+                     </div>
+                     
                         <div class="row">
+
+                        
                             <div class="col-sm-6">
                                 <div class="em-wrapper-area01">
                                     <div class="menu-wrapper hidden-xs">

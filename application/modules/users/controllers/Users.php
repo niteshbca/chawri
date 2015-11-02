@@ -120,7 +120,7 @@ public function buyerHome(){
                       }
 
                               else {
-                                  setInformUser('success', 'Successful login ');
+                                  setInformUser('success', 'Successfully login ');
                                   redirect('users/buyerHome');
                                   
                               }
@@ -140,7 +140,7 @@ public function buyerHome(){
 
             else{
                   //set flash message that his username and password do not match try again.
-                        setInformUser('error', 'your Username and password do not match');
+                        setInformUser('error', 'Your username and password do not match');
                         redirect('users');
                }
         }
@@ -443,9 +443,11 @@ public function showForgetPwd(){
 
         $todo=$data['todo'];
          $this->Mdl_users->setData('contact',$data['name'],$data['email'],$data['query']);
-        if($this->Mdl_users->contact()){
+        if($this->Mdl_users->contact() AND $this->contactMail()){
             if($todo=='buyer'){
+                
                
+
                 setInformUser('success','Your message has been sent to us');
                  redirect(base_url().'users/buyerHome');
             }
@@ -478,6 +480,29 @@ public function showForgetPwd(){
         }
       }
   
+
+
+
+
+
+
+    public  function contactMail()
+    {
+        
+        $admin_mail='nkscoder@gmail.com';
+        $email= $this->Mdl_users->getUserName();
+        $name= $this->Mdl_users->getFname();
+        $query= $this->Mdl_users->getContactQuery();
+
+        $this->email->from('nkscoder@gmail.com', 'Chawri');
+        $this->email->to($admin_mail);
+        /*$this->email->to($this->Mdl_users->getUserName());*/
+
+        $this->email->subject('Notifiction');
+        $this->email->message(' <div id="abcd" style="text-align:justify;font-size:18px;">'. $name.'<br/>'.$email.'<br/>'.$query.'</div>');
+        
+        return $this->email->send()?true:false;
+    }
   public function contacts(){
 
     $this->load->view('header/header');
@@ -485,4 +510,24 @@ public function showForgetPwd(){
     $this->load->view('header/footer');
   }
   
+
+public function contactsBuyer(){
+
+    $this->load->view('header/header_buyer');
+    $this->load->view('contact_buyers');
+    $this->load->view('header/footer');
+  }
+  public function contactsSelles(){
+
+    $this->load->view('header/header_sellers');
+    $this->load->view('contact_sellers');
+    $this->load->view('header/footer');
+  }
+
+  public function howItWork(){
+    
+      $this->load->view('header/header');
+    $this->load->view('how_it_work');
+    $this->load->view('header/footer');
+  }
 }

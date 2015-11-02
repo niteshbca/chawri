@@ -13,7 +13,7 @@
 <?php
 $logout=$this->input->get('logout');
 if($logout){
-    echo "<div style='color:green;border:1px solid;border-color: #009900;'>".'you are successfully logged out'."</div>";
+    echo "<div style='text-align:center;' class='alert alert-success'>".'you are successfully logged out'."</div>";
 }else{
     getInformUser();
 }
