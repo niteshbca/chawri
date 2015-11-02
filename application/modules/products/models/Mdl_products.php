@@ -568,5 +568,32 @@ public function getProducts($id){
 
 }
 
+
+
+ public function buyNow($id) {
+
+ $date = date('Y-m-d H:i:s'); 
+
+
+     $data= array(
+
+        'chawri_products_orders_buyer_id' => $this->session->userdata['user_data'][0]['users_id'], 
+        'chawri_products_orders_products_id' =>$id , 
+        'chawri_products_orders_date' => $date
+        );
+  if($this->db->insert('chawri_products_orders',$data)){
+          return true;
+        }
+        else{
+          return false;
+        }
+
+
+
+    }  
+
+
+
+             
 }
 

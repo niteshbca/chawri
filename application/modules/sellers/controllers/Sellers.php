@@ -38,9 +38,9 @@ class Sellers extends MX_Controller{
     }
 
    public function home(){
-
+   $data['counter']=$this->Mdl_users->getCounter();
     $this->load->view('users/header/header');
-     $this->load->view('users/body');
+     $this->load->view('users/body',$data);
      $this->load->view('users/header/footer');
    }
 
@@ -188,4 +188,19 @@ public function showProducts(){
                 redirect(base_url().'sellers/getProfile');
          }
     }
+
+
+    public function aboutUsSellers(){
+    
+      $this->load->view('users/header/header_seller');
+    $this->load->view('users/about_us');
+    $this->load->view('users/header/footer');
+  }
+  public function howItWorkSellers(){
+    
+      $this->load->view('header/header_seller');
+    $this->load->view('users/how_it_work');
+    $this->load->view('users/header/footer');
+  }
+
 }

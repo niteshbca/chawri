@@ -279,6 +279,25 @@ public function delete($id){
    }
 }
 
+
+
+public function buyNow($id){
+
+  if($this->Mdl_products->buyNow($id)){
+ 
+         $this->load->view('users/header/header_buyer');
+         $this->load->view('payment');
+         $this->load->view('users/header/footer');
+ 
+
+  }
+  else{
+   
+    setInformUser('error',"Some error Occurred! Kindly retry ");
+  }
+
+
+}
   /*public function productsXml(){
 
     $excelfile=$this->input->post();
@@ -321,6 +340,7 @@ public function delete($id){
             echo "Some error occur";
         }
     }
+}
 
 */
 }

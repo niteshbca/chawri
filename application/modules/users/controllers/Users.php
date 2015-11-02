@@ -55,16 +55,18 @@ class Users extends MX_Controller{
 
 public function home(){
 
+    $data['counter']=$this->Mdl_users->getCounter();
+            
             $this->load->view('header/header');
-            $this->load->view('body');
+            $this->load->view('body',$data);
             $this->load->view('header/footer');
 }
 
 
 public function buyerHome(){
-
+       $data['counter']=$this->Mdl_users->getCounter();
             $this->load->view('header/header_buyer');
-            $this->load->view('body');
+            $this->load->view('body',$data);
             $this->load->view('header/footer');
 }
     /**
@@ -113,7 +115,7 @@ public function buyerHome(){
 
                       if($user_data['data'][0]['chawri_users_username']=='admin@admin.com') {
                           $this->load->view('users/header/header');
-                         // $this->load->view('admin/aside');
+                           $this->load->view('admin/aside');
                            $this->load->view('admin/dashboard');
                            $this->load->view('users/header/footer');
 
@@ -530,4 +532,32 @@ public function contactsBuyer(){
     $this->load->view('how_it_work');
     $this->load->view('header/footer');
   }
+
+
+  public function aboutUs(){
+    
+      $this->load->view('header/header');
+    $this->load->view('about_us');
+    $this->load->view('header/footer');
+  }
+
+
+  public function aboutUsBuyer(){
+    
+      $this->load->view('header/header_buyer');
+    $this->load->view('about_us');
+    $this->load->view('header/footer');
+  }
+  public function howItWorkBuyer(){
+    
+      $this->load->view('header/header_buyer');
+    $this->load->view('how_it_work');
+    $this->load->view('header/footer');
+  }
+
+
+
+
+
+
 }

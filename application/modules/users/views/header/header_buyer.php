@@ -182,12 +182,12 @@
                                                                     </li><!-- /.menu-item-link -->
                                                                     
 <li class="menu-item-link menu-item-depth-0 fa fa-home menu-item-parent">
-                                                                        <a class="em-menu-link" href=""> <span> About Us </span> </a>
+                                                                        <a class="em-menu-link" href="<?php echo  base_url().'users/aboutUsBuyer';?>"> <span> About Us </span> </a>
                                                                         
                                                                     </li><!-- /.menu-item-link -->
                                                                     
 <li class="menu-item-link menu-item-depth-0 fa fa-home menu-item-parent">
-                                                                        <a class="em-menu-link" href=""> <span> How it Works </span> </a>
+                                                                        <a class="em-menu-link" href="<?php echo  base_url().'users/howItWorkBuyer';?>"> <span> How it Works </span> </a>
                                                                         
                                                                     </li><!-- /.menu-item-link -->
                                                                     
@@ -394,11 +394,11 @@
                                                                         
                                                                     </li><!-- /.menu-item-link -->
                                                                     <li class="menu-item-link menu-item-depth-0  menu-item-parent">
-                                                                        <a class="em-menu-link" href="#"> <span> About Us </span> </a>
+                                                                        <a class="em-menu-link" href="<?php echo  base_url().'users/aboutUsBuyer';?>"> <span> About Us </span> </a>
                                                                         
                                                                     </li><!-- /.menu-item-link -->
                                                                     <li class="menu-item-link menu-item-depth-0  menu-item-parent">
-                                                                        <a class="em-menu-link" href="#"> <span> How it Works </span> </a>
+                                                                        <a class="em-menu-link" href="<?php echo  base_url().'users/howItWorkBuyer';?>"> <span> How it Works </span> </a>
                                                                         
                                                                     </li><!-- /.menu-item-link -->
                                                                     <li class="menu-item-link menu-item-depth-0  menu-item-parent">

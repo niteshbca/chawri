@@ -22,7 +22,7 @@
                                     <div class="em-col-main col-sm-24">
                                         <div class="account-create">
                                             <div class="page-title">
-                                                <h1> Products Details</h1>   <div class="buttons-set"> <button type="submit" title="Submit" class="button"><span><span><a href=""> Buy Now</a></span></span> </div>
+                                                <h1> Products Details</h1>   <div class="buttons-set"> <button type="submit" title="Submit" class="button"><a href="<?php echo base_url().'products/buyNow/'.$data[0]['chawri_products_id']; ?>"> Buy Now</a> </div>
                                             </div>
                                          
                                                 <div class="fieldset">

@@ -9,13 +9,31 @@
 
 <div class="em-wrapper-area01-02-03">
                     <div class="container">
+
+
+                  <!-- ..................................counter point .......................................................... -->  
                      <div class="row">
-                      <div class="col-xs-12 col-sm-6 col-md-8" style="border:1px solid red">1</div>
-                      <div class="col-xs-12 col-sm-6 col-md-8" style="border:1px solid red">2</div>
-                      <div class="col-md-4" style="border:1px solid red">3</div>
-                      <div class="col-md-4" style="border:1px solid red">4</div>
+                      <div class="col-md-24">
+                        <div class="col-md-8">
+<!-- hitwebcounter Code START -->
+
+    <span><?php echo $counter['count'];  ?></span>
+<h3>No. of members</h3>
+                           </div> 
+                        <div class="col-md-8">
+                        <!-- hitwebcounter Code START -->
+                       <span> <?php echo $counter['products'];  ?></span>
+                         <h3>Quantity on Offer</h3>
+                         </div>
+                        <div class="col-md-8">
+                        <!-- hitwebcounter Code START -->
+                        <span>9834789</span>
+                     <h3> Total Revenue </h3>
+                            
+                        </div>
+                        </div>
                      </div>
-                     
+                     <!-- ............................end counter ................................................................ -->
                         <div class="row">
 
                         

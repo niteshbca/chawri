@@ -655,6 +655,35 @@ public function chechUsers(){
     
 
     }
-                    
-                  
+     
+
+     public function getCounter(){
+        $value=0;
+      $this->db->from('chawri_users');
+      $query = $this->db->get();
+      $buyer = $query->num_rows();
+        
+      $this->db->from('chawri_sellers');
+      $query1 = $this->db->get();
+      $sellers = $query1->num_rows();
+
+      $count=$buyer+ $sellers;
+
+     
+     $this->db->select('SUM(chawri_products_quantity_on_offer) as score');
+
+     $q = $this->db->get('chawri_products');
+     $row=$q->row();
+     $score=$row->score;
+
+
+      $data = array('count' => $count,'products' => $score );
+        
+
+      
+        return $data;
+     }               
+        
+
+  
 }
