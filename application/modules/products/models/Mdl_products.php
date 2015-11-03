@@ -484,7 +484,7 @@ public function update (){
             'chawri_products_brand_name' => $this->products_brand_name,
             'chawri_products_manufacturer' => $this->products_manufacturer,
             'chawri_products_substance' => $this->products_substance,
-
+       
             'chawri_products_size' => $this->products_size,
             'chawri_products_thickness' => $this->products_thickness,
             'chawri_products_grain' => $this->products_grain,
@@ -574,12 +574,35 @@ public function getProducts($id){
 
  $date = date('Y-m-d H:i:s'); 
 
+$products=$this->getProducts($id);
+/*echo "<pre/>";
+print_r($products);
+
+echo  $products[0]['chawri_products_name'];
+die();*/
+
 
      $data= array(
 
-        'chawri_products_orders_buyer_id' => $this->session->userdata['user_data'][0]['users_id'], 
-        'chawri_products_orders_products_id' =>$id , 
-        'chawri_products_orders_date' => $date
+        'chawri_products_orders_buyer_id' =>                     $this->session->userdata['user_data'][0]['users_id'], 
+        'chawri_products_orders_products_id' =>                  $id , 
+        'chawri_sellers_id'=>                                    $products[0]['chawri_sellers_id'],
+        'chawri_products_orders_date' =>                         $date,
+        'chawri_products_orders_products_name'=>                 $products[0]['chawri_products_name'],
+        'chawri_products_orders_products_brand_name'=>           $products[0]['chawri_products_brand_name'],
+        'chawri_products_orders_products_manufacturer'=>         $products[0]['chawri_products_manufacturer'],
+        'chawri_products_orders_products_substance' =>           $products[0]['chawri_products_substance'],
+        'chawri_products_orders_products_size'=>                 $products[0]['chawri_products_size'],
+        'chawri_products_orders_products_thickness'=>            $products[0]['chawri_products_thickness'],
+        'chawri_products_orders_products_grain'=>                $products[0]['chawri_products_grain'],
+        'chawri_products_orders_products_sheets_per_packet'=>    $products[0]['chawri_products_sheets_per_packet'],
+        'chawri_products_orders_products_packets_per_bundle'=>   $products[0]['chawri_products_packets_per_bundle'],
+        'chawri_products_orders_products_quantity_on_offer'=>    $products[0]['chawri_products_quantity_on_offer'],
+        'chawri_products_orders_products_packing'=>              $products[0]['chawri_products_packing'],
+        'chawri_products_orders_products_rate'=>                 $products[0]['chawri_products_rate'],
+        'chawri_products_orders_products_cenvat_amount'=>        $products[0]['chawri_products_cenvat_amount'],
+        'chawri_products_orders_products_reel_sheet'=>           $products[0]['chawri_products_reel_sheet'],
+        'chawri_products_orders_products_weight'=>               $products[0]['chawri_products_weight']
         );
   if($this->db->insert('chawri_products_orders',$data)){
           return true;

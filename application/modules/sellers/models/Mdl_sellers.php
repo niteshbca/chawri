@@ -565,5 +565,10 @@ public function chechSellers(){
 
         return $this->db->where('chawri_sellers_id',$this->session->userdata['user_data'][0]['users_id'])->update('chawri_sellers',$data)?true:false;
      }
+
+
+     public function approvedProducts(){
+        return $this->db->where('chawri_products_orders_status','approved_by_admin','chawri_sellers_id',$this->session->userdata['user_data'][0]['users_id'])->get('chawri_products_orders')->result_array();
+     }
 }
 

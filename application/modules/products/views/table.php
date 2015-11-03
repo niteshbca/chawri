@@ -1,12 +1,12 @@
 
- <?php
-  $logout=$this->input->get('logout');
-  if($logout){
-    echo "<div class='col-md-12' style='color:green; border:2px solid #004400;'>".'You are successfully logged out'."</div>";
-  }else{
-    getInformUser();
-  }
-  ?>
+<?php
+    $logout=$this->input->get('logout');
+    if($logout){
+        echo "<div style='text-align:center;' class=' container alert alert-success'>".'you are successfully logged out'."</div>";
+    }else{
+        getInformUser();
+    }
+    ?>
 
   <script>
   $(document).ready(function() {
@@ -18,10 +18,10 @@
   <table id="example" class="display " cellspacing="0" width="100%">
           <thead>
               <tr>
-                 <th> Name</th>
-                 <th>Buy Now</th>
-                    <th>Brand Name</th>
-                    <th>Manufacturer</th>
+                 <th>Products Name</th>
+                 <th>Buyer  Name</th>
+                    <th>Order Date</th>
+                    <th></th>
                     <th>Substance</th>
                     <th> Bulk</th>
                     <th> Size(in s/m)</th>

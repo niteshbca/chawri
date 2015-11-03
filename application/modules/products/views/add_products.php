@@ -6,15 +6,14 @@
  * Time: 2:30 PM
  */?>
 
-
 <?php
-$logout=$this->input->get('logout');
-if($logout){
-    echo "<div style='color:green;border:1px solid;border-color: #009900;'>".'you are successfully logged out'."</div>";
-}else{
-    getInformUser();
-}
-?>
+    $logout=$this->input->get('logout');
+    if($logout){
+        echo "<div style='text-align:center;' class=' container alert alert-success'>".'you are successfully logged out'."</div>";
+    }else{
+        getInformUser();
+    }
+    ?>
 
 <div class="padding-15">
 

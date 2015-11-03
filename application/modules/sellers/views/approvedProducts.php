@@ -32,7 +32,7 @@
                     <th>Packing</th>
                     <th>Rate</th>
                     <th>CENVAT Amount</th>
-                    <th>Action</th>
+                    
               </tr>
           </thead>
 
@@ -59,65 +59,64 @@
 
           <tbody>
               <?php
-                                    // print_r($data);
-                                  foreach($data as $rows){
+                                  /*  echo "<pre/>"; print_r($products);
+                                     die();*/
+                                  foreach($products as $rows){
                    ?>
                   <tr>
                     <!-- <td>
                       <input type="checkbox" class="checkboxes" value="1">
                     </td> -->
                     <td>
-                      <?php echo $rows['chawri_products_name']; ?>
+                      <?php echo $rows['chawri_products_orders_products_name']; ?>
                     </td>
                     <td>
-                      <?php echo $rows['chawri_products_brand_name']; ?>
+                      <?php echo $rows['chawri_products_orders_products_brand_name']; ?>
                     </td>
                     <td>
-                      <?php echo $rows['chawri_products_manufacturer']; ?>
+                      <?php echo $rows['chawri_products_orders_products_manufacturer']; ?>
                     </td>
                     <td>
-                      <?php echo $rows['chawri_products_substance']; ?>
+                      <?php echo $rows['chawri_products_orders_products_substance']; ?>
                     </td>
                     <td>
-                      <?php echo $rows['chawri_products_thickness']; ?>
+                      <?php echo $rows['chawri_products_orders_products_thickness']; ?>
                     </td>
                     <td>
-                      <?php echo $rows['chawri_products_size']; ?>
+                      <?php echo $rows['chawri_products_orders_products_size']; ?>
                     </td>
 
                     
 
                     <td>
-                      <?php echo $rows['chawri_products_grain']; ?>
+                      <?php echo $rows['chawri_products_orders_products_grain']; ?>
                     </td>
                     <td>
-                      <?php echo $rows['chawri_products_sheets_per_packet']; ?>
+                      <?php echo $rows['chawri_products_orders_products_sheets_per_packet']; ?>
                     </td>
 
                                        
                     <td>
-                      <?php echo $rows['chawri_products_weight']; ?>
+                      <?php echo $rows['chawri_products_orders_products_weight']; ?>
                     </td>
 
                     <td>
-                      <?php echo $rows['chawri_products_packets_per_bundle']; ?>
+                      <?php echo $rows['chawri_products_orders_products_packets_per_bundle']; ?>
                     </td>
                     <td>
-                      <?php echo $rows['chawri_products_quantity_on_offer']; ?>
+                      <?php echo $rows['chawri_products_orders_products_quantity_on_offer']; ?>
                     </td>
                     <td>
-                      <?php echo $rows['chawri_products_packing']; ?>
+                      <?php echo $rows['chawri_products_orders_products_packing']; ?>
                     </td>
                     <td>
-                      <?php echo $rows['chawri_products_rate']; ?>
+                      <?php echo $rows['chawri_products_orders_products_rate']; ?>
                     </td>
                     <td>
-                      <?php echo $rows['chawri_products_cenvat_amount']; ?>
+                      <?php echo $rows['chawri_products_orders_products_cenvat_amount']; ?>
                     </td>
                     
-                     <td>
-                      <a href="<?php echo base_url().'products/showUpdate/'.$rows['chawri_products_id']?>"> Edit<a>/  <a href="<?php echo base_url().'products/delete/'.$rows['chawri_products_id']?>"> Delete</a>
-                    </td>
+                     
 
                   </tr>
                                    <?php }?>

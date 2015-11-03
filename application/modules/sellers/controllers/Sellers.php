@@ -13,7 +13,7 @@ class Sellers extends MX_Controller{
     {
         date_default_timezone_set('Asia/Calcutta');
         parent::__construct();
-
+        $this->load->Model('users/Mdl_users');
         $this->load->Model('Mdl_sellers');
     }
 
@@ -39,14 +39,14 @@ class Sellers extends MX_Controller{
 
    public function home(){
    $data['counter']=$this->Mdl_users->getCounter();
-    $this->load->view('users/header/header');
+    $this->load->view('users/header/header',$data);
      $this->load->view('users/body',$data);
      $this->load->view('users/header/footer');
    }
 
  public function homeSeller(){
-
-    $this->load->view('users/header/header_seller');
+  $data['counter']=$this->Mdl_users->getCounter();
+    $this->load->view('users/header/header_seller',$data);
      $this->load->view('users/body');
      $this->load->view('users/header/footer');
    }
@@ -202,5 +202,14 @@ public function showProducts(){
     $this->load->view('users/how_it_work');
     $this->load->view('users/header/footer');
   }
+
+public function approvedProducts(){
+
+    $data['products']=$this->Mdl_sellers->approvedProducts();
+    $this->load->view('users/header/header_seller');
+    $this->load->view('approvedProducts',$data);
+    $this->load->view('users/header/footer');
+
+}
 
 }

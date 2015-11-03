@@ -14,7 +14,7 @@
   <a href="#" class="list-group-item active">
     Cras justo odio
   </a>
-  <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+  <a href="<?php echo base_url().'admin/showProducts';?>" class="list-group-item">Panding Products</a> 
   <a href="#" class="list-group-item">Morbi leo risus</a>
   <a href="#" class="list-group-item">Porta ac consectetur ac</a>
   <a href="#" class="list-group-item">Vestibulum at eros</a>

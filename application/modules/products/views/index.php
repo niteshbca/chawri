@@ -35,13 +35,13 @@
 </head>
 <body>
 <?php
-$logout=$this->input->get('logout');
-if($logout){
-    echo "<div style='color:green;border:1px solid;border-color: #009900;'>".'you are successfully logged out'."</div>";
-}else{
-    getInformUser();
-}
-?>
+    $logout=$this->input->get('logout');
+    if($logout){
+        echo "<div style='text-align:center;' class=' container alert alert-success'>".'you are successfully logged out'."</div>";
+    }else{
+        getInformUser();
+    }
+    ?>
 <!-- Form Mixin-->
 <!-- Pen Title-->
 <div class="pen-title">

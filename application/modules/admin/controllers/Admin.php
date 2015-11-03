@@ -31,6 +31,44 @@ class Admin extends MX_Controller{
              $this->load->view('users/header/footer');
              
             }
+  
+
+
+  }
+
+
+  public function showProducts(){
+    $data['panding_products']=$this->Mdl_admin->showProducts();
+
+ /* echo "<pre/>";
+    print_r($data['panding_products']);
+die();*/
+             $this->load->view('users/header/header');
+             $this->load->view('panding_products',$data);
+             $this->load->view('users/header/footer');
+  }
+
+  public function approval($id){
+
+
+$commission=$this->input->post();
+
+/*print_r($commission);*/
+
+    
+
+    if($this->Mdl_admin->approval($id,$commission['commission'])){
+     
+
+      setInformUser('success','Products Approved  successfully');
+      redirect('admin/showProducts');
+    }
+    else{
+        
+
+          setInformUser('error','Products  not Approved  successfully');
+          redirect('admin/showProducts');
+    }
 
 
   }
