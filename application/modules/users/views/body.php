@@ -17,7 +17,7 @@
                         <div class="col-md-8">
 <!-- hitwebcounter Code START -->
 
-    <span><?php echo $counter['count'];  ?></span>
+    <span><?php echo $counter['count'];?></span>
 <h3>No. of members</h3>
                            </div> 
                         <div class="col-md-8">

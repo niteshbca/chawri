@@ -55,11 +55,24 @@ class Users extends MX_Controller{
 
 public function home(){
 
-    $data['counter']=$this->Mdl_users->getCounter();
-            
-            $this->load->view('header/header');
-            $this->load->view('body',$data);
-            $this->load->view('header/footer');
+
+        if( $this->session->userdata['user_data'][0]['role']=='sellers'){
+
+              redirect(base_url().'sellers/homeSeller');
+        }
+
+        elseif ($this->session->userdata['user_data'][0]['chawri_users_username']=='admin@admin.com') {
+
+                           $this->load->view('users/header/header');
+                           $this->load->view('admin/dashboard');
+                           $this->load->view('users/header/footer');
+         }
+      else{
+                    $data['counter']=$this->Mdl_users->getCounter(); 
+                    $this->load->view('header/header');
+                    $this->load->view('body',$data);
+                    $this->load->view('header/footer');
+          }
 }
 
 
@@ -115,7 +128,7 @@ public function buyerHome(){
 
                       if($user_data['data'][0]['chawri_users_username']=='admin@admin.com') {
                           $this->load->view('users/header/header');
-                           $this->load->view('admin/aside');
+                           //$this->load->view('admin/aside');
                            $this->load->view('admin/dashboard');
                            $this->load->view('users/header/footer');
 
@@ -226,7 +239,8 @@ public function buyerHome(){
                 array_push($data, [
                     'users_id' =>func_get_arg(1)[0]['chawri_sellers_id'],
                     'users_email' =>func_get_arg(1)[0]['chawri_sellers_email'],
-                    'users_name' =>$user_username
+                    'users_name' =>$user_username,
+                    'role'=>'sellers'
                     
 
                 ]);

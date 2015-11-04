@@ -270,11 +270,11 @@ public function delete($id){
 
    if($this->Mdl_products->delete($id)){
 
-       setInformUser('success',' Products Delete successful');
+       setInformUser('success',' Products Deleted successfully');
         redirect('sellers/showProducts');
    }
    else{
-     setInformUser('error','Products Delete not successful');
+     setInformUser('error','Products Delete not successfully');
       redirect('sellers/showProducts');
    }
 }
@@ -291,12 +291,28 @@ public function buyNow($id){
  
 
   }
-  else{
+  else{ 
    
     setInformUser('error',"Some error Occurred! Kindly retry ");
   }
 
 
+}
+
+public function extenstion($id){
+
+ $data=$this->input->post();
+
+
+  $this->Mdl_products->setData('extension',$data['extension'],$data['date'],$id);
+  if( $this->Mdl_products->extension()){
+         setInformUser('success',"Extension inserted Successfully. ");
+         redirect(base_url().'sellers/manageProducts');
+  }      
+else{ 
+        setInformUser('error',"Some error Occurred! Kindly retry ");
+        redirect(base_url().'sellers/manageProducts');
+}
 }
   /*public function productsXml(){
 
@@ -340,6 +356,7 @@ public function buyNow($id){
             echo "Some error occur";
         }
     }
+}
 }
 
 */

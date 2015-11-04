@@ -203,13 +203,42 @@ public function showProducts(){
     $this->load->view('users/header/footer');
   }
 
-public function approvedProducts(){
+public function manageProducts(){
 
-    $data['products']=$this->Mdl_sellers->approvedProducts();
+    $data['cancel']=$this->Mdl_sellers->getCancel(); 
+    $data['conform']=$this->Mdl_sellers->getConform(); 
+    $data['products']=$this->Mdl_sellers->approvedProducts(); 
     $this->load->view('users/header/header_seller');
-    $this->load->view('approvedProducts',$data);
+    $this->load->view('approvedProducts',$data); 
     $this->load->view('users/header/footer');
 
+}
+
+
+ 
+
+public function conform($id){
+    if($this->Mdl_sellers->conform($id)){
+               setInformUser('success','Products Successfully Conform .');
+                redirect(base_url().'sellers/manageProducts');
+    }
+    else{
+   setInformUser('error','Some Error Occur . Kindly try Again');
+                redirect(base_url().'sellers/manageProducts');
+
+    }
+}
+
+public function cancel($id){
+    if($this->Mdl_sellers->cancel($id)){
+               setInformUser('success','Products Successfully Cancelled .');
+                redirect(base_url().'sellers/manageProducts');
+    }
+    else{
+   setInformUser('error','Some Error Occur . Kindly try Again');
+                redirect(base_url().'sellers/manageProducts');
+
+    }
 }
 
 }

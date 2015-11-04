@@ -26,9 +26,42 @@ class Mdl_products extends CI_Model
     private $products_cenvat_amount;
     private $sellers_id;
     private $products_weight;
+    private $date;
+    private $extension;
 
 
 
+ /**
+     * @return mixed
+     */
+    public function getExtension()
+    {
+        return $this->extension;
+    }
+
+    /**
+     * @param mixed $products_id
+     */
+    public function setExtension($extension)
+    {
+        $this->extension = $extension;
+    }
+
+ /**
+     * @return mixed
+     */
+    public function getExtensionDate()
+    {
+        return $this->extension_date;
+    }
+
+    /**
+     * @param mixed $products_id
+     */
+    public function setExtensionDate($extension_date)
+    {
+        $this->extension_date = $extension_date;
+    }
 
 
  /**
@@ -461,7 +494,16 @@ public function insertProductReel($data){
 
                 break;
 
-
+           case 'extension':
+/*                print_r(func_get_arg(2));
+                die();*/
+                $this->setExtension(func_get_arg(1));
+                $this->setExtensionDate(func_get_arg(2));
+                $this->setProductsId(func_get_arg(3));
+             
+            /* echo $this->getExtensionDate();
+             die();*/
+             break;
             default:
                 break;
         }
@@ -615,7 +657,33 @@ die();*/
 
     }  
 
+public function extension(){
 
+$input_date=$this->extension_date;
+
+
+$better_date = nice_date($input_date, 'Y-m-d');
+
+ 
+
+ $data = [
+            'chawri_extension_sellers_id' => $this->session->userdata['user_data'][0]['users_id'],
+            'chawri_extension_products_id' => $this->products_id,
+            'chawri_extension_date' => $better_date,
+            'chawri_extension_reasons' => $this->extension,
+            'chawri_extension_current_date' =>  $date = date('Y-m-d H:i:s')
+
+        ];
+
+        if($this->db->insert('chawri_extension',$data)){
+          return true;
+        }
+        else{
+          return false;
+        }
+
+
+}
 
              
 }

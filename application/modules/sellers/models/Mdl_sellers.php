@@ -570,5 +570,36 @@ public function chechSellers(){
      public function approvedProducts(){
         return $this->db->where('chawri_products_orders_status','approved_by_admin','chawri_sellers_id',$this->session->userdata['user_data'][0]['users_id'])->get('chawri_products_orders')->result_array();
      }
+
+
+
+     public function conform($id){
+         $data = [
+            'chawri_products_orders_status' => 'conform_by_sellers'
+             ];
+       
+
+        return $this->db->where('chawri_products_orders_id',$id)->update('chawri_products_orders',$data)?true:false;
+     }
+
+
+     public function cancel($id){
+         $data = [
+            'chawri_products_orders_status' => 'cancelled_by_sellers'
+             ];
+       
+
+        return $this->db->where('chawri_products_orders_id',$id)->update('chawri_products_orders',$data)?true:false;
+     }
+
+
+ public function getCancel(){
+        return $this->db->where('chawri_products_orders_status','cancelled_by_sellers','cancelled_by_sellers',$this->session->userdata['user_data'][0]['users_id'])->get('chawri_products_orders')->result_array();
+     }
+      public function getConform(){
+        return $this->db->where('chawri_products_orders_status','conform_by_sellers','chawri_sellers_id',$this->session->userdata['user_data'][0]['users_id'])->get('chawri_products_orders')->result_array();
+     }
+
+     
 }
 

@@ -418,7 +418,7 @@
                                                                     </li>
                                                
                                                                     <li class="menu-item-link menu-item-depth-0  menu-item-parent">
-                                                                        <a class="em-menu-link" href="<?php echo base_url().'sellers/approvedProducts' ?>"> <span> Approved Products </span> </a>
+                                                                        <a class="em-menu-link" href="<?php echo base_url().'sellers/manageProducts' ?>"> <span> Manage Products </span> </a>
                                                                         
                                                                     </li>
                                                
