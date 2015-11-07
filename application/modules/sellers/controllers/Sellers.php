@@ -111,7 +111,7 @@ public function showProducts(){
 
         $token=$this->input->post_get('tqwertyuiasdfghjzxcvbn');
         $this->Mdl_sellers->setData('token',$token);
-        $this->Mdl_sellers->verifyEmail()?setInformUser('success',"email verified successfully"):setInformUser('error',"Your token has expired");
+        $this->Mdl_sellers->verifyEmail()?setInformUser('success',"Email verified successfully"):setInformUser('error',"Your token has expired");
         redirect('sellers/home');
     }
 
@@ -203,10 +203,10 @@ public function showProducts(){
     $this->load->view('users/header/footer');
   }
 
-public function manageProducts(){
+public function manageOrder(){
 
     $data['cancel']=$this->Mdl_sellers->getCancel(); 
-    $data['conform']=$this->Mdl_sellers->getConform(); 
+    $data['conform']=$this->Mdl_sellers->getPending(); 
     $data['products']=$this->Mdl_sellers->approvedProducts(); 
     $this->load->view('users/header/header_seller');
     $this->load->view('approvedProducts',$data); 
@@ -220,11 +220,11 @@ public function manageProducts(){
 public function conform($id){
     if($this->Mdl_sellers->conform($id)){
                setInformUser('success','Products Successfully Conform .');
-                redirect(base_url().'sellers/manageProducts');
+                redirect(base_url().'sellers/manageOrder');
     }
     else{
    setInformUser('error','Some Error Occur . Kindly try Again');
-                redirect(base_url().'sellers/manageProducts');
+                redirect(base_url().'sellers/manageOrder');
 
     }
 }
@@ -232,11 +232,11 @@ public function conform($id){
 public function cancel($id){
     if($this->Mdl_sellers->cancel($id)){
                setInformUser('success','Products Successfully Cancelled .');
-                redirect(base_url().'sellers/manageProducts');
+                redirect(base_url().'sellers/manageOrder');
     }
     else{
    setInformUser('error','Some Error Occur . Kindly try Again');
-                redirect(base_url().'sellers/manageProducts');
+                redirect(base_url().'sellers/manageOrder');
 
     }
 }

@@ -283,7 +283,9 @@ public function delete($id){
 
 public function buyNow($id){
 
-  if($this->Mdl_products->buyNow($id)){
+$data=$this->input->post();
+$this->Mdl_products->setData('buy',$data['qty'],$data['description'],$id);
+  if($this->Mdl_products->buyNow()){
  
          $this->load->view('users/header/header_buyer');
          $this->load->view('payment');
@@ -314,6 +316,48 @@ else{
         redirect(base_url().'sellers/manageProducts');
 }
 }
+
+public function showOrder(){
+
+ $data['approvel']= $this->Mdl_products->approvel();
+
+$data['conform']= $this->Mdl_products->pending();
+$data['cancel']= $this->Mdl_products->cancel();
+
+        $this->load->view('users/header/header_buyer');
+         $this->load->view('order_table',$data);
+         $this->load->view('users/header/footer');
+
+}
+
+
+public function orderApproved ($id){
+
+if($this->Mdl_products->orderApproved()){
+
+  redirect('');
+  
+}
+else{
+    redirect('');
+}
+
+}
+
+public function orderCancel($id){ 
+  
+if($this->Mdl_products->orderCancel()){
+
+  redirect('');
+  
+}
+else{
+    redirect('');
+}
+
+
+}
+
   /*public function productsXml(){
 
     $excelfile=$this->input->post();
@@ -356,6 +400,9 @@ else{
             echo "Some error occur";
         }
     }
+}
+}
+}
 }
 }
 

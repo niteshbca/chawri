@@ -28,8 +28,25 @@ class Mdl_products extends CI_Model
     private $products_weight;
     private $date;
     private $extension;
+    private $description;
 
 
+
+ /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param mixed $products_id
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
 
  /**
      * @return mixed
@@ -504,6 +521,14 @@ public function insertProductReel($data){
             /* echo $this->getExtensionDate();
              die();*/
              break;
+
+          case 'buy':
+             $this->setProductsQuantityOnOffer(func_get_arg(1));
+             $this->setDescription(func_get_arg(2));
+             $this->setProductsId(func_get_arg(3));
+         
+          break;
+
             default:
                 break;
         }
@@ -612,22 +637,25 @@ public function getProducts($id){
 
 
 
- public function buyNow($id) {
+ public function buyNow() {
 
  $date = date('Y-m-d H:i:s'); 
 
-$products=$this->getProducts($id);
-/*echo "<pre/>";
+
+$products=$this->getProducts($this->getProductsId());
+/*echo $this->getProductsQuantityOnOffer();
+echo $this->getDescription();
+echo "<pre/>";
 print_r($products);
 
 echo  $products[0]['chawri_products_name'];
-die();*/
-
+die();
+*/
 
      $data= array(
 
         'chawri_products_orders_buyer_id' =>                     $this->session->userdata['user_data'][0]['users_id'], 
-        'chawri_products_orders_products_id' =>                  $id , 
+        'chawri_products_orders_products_id' =>                  $this->getProductsId(), 
         'chawri_sellers_id'=>                                    $products[0]['chawri_sellers_id'],
         'chawri_products_orders_date' =>                         $date,
         'chawri_products_orders_products_name'=>                 $products[0]['chawri_products_name'],
@@ -639,12 +667,13 @@ die();*/
         'chawri_products_orders_products_grain'=>                $products[0]['chawri_products_grain'],
         'chawri_products_orders_products_sheets_per_packet'=>    $products[0]['chawri_products_sheets_per_packet'],
         'chawri_products_orders_products_packets_per_bundle'=>   $products[0]['chawri_products_packets_per_bundle'],
-        'chawri_products_orders_products_quantity_on_offer'=>    $products[0]['chawri_products_quantity_on_offer'],
+        'chawri_products_orders_products_quantity_on_offer'=>    $this->getProductsQuantityOnOffer(),
         'chawri_products_orders_products_packing'=>              $products[0]['chawri_products_packing'],
         'chawri_products_orders_products_rate'=>                 $products[0]['chawri_products_rate'],
         'chawri_products_orders_products_cenvat_amount'=>        $products[0]['chawri_products_cenvat_amount'],
         'chawri_products_orders_products_reel_sheet'=>           $products[0]['chawri_products_reel_sheet'],
-        'chawri_products_orders_products_weight'=>               $products[0]['chawri_products_weight']
+        'chawri_products_orders_products_weight'=>               $products[0]['chawri_products_weight'],
+        'chawri_products_orders_products_description'=>          $this->getDescription()
         );
   if($this->db->insert('chawri_products_orders',$data)){
           return true;
@@ -668,7 +697,7 @@ $better_date = nice_date($input_date, 'Y-m-d');
 
  $data = [
             'chawri_extension_sellers_id' => $this->session->userdata['user_data'][0]['users_id'],
-            'chawri_extension_products_id' => $this->products_id,
+            'chawri_products_orders_id' => $this->products_id,
             'chawri_extension_date' => $better_date,
             'chawri_extension_reasons' => $this->extension,
             'chawri_extension_current_date' =>  $date = date('Y-m-d H:i:s')
@@ -685,6 +714,26 @@ $better_date = nice_date($input_date, 'Y-m-d');
 
 }
 
-             
+
+public function approvel() {
+
+return $this->db->where('chawri_products_orders_status','admin_approvel_done','chawri_products_orders_buyer_id',$this->session->userdata['user_data'][0]['users_id'])->get('chawri_products_orders')->result_array();
+
+  
+}
+    
+
+
+   public function pending (){
+
+    return $this->db->where('chawri_products_orders_status','admin_approvel_pending','chawri_products_orders_buyer_id',$this->session->userdata['user_data'][0]['users_id'])->get('chawri_products_orders')->result_array();
+
+   }
+      
+  public function cancel(){
+
+
+return $this->db->where('chawri_products_orders_status','cancelled','chawri_products_orders_buyer_id',$this->session->userdata['user_data'][0]['users_id'])->get('chawri_products_orders')->result_array();
+  }       
 }
 

@@ -43,9 +43,9 @@ class Admin extends MX_Controller{
  /* echo "<pre/>";
     print_r($data['panding_products']);
 die();*/
-             $this->load->view('users/header/header');
+             $this->load->view('header');
              $this->load->view('panding_products',$data);
-             $this->load->view('users/header/footer');
+             $this->load->view('footer');
   }
 
   public function approval($id){
@@ -71,5 +71,26 @@ $commission=$this->input->post();
     }
 
 
+  }
+
+public function home(){
+
+             $this->load->view('header');
+             $this->load->view('dashboard');
+             $this->load->view('footer');
+}
+
+
+  public function selles(){
+  $data['selles']=$this->Mdl_admin->getSellers();
+             $this->load->view('header');
+             $this->load->view('table_sellers',$data);
+             $this->load->view('footer');
+  }
+   public function buyers(){
+  $data['buyer']=$this->Mdl_admin->getBuyer();
+             $this->load->view('header');
+             $this->load->view('table_buyer',$data);
+             $this->load->view('footer');
   }
  }

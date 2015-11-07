@@ -114,7 +114,7 @@
                                     </div>
 
                                 </div><!-- /.em-top-search -->
-                                <div class="em-top-cart">
+                                <!-- <div class="em-top-cart">
                                     <div class="em-wrapper-topcart-mobile em-no-quickshop">
                                         <div class="em-container-topcart">
                                             <div class="em-summary-topcart">
@@ -123,7 +123,7 @@
                                         </div>
                                     </div>
                                     
-                                </div><!-- /.em-top-cart -->
+                                </div> --><!-- /.em-top-cart -->
                             
                                 <div id="em-mheader-wrapper-menu"> <span class="visible-xs fa fa-bars" id="em-mheader-menu-icon"></span>
                                     <div id="em-mheader-menu-content" style="display: none;">
@@ -300,7 +300,7 @@
                                             <div class="em-top-links">
                                                  <div class="f-left">
                                                     <ul class="links">
-                                                        <li class="first last"><a href="<?php echo base_url(); ?>" title="Home" class="top-link-deal">Home</a>
+                                                        <li class="first last"><a href="<?php echo base_url(); ?>" title="Home" >Home</a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -331,7 +331,7 @@
                                     </div>
                                     <div class="col-sm-18">
 
-                                        <div class="em-top-cart f-right">
+                                        <!-- <div class="em-top-cart f-right">
                                             <div class="em-wrapper-js-topcart em-wrapper-topcart em-no-quickshop">
                                                 <div class="em-container-topcart">
                                                     <div class="em-summary-topcart">
@@ -347,7 +347,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div><!-- /.em-top-cart -->
+                                        </div> --><!-- /.em-top-cart -->
 
                                         <div class="em-search f-right">
                                             <div class="em-top-search">
@@ -438,7 +438,7 @@
                                                     </div>
                                                 </div>
                                             </div><!-- /.em-search -->
-                                            <div class="em-top-cart f-right em-top-cart-sticky">
+                                            <!-- <div class="em-top-cart f-right em-top-cart-sticky">
                                                 <div class="em-wrapper-js-topcart em-wrapper-topcart em-no-quickshop">
                                                     <div class="em-container-topcart">
                                                         <div class="em-summary-topcart">
@@ -454,7 +454,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div><!-- /.em-top-cart -->
+                                            </div> --><!-- /.em-top-cart -->
                                         </div>
                                     </div>
                                 </div>

@@ -13,27 +13,28 @@
     $('#example').DataTable();
 } );
   </script>
-<div style="overflow: auto; padding: 10px 15px 10px 15px; border:2px solid #bbbbbb; border-radius: 5px; margin: 20px;">>
+<div style="overflow: auto; padding: 10px 15px 10px 15px; border:2px solid #bbbbbb; border-radius: 5px; margin: 20px;">
 
   <table id="example" class="display " cellspacing="0" width="100%">
           <thead>
               <tr>
-                 <th>Products Name</th>
-                 <th>Buyer  Name</th>
-                    <th>Order Date</th>
-                    <th></th>
+                <th> Name</th>
+                 <th>Buy Now</th>
+                    <th>Brand Name</th>
+                    <th>Manufacturer</th>
                     <th>Substance</th>
                     <th> Bulk</th>
-                    <th> Size(in s/m)</th>
+                    <th>Size(in s/m)</th>
                     
                     <th>Grain</th>
                     <th> Sheets Per Packet</th>
                     <th> Pkt. Weight</th>
                     <th>Packets Per Bundle</th>
-                    <th>Qty. on Offer </th>
+                    <th>Qty. on Offer</th>
                     <th>Packing</th>
-                    <th> Rate</th>
+                    <th>Rate</th>
                     <th>CENVAT Amount</th>
+                   
               </tr>
           </thead>
 

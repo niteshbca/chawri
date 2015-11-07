@@ -21,7 +21,7 @@
                                     <div class="em-col-main col-sm-24">
                                         <div class="account-create">
                                             <div class="page-title">
-                                                <h1> Products Details</h1>   <div class="buttons-set"> <button type="submit" title="Submit" class="button"><a href="<?php echo base_url().'products/buyNow/'.$data[0]['chawri_products_id']; ?>"> Buy Now</a> </div>
+                                                <h1> Products Details</h1>   
                                             </div>
                                          
                                                 <div class="fieldset">
@@ -196,11 +196,54 @@
 	                                                       
 	                                                            
                                                         </li>
+
+
+                                                        <li class="fields">
+                                                        <div class="customer-name-middlename">
+	                                                     <div class="field name-firstname">
+	                                                     <form class="form-inline" role="form" action="<?php echo base_url().'products/buyNow/'.$data[0]['chawri_products_id']; ?>" Method="post">
+                                                         <div class="form-group">
+                                                         <label  for="qty">Quantity on offer</label>
+                                                         <input type="text" name="qty" class="form-control" placeholder="QTY." required/>
+                                                         </div>
+	                                                     </div>
+	                                                     </div>
+                                                            </li>
                                                         
                                                     </ul>
-                                                    
-                                                    <div class="buttons-set"> <button type="submit" title="Submit" class="button"><span><span><a href=""> Buy Now</a></span></span> </div>
-                                                    </div>
+                                                         
+	                                                      <div class="customer-name-middlename">
+	                                                      <div class="field name-firstname">
+	                                                      <div class="form-group">
+                                                          <label  for="description">Description</label>
+                                                          <textarea name="description" required  class="form-control" rows="5" id="comment"></textarea>
+                                                          <div class="buttons-set"> <button type="submit" title="Submit" class="button"> Buy Now </button></div>
+                                                          </div>
+                                                          </form>
+                                                   
+
+
+	                                                     </div>
+	                                                     </div>
+                                                        	
+                                                      
+                                                     
+                                                   <!--  <div class="row">
+                                                     <form class="form-inline" role="form">
+													  <div class="form-group">
+													    <label for="email">Email address:</label>
+													    <input type="email" class="form-control" id="email">
+													  </div>
+													  <div class="form-group">
+													    <label for="pwd">Password:</label>
+													    <input type="password" class="form-control" id="pwd">
+													  </div>
+													  
+													  <button type="submit" class="btn btn-default">Submit</button>
+													</form>
+                                                      </div> -->
+                                                     
+                                                                                                        
                                                 </div>
                                            
                                         </div>

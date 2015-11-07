@@ -16,10 +16,10 @@
 
   
   <div class="container">
-  <h2>Manage Products</h2>
+  <h2>Manage Order</h2>
   <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#home">Approved Products</a></li>
-    <li><a data-toggle="tab" href="#menu1">Conform</a></li>
+    <li class="active"><a data-toggle="tab" href="#home">Approved</a></li>
+    <li><a data-toggle="tab" href="#menu1">Pending</a></li>
     <li><a data-toggle="tab" href="#menu2">Cancel</a></li>
     <!-- <li><a data-toggle="tab" href="#menu3">Menu 3</a></li> -->
   </ul>
@@ -33,6 +33,7 @@
       <table id="example" class="display "  cellspacing="0" width="100%">
               <thead>
                   <tr>
+                    <th>Status</th>
                      <th> Name</th>
                         <th>Brand Name</th>
                         <th>Manufacturer</th>
@@ -48,7 +49,7 @@
                         <th>Packing</th>
                         <th>Rate</th>
                         <th>CENVAT Amount</th>
-                        <th>Action</th>
+                        
                         
                   </tr>
               </thead>
@@ -56,14 +57,14 @@
             
               <tbody>
                   <?php
-                                      /*  echo "<pre/>"; print_r($products);
+                                       /* echo "<pre/>"; print_r($products);
                                          die();*/
                                       foreach($products as $rows){
                        ?>
                       <tr>
-                        <!-- <td>
-                          <input type="checkbox" class="checkboxes" value="1">
-                        </td> -->
+                        <td>
+                         <?php echo $rows['chawri_products_orders_status'];?>
+                        </td>
                         <td>
                           <?php echo $rows['chawri_products_orders_products_name']; ?>
                         </td>
@@ -113,9 +114,9 @@
                           <?php echo $rows['chawri_products_orders_products_cenvat_amount']; ?>
                         </td>
                         
-                         <td>
+                        <!--  <td>
                            <a href="<?php  echo base_url().'sellers/conform/'.$rows['chawri_products_orders_id'];;?>">Conform</a> /  <a href="<?php echo base_url().'sellers/cancel/'. $rows['chawri_products_orders_id'];;?>">Cancel </a>
-                         </td>
+                         </td> -->
 
                       </tr>
                                        <?php }?> 
@@ -150,8 +151,8 @@
                         <th>Packing</th>
                         <th>Rate</th>
                         <th>CENVAT Amount</th>
+                        <th>Action</th>
                         <th>Extension</th>
-                        
                   </tr>
               </thead>
 
@@ -214,7 +215,9 @@
                         <td>
                           <?php echo $rows1['chawri_products_orders_products_cenvat_amount']; ?>
                         </td>
-                        
+                        <td>
+                         <a href="<?php  echo base_url().'sellers/conform/'.$rows1['chawri_products_orders_id'];;?>">Approve</a> /  <a href="<?php echo base_url().'sellers/cancel/'. $rows1['chawri_products_orders_id'];;?>">Decline </a>
+                         </td>
                        <td>
                                                  
                         <div class="row">

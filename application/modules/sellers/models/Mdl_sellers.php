@@ -567,15 +567,11 @@ public function chechSellers(){
      }
 
 
-     public function approvedProducts(){
-        return $this->db->where('chawri_products_orders_status','approved_by_admin','chawri_sellers_id',$this->session->userdata['user_data'][0]['users_id'])->get('chawri_products_orders')->result_array();
-     }
-
 
 
      public function conform($id){
          $data = [
-            'chawri_products_orders_status' => 'conform_by_sellers'
+            'chawri_products_orders_status' => 'admin_approvel_pending'
              ];
        
 
@@ -585,7 +581,7 @@ public function chechSellers(){
 
      public function cancel($id){
          $data = [
-            'chawri_products_orders_status' => 'cancelled_by_sellers'
+            'chawri_products_orders_status' => 'cancelled'
              ];
        
 
@@ -594,12 +590,21 @@ public function chechSellers(){
 
 
  public function getCancel(){
-        return $this->db->where('chawri_products_orders_status','cancelled_by_sellers','cancelled_by_sellers',$this->session->userdata['user_data'][0]['users_id'])->get('chawri_products_orders')->result_array();
+        return $this->db->where('chawri_products_orders_status','cancelled','chawri_sellers_id',$this->session->userdata['user_data'][0]['users_id'])->get('chawri_products_orders')->result_array();
      }
-      public function getConform(){
-        return $this->db->where('chawri_products_orders_status','conform_by_sellers','chawri_sellers_id',$this->session->userdata['user_data'][0]['users_id'])->get('chawri_products_orders')->result_array();
+      public function getPending(){
+        return $this->db->where('chawri_products_orders_status','pending','chawri_sellers_id',$this->session->userdata['user_data'][0]['users_id'])->get('chawri_products_orders')->result_array();
      }
 
-     
+   
+     public function approvedProducts(){
+      return $this->db->where('chawri_products_orders_status','admin_approvel_done','chawri_sellers_id',$this->session->userdata['user_data'][0]['users_id'])->or_where('chawri_products_orders_status','admin_approvel_pending')->get('chawri_products_orders')->result_array();
+   
+/*print_r($data);
+die();
+    return;
+*/
+     }
+  
 }
 

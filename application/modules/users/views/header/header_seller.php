@@ -304,17 +304,17 @@
                                             <div class="em-top-links">
                                                  <div class="f-left">
                                                     <ul class="links">
-                                                        <li class="first last"><a href="<?php echo base_url().'sellers/homeSeller';?>" title="Home" class="top-link-deal">Home</a>
+                                                        <li class="first last"><a href="<?php echo base_url().'sellers/homeSeller';?>" title="Home" >Home</a>
                                                         </li>
                                                     </ul>
                                                 </div>
                                                 
                                                 <div class="f-right">
-                                                    <ul class="em-links-wishlist">
+                                                    <!-- <ul class="em-links-wishlist">
                                                         <li class="first last">
         <a href="<?php echo base_url().'sellers';?>" title="Become A Seller">Become A Seller</a>
                                                         </li>
-                                                    </ul>
+                                                    </ul> -->
                                                 </div>
                                                 <ul class="list-inline f-right">
                                                       <li> <?php if($this->session->userdata('user_data')!=''){ echo $this->session->userdata['user_data'][0]['users_name'];?></li><li><a href="<?php echo base_url().'users/logout' ;?>">Logout</a></li><?php } else{ ?>
@@ -334,7 +334,7 @@
                                     <div class="em-logo col-sm-6"><a href="#" title="Chawri Oline" class="logo"><strong> ChawriOnline</strong><img class="retina-img" src="<?php echo  asset_url();?>images/chawrionline%20logo1.jpg" alt="Chawri Oline"></a>
                                     </div>
                                     <div class="col-sm-18">
-                                        <div class="em-top-cart f-right">
+                                        <!-- <div class="em-top-cart f-right">
                                             <div class="em-wrapper-js-topcart em-wrapper-topcart em-no-quickshop">
                                                 <div class="em-container-topcart">
                                                     <div class="em-summary-topcart">
@@ -350,7 +350,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div><!-- /.em-top-cart -->
+                                        </div> --><!-- /.em-top-cart -->
                                         <div class="em-search f-right">
                                             <div class="em-top-search">
                                                 <div class="em-search-style02">
@@ -418,16 +418,15 @@
                                                                     </li>
                                                
                                                                     <li class="menu-item-link menu-item-depth-0  menu-item-parent">
-                                                                        <a class="em-menu-link" href="<?php echo base_url().'sellers/manageProducts' ?>"> <span> Manage Products </span> </a>
+                                                                        <a class="em-menu-link" href=""> <span> Manage Products </span> </a>
                                                                         
-                                                                    </li>
                                                
                                                        
                                                                     
                                                                     <!-- /.menu-item-link -->
 
 <li class="menu-item-link menu-item-depth-0  menu-item-parent">
-                                                                        <a class="em-menu-link" href="#"> <span> My Orders </span> </a>
+                                                                        <a class="em-menu-link" href="<?php echo base_url().'sellers/manageOrder' ?>"> <span>Orders Manage</span> </a>
                                                                         
                                                                     </li>
                                                                     <!-- /.menu-item-link -->
@@ -461,7 +460,7 @@
                                                     </div>
                                                 </div>
                                             </div><!-- /.em-search -->
-                                            <div class="em-top-cart f-right em-top-cart-sticky">
+                                            <!-- <div class="em-top-cart f-right em-top-cart-sticky">
                                                 <div class="em-wrapper-js-topcart em-wrapper-topcart em-no-quickshop">
                                                     <div class="em-container-topcart">
                                                         <div class="em-summary-topcart">
@@ -477,7 +476,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div><!-- /.em-top-cart -->
+                                            </div> --><!-- /.em-top-cart -->
                                         </div>
                                     </div>
                                 </div>

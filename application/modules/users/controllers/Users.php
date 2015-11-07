@@ -54,25 +54,35 @@ class Users extends MX_Controller{
 
 
 public function home(){
+  
+  /*print_r($this->session->userdata());
+  die();
+*//*
+  echo $q=is_null($this->session->userdata());
+  die();*/
+      if(is_null($this->session->userdata())){
+                    if( $this->session->userdata['user_data'][0]['role']=='sellers'){
 
+                      redirect(base_url().'sellers/homeSeller');
+                  }
 
-        if( $this->session->userdata['user_data'][0]['role']=='sellers'){
+                elseif ($this->session->userdata['user_data'][0]['chawri_users_username']=='admin@admin.com') {
 
-              redirect(base_url().'sellers/homeSeller');
-        }
+                                   $this->load->view('admin/header');
+                                   $this->load->view('admin/dashboard');
+                                   $this->load->view('admin/footer');
+                 }
+              else{
+                     redirect(base_url().'users/buyerHome');       
+                  }
 
-        elseif ($this->session->userdata['user_data'][0]['chawri_users_username']=='admin@admin.com') {
-
-                           $this->load->view('users/header/header');
-                           $this->load->view('admin/dashboard');
-                           $this->load->view('users/header/footer');
-         }
+      }
       else{
-                    $data['counter']=$this->Mdl_users->getCounter(); 
+        $data['counter']=$this->Mdl_users->getCounter(); 
                     $this->load->view('header/header');
                     $this->load->view('body',$data);
                     $this->load->view('header/footer');
-          }
+      }
 }
 
 
@@ -127,10 +137,10 @@ public function buyerHome(){
                         $this->_setSessionData('authorize', $user_data);
 
                       if($user_data['data'][0]['chawri_users_username']=='admin@admin.com') {
-                          $this->load->view('users/header/header');
+                          $this->load->view('admin/header');
                            //$this->load->view('admin/aside');
                            $this->load->view('admin/dashboard');
-                           $this->load->view('users/header/footer');
+                           $this->load->view('admin/footer');
 
                       }
 
